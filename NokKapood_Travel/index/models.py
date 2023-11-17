@@ -86,6 +86,4 @@ class users(models.Model):
     def __str__(self):
         return self.user_id
 
-class Data(models.Model):
-    key = models.CharField(max_length=10,primary_key=True)
-    value= models.CharField(max_length=100)
+
