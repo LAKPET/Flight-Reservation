@@ -14,6 +14,9 @@
         <p>{{ messages }}</p>
     {% endif %}
 
+
+
+    
     <form method="post" action="{% url 'register' %}">
         {% csrf_token %}
         <!-- Add any additional form fields as needed -->
