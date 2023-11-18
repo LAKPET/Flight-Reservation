@@ -1,46 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
-    <!-- Add any additional styles or link to a CSS file here -->
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>ข้อมูลลงทะเบียน</title>
+  
 </head>
 <body>
-
-    <h2>Register</h2>
-
-    {% if messages %}
-        <p>{{ messages }}</p>
-    {% endif %}
-
-
-
-    
-    <form method="post" action="{% url 'register' %}">
-        {% csrf_token %}
-        <!-- Add any additional form fields as needed -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <label for="first_name">Firstname:</label>
-        <input type="text" id="first_name" name="first_name" required>
-
-        <label for="last_name">Lastname:</label>
-        <input type="text" id="last_name" name="last_name" required>
-
-        <button type="submit">Register</button>
-    </form>
-
-    <!-- Add links for login or other actions -->
-    <p>Already have an account? <a href="{% url 'login_page' %}">Login here</a></p>
-
+<div class="item--mrR">
+  <form method="post" action="/register"> <!-- Replace "/register" with your actual registration endpoint -->
+    <div class="auto-group-f5rs-TUM">
+      <p class="information-P77">ลงทะเบียน/Register</p>
+    </div>
+    <div class="group-18-oRj">
+      <label for="fullname">ชื่อ - นามสกุล</label>
+      <input type="text" id="fullname" name="fullname" placeholder="กรอก ชื่อ - นามสกุล" required/>
+    </div>
+    <div class="group-22-gtq">
+      <label for="email">อีเมล</label>
+      <input type="email" id="email" name="email" placeholder="กรอก อีเมล" required/>
+    </div>
+    <div class="group-23-dhb">
+      <label for="password">รหัสผ่าน</label>
+      <input type="password" id="password" name="password" placeholder="กรอก รหัสผ่าน" required/>
+    </div>
+    <div class="group-21-9JZ">
+      <div class="group-20-em7">
+        <label for="userid">User-id</label>
+        <input type="text" id="userid" name="userid" placeholder="กรอก User-id" required/>
+      </div>
+    </div>
+    <button type="submit">ลงทะเบียน</button>
+  </form>
+</div>
 </body>
 </html>
-

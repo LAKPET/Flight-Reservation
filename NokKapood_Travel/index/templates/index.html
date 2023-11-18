@@ -1,9 +1,11 @@
-{% extends 'components/site_base.html' %}
-{% load static %}
-{% block title %}Home{% endblock %}
-{% block head%}
-<link rel="stylesheet"  href="{% static 'css/style.css' %}"/>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Nokkapood</title>
+
+    <link rel="styles" href="static/style.css">
 
 <!-- This is your existing HTML structure -->
 <body>
@@ -23,6 +25,62 @@
             <div class="buttomF">เข้าสู่ระบบ</div>
         </a>
     </div>
+    <div class="page-login-toT">
+        <div class="auto-group-vzxu-cDf">
+          <img class="red-cardinal-1-K85" src="./assets/red-cardinal-1.png"/>
+          <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+          <div class="group-33-85X">การจองของฉัน</div>
+          <div class="group-3-NEm">
+            <img class="majesticons-user-HsX" src="./assets/majesticons-user-Rr9.png"/>
+            <p class="user-id-012345678-DFP">User ID 012345678</p>
+          </div>
+        </div>
+        <p class="item--6KB">เที่ยวบิน</p>
+        <div class="auto-group-szld-zfT">
+          <div class="auto-group-51cd-h45">
+            <div class="auto-group-qqkz-1aZ">
+              <div class="group-8-xkh">
+                <img class="mdi-airplane-tPT" src="./assets/mdi-airplane-wkD.png"/>
+                <div class="group-6-Cuw">
+                  <p class="item--ZVb">ไป-กลับ</p>
+                  <img class="line-md-chevron-down-fHj" src="./assets/line-md-chevron-down-RNq.png"/>
+                </div>
+              </div>
+              <img class="material-symbols-man-aQh" src="./assets/material-symbols-man-92Z.png"/>
+            </div>
+            <div class="auto-group-7kz1-7fX">
+              <div class="group-4-56Z">
+                <label for="adults">ผู้ใหญ่</label>
+                <input type="number" id="adults" name="adults" value="1" min="1" max="10"/>
+              </div>
+              <div class="group-11-F9T">
+                <label for="seatClass">ชั้นประหยัด</label>
+                <select id="seatClass" name="seatClass">
+                  <option value="economy">ชั้นประหยัด</option>
+                  <option value="business">ชั้นธุรกิจ</option>
+                  <option value="firstClass">ชั้นหนึ่ง</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="auto-group-wpzp-cGq">
+            <div class="rectangle-5-X8u">
+            </div>
+            <img class="maki-arrow-eDX" src="./assets/maki-arrow.png"/>
+            <div class="rectangle-6-ZbP">
+            </div>
+          </div>
+          <div class="auto-group-kykh-6rD">
+            <div class="rectangle-7-Rdb">
+            </div>
+            <div class="auto-group-w6g1-mSZ">
+              <img class="material-symbols-search-hb7" src="./assets/material-symbols-search-PwX.png"/>
+              <p class="item--dUm">ค้นหา</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 </body>
 
 

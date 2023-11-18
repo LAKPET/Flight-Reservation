@@ -10,6 +10,14 @@ def index(request):
     data = {}
     return render(request, 'index.html', data)
 
+def my_booking(request):
+    tickets = list(Ticket.objects.filter(username=request.user.username).order_by('-ticket_id').values('ticket_id','flight_id','departure_date',
+                                                                                            'seat_class','total_amount','booking_date','status'))
+    data=dict()
+    data['tickets'] = tickets
+    return render(request, 'my_booking.html', data)
+
+
 def login_page(request):
     data = {}
     return render(request, 'login.html', data)
