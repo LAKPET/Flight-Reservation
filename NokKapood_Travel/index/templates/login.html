@@ -6,7 +6,7 @@
     <title>Login Page</title>
     <!-- Add any additional styles or link to a CSS file here -->
 </head>
-<body>
+<body class="bg">
 
     <h2>Login</h2>
 
@@ -14,21 +14,25 @@
         <p>{{ messages }}</p>
     {% endif %}
 
+    <div class="mx-auto" style="width: 1100px; height: 600px; "><br>
+        <div class="float-end text-bg-light p-3 shadow p-3 mb-5 bg-body rounded" style="width: 400px; height: 574px;" name="register">
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <!-- Add any additional form fields as needed -->
+        <form>
+            <div class="mb-3">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
+        <input type="text" id="username" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+            </div>
+        <div class="mb-3">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
         <button type="submit">Login</button>
     </form>
 
     <!-- Add links for registration or other actions -->
     <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
 
-    fwdfkwfwmfw
 </body>
 </html>
