@@ -33,7 +33,10 @@ def register(request):
         email = request.POST['email']
         username = request.POST['username']
         password= request.POST['password']
-        user = User.objects.create_user(username = username , password = password , email = email)
+        first_name= request.POST['first_name']
+        last_name= request.POST['last_name']
+        
+        user = User.objects.create_user(username = username , password = password , email = email , first_name=first_name ,last_name=last_name)
         user.save()
         print('user created')
         return redirect('/custom')
