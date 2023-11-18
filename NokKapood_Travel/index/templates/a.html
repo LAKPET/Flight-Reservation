@@ -3,30 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Information Form</title>
+    <title>User Information</title>
 </head>
 <body>
-    <h2>Information</h2>
-    <form id="userForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" readonly>
-        <br>
-
-        <label for="surname">Surname:</label>
-        <input type="text" id="surname" name="surname" readonly>
-        <br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" readonly>
-        <br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" readonly>
-        <br>
-
-        <label for="user-id">User ID:</label>
-        <input type="text" id="user-id" name="user_id" readonly>
-        <br>
-    </form>
+    <h2>User Information</h2>
+    <p>Name: {{ user.first_name }}</p>
+    <p>Surname: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>User ID: {{ user.id }}</p>
 </body>
 </html>
