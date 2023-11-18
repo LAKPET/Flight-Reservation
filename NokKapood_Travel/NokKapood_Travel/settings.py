@@ -90,12 +90,23 @@ WSGI_APPLICATION = 'NokKapood_Travel.wsgi.application'
 #     } 
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'project',
+#         'USER': 'postgres',
+#         'PASSWORD': 'kunza!!!10153',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     } 
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project',
         'USER': 'postgres',
-        'PASSWORD': 'kunza!!!10153',
+        'PASSWORD': '091727',
         'HOST': 'localhost',
         'PORT': '5432',
     } 
