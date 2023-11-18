@@ -20,10 +20,10 @@ def login(request):
         user = auth.authenticate(username = username, password =password  )
         if user is not None:
             auth.login(request , user)
-            return redirect('/home')    
+            return redirect('/custom')    
         else:
             messages.info(request, 'invalid username or password')
-            return redirect("/")
+            return redirect("login_page")
     else:
         return render(request,'home.html')
     
