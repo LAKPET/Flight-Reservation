@@ -7,6 +7,14 @@
 
   <link rel="stylesheet" href="static/css/register.css">
   
+  <style>
+    span {
+      display: inline-block;
+      word-wrap: break-word;
+      /* optional: set width to control element width */
+      width: 400px; 
+    }
+  </style>
   
 </head>
 <body>
@@ -38,17 +46,25 @@
             </div>
             <div class="check-box">
               <input type="checkbox">
-              <span>โดยการลงทะเบียนถือว่าคุณได้ยอมรับเงื่อนไขและข้อกำหนดและนโยบาย ความปลอดภัยของ Nokkapood Travel แล้ว</span>
+              <span>ยอมรับเงื่อนไขข้อกำหนดและนโยบายความปลอดภัยของ Nokkapood Travel</span>
             </div>
             <div class="sign-up">
               <button type="submit">Sign up/ลงทะเบียน</button>
             </div>
-            <p>Have an account? <a href="http://127.0.0.1:5500/NokKapood_Travel/index/templates/register.html">Sign in</a></p>
+            <p>Have an account? <a href="http://127.0.0.1:8000/login_page">Login</a></p>
           </form>
         </div>
       </div>
       <div class="right-box">
-        <img src="https://images.unsplash.com/photo-1545132147-d037e6c54cfd?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <style>
+          .custom-image {
+            width: 840px;
+            height: 780px;
+            border-radius: 15px;
+            margin-left: 50px;
+          }
+        </style>
+        <img class="custom-image" src="https://images.unsplash.com/photo-1527517928481-bcf8d6534de0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
       </div>
     </main>
 

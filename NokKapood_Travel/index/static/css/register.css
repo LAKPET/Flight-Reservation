@@ -1,7 +1,7 @@
 :root {
     --black: #000000;
-    --light-blue: rgb(109, 158, 255)
-    --white: #00;
+    --red: rgb(255, 0, 0);
+    --white: rgb(255, 255, 255);
 
 }
 
@@ -17,8 +17,8 @@
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 50% 50%;
+    height: 100px;
 }
 
 .left-box {
@@ -27,25 +27,27 @@ main {
     align-items: center;
 
     .left-box-info {
+
+        width: 400;
         
         & h3 {
             font-size: 35px;
             font-weight: 500px;
             margin-bottom: 50px;
+            margin-left: 12px;
         }
 
         & .form-control {
             
             & lable {
-                font-size: 30px;
-                font-weight: 700px;
+                font-size: 14px;
                 display: block;
             }
 
         & input {
-            width: 400px;
-            height: 50px;
-            padding: .5rem;
+            width: 90%;
+            height: 40px;
+            padding: .7rem;
             border: 1px solid #000000;
             border-radius: 10px;
             margin-bottom: 25px;
@@ -64,10 +66,14 @@ main {
         & .sign-up {
 
             & button {
-                width: 100%;
+                width: 90%;
                 padding: .6rem;
                 border-radius: 10px;
-                background-color: var(--light-blue);
+                background-color: var(--red);
+                color: var(--white);
+                border: none;
+                font-weight: 700;
+                margin-top: 25px;
 
             }
         }
@@ -77,9 +83,4 @@ main {
 .left-box-info h3 {
     font-size: 36px;
     font-weight: 500px;
-}
-
-.right-box {
-    width: 100;
-    height: 100dvh;
 }

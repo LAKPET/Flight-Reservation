@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="static/css/page-login.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ข้อมูลลงทะเบียน</title>
+
+  <link rel="stylesheet" href="static/css/register.css">
+  
+  
 </head>
-<body class="bg">
-
-    <h2>Login</h2>
-
-    {% if messages %}
-        <p>{{ messages }}</p>
-    {% endif %}
-
-    <div class="mx-auto" style="width: 1100px; height: 600px; "><br>
-        <div class="float-end text-bg-light p-3 shadow p-3 mb-5 bg-body rounded" style="width: 400px; height: 574px;" name="register">
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <!-- Add any additional form fields as needed -->
-        <form>
-            <div class="mb-3">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+<body>
+  
+    <main>
+      <div class="left-box">
+        <div class="left-box-info">
+          <h3>Login</h3>
+          <form action="">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your Username">
             </div>
-        <div class="mb-3">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="email" placeholder="Enter your email">
+            </div>
+            <div class="form-control">
+              <label for="password">Password</label>
+              <input type="password" placeholder="Enter your password">
+            </div>
+            <div class="sign-up">
+              <button type="submit">Login</button>
+            </div>
+            <p>Don't have an account? <a href="http://127.0.0.1:8000/register">Sign in</a></p>
+          </form>
         </div>
-        <button type="submit">Login</button>
-    </form>
-
-    <!-- Add links for registration or other actions -->
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
-
+      </div>
+      <style>
+        .custom-image {
+          width: 840px;
+          height: 791px;
+          border-radius: 15px;
+          margin-left: 50px;
+        }
+      </style>
+      <img class="custom-image" src="https://images.unsplash.com/photo-1499063078284-f78f7d89616a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </div>
+    </main>
 </body>
 </html>
+
