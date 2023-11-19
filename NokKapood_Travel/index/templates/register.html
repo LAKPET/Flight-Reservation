@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="static/css/page-login.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ข้อมูลลงทะเบียน</title>
+
+  <link rel="stylesheet" href="static/css/login.css">
+  
+  
 </head>
-<body class="bg">
-
-    <h2>Login</h2>
-
-    {% if messages %}
-        <p>{{ messages }}</p>
-    {% endif %}
-
-    <div class="mx-auto" style="width: 1100px; height: 600px; "><br>
-        <div class="float-end text-bg-light p-3 shadow p-3 mb-5 bg-body rounded" style="width: 400px; height: 574px;" name="register">
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <!-- Add any additional form fields as needed -->
-        <form>
-            <div class="mb-3">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+<body>
+  
+    <main>
+      <div class="left-box">
+        <div class="left-box-info">
+          <h3>ลงทะเบียน/Register</h3>
+          <form action="">
+            <div class="form-control">
+              <label for="name">Name</label>
+              <input type="text" placeholder="Enter your name">
             </div>
-        <div class="mb-3">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="email" placeholder="Enter your email">
+            </div>
+            <div class="form-control">
+              <label for="password">Password</label>
+              <input type="password" placeholder="Enter your password">
+            </div>
+            <div class="check-box">
+              <input type="checkbox">
+              <span>I agree to the <a href="#">term & policy</a></span>
+            </div>
+            <div class="sign-up">
+              <button type="submit">Sign up/ลงทะเบียน</button>
+            </div>
+            <p>Have an account? <a href="http://127.0.0.1:5500/NokKapood_Travel/index/templates/register.html">Sign in</a></p>
+          </form>
         </div>
-        <button type="submit">Login</button>
-    </form>
+      </div>
+      <div class="right-box">
+        <img src="https://images.unsplash.com/photo-1545132147-d037e6c54cfd?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+    </main>
 
-    <!-- Add links for registration or other actions -->
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
 
 </body>
 </html>
+
