@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 from index import views 
+from django.urls import path
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -24,6 +26,7 @@ urlpatterns = [
     path('register', views.register, name='register' ),
     path('custom',views.custom , name= 'custom'),
     path('home',views.home , name= 'home'),
+    path('search_flights',views.search_flights , name= 'search_flights'),
     path('a/<int:user_id>/',views.information, name='a'),
     
 ]

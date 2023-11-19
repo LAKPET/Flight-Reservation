@@ -5,7 +5,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-
+from django.db import models
 # Create your models here.
 class booking(models.Model):
     booking_id = models.IntegerField(primary_key=True)
@@ -18,19 +18,19 @@ class booking(models.Model):
     def __str__(self):
         return self.booking_id
 
-class flight(models.Model):
-    flight_id = models.CharField(max_length=100,primary_key=True)
+from django.db import models
+
+class Flight(models.Model):
+    flight_id = models.CharField(max_length=100, primary_key=True)
     departure_airport = models.CharField(max_length=100)
-    arrival_airport = models.CharField(max_length=10)
+    arrival_airport = models.CharField(max_length=100)
     airline = models.CharField(max_length=100)
     flight_class = models.CharField(max_length=10)
     flight_no = models.CharField(max_length=100)
     price = models.IntegerField()
     departure_date = models.DateField(null=True)
     arrival_date = models.DateField(null=True)
-    class Meta:
-        db_table = "flight_id"
-        managed = False
+
     def __str__(self):
         return self.flight_id
 
