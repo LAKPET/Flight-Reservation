@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
-    <!-- Add any additional styles or link to a CSS file here -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ข้อมูลลงทะเบียน</title>
+
+  <link rel="stylesheet" href="static/css/login.css">
+  
+  
 </head>
 <body>
+  
+    <main>
+      <div class="left-box">
+        <div class="left-box-info">
+          <h3>ลงทะเบียน/Register</h3>
+          <form action="">
+            <div class="form-control">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your Username">
+            </div>
+            <div class="form-control">
+                <label for="first-name">Firstname</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Enter your firstname">
+              </div>
+            <div class="form-control">
+              <label for="lastname">Lastname</label>
+              <input type="text" id="last_name" name="last_name" required placeholder="Enter your lastname">
+            </div>  
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="email" placeholder="Enter your email">
+            </div>
+            <div class="form-control">
+              <label for="password">Password</label>
+              <input type="password" placeholder="Enter your password">
+            </div>
+            <div class="check-box">
+              <input type="checkbox">
+              <span>I agree to the <a href="#">term & policy</a></span>
+            </div>
+            <div class="sign-up">
+              <button type="submit">Sign up/ลงทะเบียน</button>
+            </div>
+            <p>Have an account? <a href="http://127.0.0.1:5500/NokKapood_Travel/index/templates/register.html">Sign in</a></p>
+          </form>
+        </div>
+      </div>
+      <div class="right-box">
+        <img src="https://images.unsplash.com/photo-1545132147-d037e6c54cfd?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+    </main>
 
-    <h2>Register</h2>
-
-    {% if messages %}
-        <p>{{ messages }}</p>
-    {% endif %}
-
-
-
-    
-    <form method="post" action="{% url 'register' %}">
-        {% csrf_token %}
-        <!-- Add any additional form fields as needed -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <label for="first_name">Firstname:</label>
-        <input type="text" id="first_name" name="first_name" required>
-
-        <label for="last_name">Lastname:</label>
-        <input type="text" id="last_name" name="last_name" required>
-
-        <button type="submit">Register</button>
-    </form>
-
-    <!-- Add links for login or other actions -->
-    <p>Already have an account? <a href="{% url 'login_page' %}">Login here</a></p>
 
 </body>
 </html>
