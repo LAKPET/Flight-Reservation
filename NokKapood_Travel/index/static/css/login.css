@@ -24,11 +24,21 @@ main {
 .left-box {
   display: flex;
   justify-content: center;
-  align-items: center;
+  border: 2px solid rgba(255, 0, 0, 0.5);
 
   .left-box-info {
 
       width: 400;
+      align-items: center;
+      position: relative;
+      width: 400px;
+      height: 440px;
+      background: transparent;
+      border: 2px solid rgba(255, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 20px;
+      box-sizing: border-box;
+      backdrop-filter: blur(20px);
       
       & h3 {
           font-size: 35px;
