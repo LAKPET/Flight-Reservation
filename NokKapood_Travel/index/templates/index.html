@@ -17,26 +17,26 @@
       <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
       <div class="group-33-85X">
         <a href="register" class="buttonLink">
-          <div class="buttomF">ลงทะเบียน</div>
+          <div class="buttomF">Register</div>
         </a>
       </div>
       <div class="group-33-85X">
         <a href="login_page" class="buttonLink">
-          <div class="buttomF">เข้าสู่ระบบ</div>
+          <div class="buttomF">Login</div>
         </a>
       </div>
     </div>
-    <p class="item--6KB">เที่ยวบิน</p>
+    <p class="item--6KB">Flight</p>
     <div class="auto-group-szld-zfT">
       <div class="auto-group-51cd-h45">
         <div class="auto-group-qqkz-1aZ">
           <div class="group-8-xkh">
             <img class="mdi-airplane-tPT" src="./assets/mdi-airplane-wkD.png"/>
             <div class="group-6-Cuw">
-              <label for="tripType">ประเภทการเดินทาง</label>
+              <label for="tripType">Trip type</label>
               <select id="tripType" name="tripType">
-                <option value="roundTrip">ไป-กลับ</option>
-                <option value="oneWay">ไป</option>
+                <option value="roundTrip">Round Trip</option>
+                <option value="oneWay">One Way</option>
               </select>
               <img class="line-md-chevron-down-fHj" src="./assets/line-md-chevron-down-RNq.png"/>
             </div>
@@ -44,15 +44,16 @@
         </div>
         <div class="auto-group-7kz1-7fX">
           <div class="group-11-F9T">
-            <label for="seatClass">ชั้นประหยัด</label>
+            <label for="seatClass">Economy Class</label>
             <select id="seatClass" name="seatClass">
-              <option value="economy">ชั้นประหยัด</option>
-              <option value="business">ชั้นธุรกิจ</option>
-              <option value="firstClass">ชั้นหนึ่ง</option>
+              <option value="economy">Economy Class</option>
+              <option value="business">
+                Business Class</option>
+              <option value="firstClass">First class</option>
             </select>
           </div>
           <div class="group-4-56Z">
-            <label for="adults">ผู้ใหญ่</label>
+            <label for="adults">adults</label>
             <input type="number" id="adults" name="adults" value="1" min="1" max="10"/>
           </div>
         </div>
@@ -61,12 +62,12 @@
       <div class="auto-group-wpzp-cGq">
         <div class="rectangle-5-X8u">
           <div class="group-11-F9T">
-            <label for="departure">สนามบินต้นทาง</label>
+            <label for="departure">Departure airport</label>
             <select id="departure" name="departure">
-              <option value="donmueang">ดอนเมือง</option>
-              <option value="khonkaen">ขอนแก่น</option>
-              <option value="chiangmai">เชียงใหม่</option>
-              <option value="phuket">ภูเก็ต</option>
+              <option value="donmueang">donmueang</option>
+              <option value="khonkaen">khonkaen</option>
+              <option value="chiangmai">chiangmai</option>
+              <option value="phuket">phuket</option>
             </select>
           </div>
         </div>
@@ -78,12 +79,12 @@
         
         <div class="rectangle-6-ZbP">
           <div class="group-4-56Z">
-            <label for="destination">สนามบินปลายทาง</label>
+            <label for="destination">Arrival airport</label>
             <select id="destination" name="destination">
-              <option value="donmueang">ดอนเมือง</option>
-              <option value="khonkaen">ขอนแก่น</option>
-              <option value="chiangmai">เชียงใหม่</option>
-              <option value="phuket">ภูเก็ต</option>
+              <option value="donmueang">donmueang</option>
+              <option value="khonkaen">khonkaen</option>
+              <option value="chiangmai">chiangmai</option>
+              <option value="phuket">phuket</option>
             </select>
           </div>
         </div>
@@ -93,15 +94,15 @@
       <a href="search_flights" class="buttonLink">
         <div class="auto-group-kykh-6rD">
           <div class="rectangle-7-Rdb"><form action="#" method="GET">
-            <label for="startDate">วันที่เริ่มต้น:</label>
+            <label for="startDate">StartDate:</label>
             <input type="date" id="startDate" name="startDate" required>
         
-            <label for="endDate">วันที่สิ้นสุด:</label>
+            <label for="endDate">EndDate:</label>
             <input type="date" id="endDate" name="endDate" required>
           </form></div>
           <div class="auto-group-w6g1-mSZ">
             <img class="material-symbols-search-hb7" src="templates/assets/material-symbols-search-PwX.png"/>
-            <p class="item--dUm">ค้นหา</p>
+            <p class="item--dUm">Search</p>
           </div>
         </div>
       </a>
