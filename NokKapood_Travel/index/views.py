@@ -17,6 +17,11 @@ def login_page(request):
     data = {}
     return render(request, 'login.html', data)
 
+
+def page_login(request):
+    data = {}
+    return render(request, 'page_login.html', data)
+
 def search_flights(request):
     if request.method == 'POST':
         form = FlightSearchForm(request.POST)
