@@ -16,12 +16,13 @@
       <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
       <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
       <div class="group-33-85X">
-        <a href="สรุปการจอง" class="buttonLink">
-          <div class="buttomF">การจองของฉัน</div>
+        <a href="register" class="buttonLink">
+          <div class="buttomF">Register</div>
         </a>
       </div>
       <div class="group-33-85X">
-          <div class="buttomF">user_id</div>
+        <a href="login_page" class="buttonLink">
+          <div class="buttomF">Login</div>
         </a>
       </div>
     </div>
@@ -105,6 +106,29 @@
     </div>
   </div>
 
+  <!-- index.html -->
+
+<!-- ... โค้ด HTML ที่มีอยู่แล้ว ... -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('searchButton').addEventListener('click', function () {
+          // รับค่าจากฟอร์ม
+          var tripType = document.getElementById('tripType').value;
+          var seatClass = document.getElementById('seatClass').value;
+          var departure = document.getElementById('departure').value;
+          var destination = document.getElementById('destination').value;
+          var startDate = document.getElementById('startDate').value;
+          var endDate = document.getElementById('endDate').value;
+
+          // ส่งค่าไปยังหน้า search_flights
+          window.location.href = '/search_flights?tripType=' + tripType + '&seatClass=' + seatClass +
+              '&departure=' + departure + '&destination=' + destination + '&startDate=' + startDate + '&endDate=' + endDate;
+      });
+  });
+</script>
+
+<!-- ... ส่วนที่เหลือของ HTML ... -->
+
   
 </body>
-

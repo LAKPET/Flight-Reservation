@@ -15,20 +15,22 @@
       <div class="left-box">
         <div class="left-box-info">
           <h3>Login</h3>
-          <form action="">
+          <form action="{% url 'page_login' %}" method="post">
+            {% csrf_token %}
             <div class="form-control">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required placeholder="Enter your Username">
             </div>
             <div class="form-control">
-              <label for="password">Password</label>
-              <input type="password" placeholder="Enter your password">
+                <label for="password">Password</label>
+                <input type="password" name="password" required placeholder="Enter your password">
             </div>
             <div class="sign-up">
-              <button type="submit">Login</button>
+                <button type="submit">Login</button>
             </div>
-            <p>Don't have an account? <a href="http://127.0.0.1:8000/register">Sign in</a></p>
-          </form>
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign in</a></p>
+        </form>
+        
         </div>
       </div>
       <div class="right-box">
@@ -43,8 +45,6 @@
         <img class="custom-image" src="https://images.unsplash.com/photo-1466691623998-d607fab1ca29?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
       </div>
     </main>
-
-
 </body>
 </html>
 
