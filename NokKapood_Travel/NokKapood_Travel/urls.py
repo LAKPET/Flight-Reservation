@@ -25,8 +25,9 @@ urlpatterns = [
     path('login', views.login, name='login' ),
     path('register', views.register, name='register' ),
     path('custom',views.custom , name= 'custom'),
+    path('pagr_login',views.page_login , name= 'page_login'),
     path('home',views.home , name= 'home'),
     path('search_flights',views.search_flights , name= 'search_flights'),
-    path('a/<int:user_id>/',views.information, name='information'),
+    path('information/<int:user_id>/',views.information, name='information'),
     
 ]
