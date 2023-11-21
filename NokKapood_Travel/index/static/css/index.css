@@ -18,7 +18,9 @@ body {
 .page-login-toT {
   box-sizing: border-box;
   padding-bottom: 34.4rem;
+  margin: 0;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
   position: relative;
   display: flex;

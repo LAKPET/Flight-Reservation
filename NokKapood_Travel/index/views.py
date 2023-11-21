@@ -4,8 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
-from .models import Flight
-from .forms import FlightSearchForm
+
 # Create your views here.
 
 def index(request):
