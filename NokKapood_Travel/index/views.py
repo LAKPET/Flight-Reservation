@@ -45,13 +45,13 @@ def search_flights(request):
     return render(request, 'search_flights.html', {'form': form})
 
 
-def a(request):
+def information(request):
     data = {}
-    return render(request, 'a.html', data)
+    return render(request, 'information.html', data)
 
 def information(request, user_id):
     user = get_object_or_404(User, pk=user_id)
-    return render(request, 'a.html', {'user': user})
+    return render(request, 'information.html', {'user': user})
 
 def login(request):
     if request.method == 'POST':
@@ -83,7 +83,7 @@ def register(request):
         auth.login(request, user)
 
         # Redirect to the information page with user data
-        return redirect('a', user_id=user.id)
+        return redirect('information', user_id=user.id)
 
     return render(request, 'register.html')
 

@@ -23,7 +23,7 @@
       <div class="left-box">
         <div class="left-box-info">
           <h3>ลงทะเบียน/Register</h3>
-          <form action="">
+          <form action="information.html" method="post" onsubmit="return redirectToInformationPage()">
             <div class="form-control">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required placeholder="Enter your Username">
@@ -69,15 +69,11 @@
     </main>
 
     <script>
-       function submitFormAndRedirect() {
-        // Get the form element
-        var form = document.getElementById("registrationForm");
-
-        // Perform form submission (you may need to add validation here)
-        form.submit();
-
-        // Redirect to the information page
+      function redirectToInformationPage() {
+        // เปลี่ยนเส้นทางไปที่หน้า information.html
         window.location.href = "information.html";
+        // ส่งค่าเป็น false เพื่อป้องกันการส่งฟอร์มโดยปกติ
+        return false;
       }
     </script>
 
