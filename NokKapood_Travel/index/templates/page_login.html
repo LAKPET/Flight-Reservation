@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokkapood</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
+
+    <link rel="stylesheet" href="static/css/page-login.css"/>
+
+</head>
+<body>
+  <div class="group-33-85X">
+    <a href="register" class="buttonLink">
+        <div class="buttomF">การจองของฉัน</div>
+    </a>
+</div>
+<div class="group-33-85X">
+    <a href="login_page" class="buttonLink">
+        <div class="buttomF">รหัสผู้ใช้</div>
+    </a>
+</div>
+    <p class="item--6KB">Flight</p>
+    <div class="auto-group-szld-zfT">
+      <div class="auto-group-51cd-h45">
+        <div class="auto-group-qqkz-1aZ">
+          <div class="group-8-xkh">
+            <img class="mdi-airplane-tPT" src="./assets/mdi-airplane-wkD.png"/>
+            <div class="group-6-Cuw">
+              <label for="tripType">Trip type</label>
+              <select id="tripType" name="tripType">
+                <option value="roundTrip">Round Trip</option>
+                <option value="oneWay">One Way</option>
+              </select>
+              <img class="line-md-chevron-down-fHj" src="./assets/line-md-chevron-down-RNq.png"/>
+            </div>
+          </div>
+        </div>
+        <div class="auto-group-7kz1-7fX">
+          <div class="group-11-F9T">
+            <label for="seatClass">Flight Class</label>
+            <select id="seatClass" name="seatClass">
+              <option value="economy">Economy Class</option>
+              <option value="business">
+                Business Class</option>
+              <option value="firstClass">First class</option>
+            </select>
+          </div>
+      
+        </div>
+        
+      </div>
+      <div class="auto-group-wpzp-cGq">
+        <div class="rectangle-5-X8u" >
+          <div class="group-11-F9T">
+            <label for="departure">Departure airport</label>
+            <select id="departure" name="departure">
+              <option value="donmueang">donmueang</option>
+              <option value="khonkaen">khonkaen</option>
+              <option value="chiangmai">chiangmai</option>
+              <option value="phuket">phuket</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Replaced the search with a button -->
+        <a href="#" class="buttonLink">
+          <img class="maki-arrow-eDX" src="./assets/maki-arrow.png"/>
+        </a>
+        
+        <div class="rectangle-6-ZbP">
+          <div class="group-4-56Z">
+            <label for="destination">Arrival airport</label>
+            <select id="destination" name="destination">
+              <option value="donmueang">donmueang</option>
+              <option value="khonkaen">khonkaen</option>
+              <option value="chiangmai">chiangmai</option>
+              <option value="phuket">phuket</option>
+            </select>
+          </div>
+        </div>
+        
+      </div>
+      <!-- Replaced the search div with a button div -->
+      <a href="search_flights" class="buttonLink">
+        <div class="auto-group-kykh-6rD">
+          <div class="rectangle-7-Rdb"><form action="#" method="GET">
+            <label for="startDate">StartDate:</label>
+            <input type="date" id="startDate" name="startDate" required>
+        
+            <label for="endDate">EndDate:</label>
+            <input type="date" id="endDate" name="endDate" required>
+          </form></div>
+          <div class="auto-group-w6g1-mSZ">
+            <img class="material-symbols-search-hb7" src="templates/assets/material-symbols-search-PwX.png"/>
+            <p class="item--dUm">Search</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  
+</body>
+
