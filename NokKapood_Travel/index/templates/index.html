@@ -89,16 +89,16 @@
         </div>
         
       </div>
+      <div class="auto-group-kykh-6rD">
+        <div class="rectangle-7-Rdb"><form action="#" method="GET">
+          <label for="startDate">StartDate:</label>
+          <input type="date" id="startDate" name="startDate" required>
+      
+          <label for="endDate">EndDate:</label>
+          <input type="date" id="endDate" name="endDate" required>
+        </form></div>
       <!-- Replaced the search div with a button div -->
       <a href="search_flights" class="buttonLink">
-        <div class="auto-group-kykh-6rD">
-          <div class="rectangle-7-Rdb"><form action="#" method="GET">
-            <label for="startDate">StartDate:</label>
-            <input type="date" id="startDate" name="startDate" required>
-        
-            <label for="endDate">EndDate:</label>
-            <input type="date" id="endDate" name="endDate" required>
-          </form></div>
           <div class="auto-group-w6g1-mSZ">
             <img class="material-symbols-search-hb7" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369515895_333309749319873_270780434578681218_n.png?stp=cp0_dst-png&_nc_cat=108&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFCWWF2lQ20luL4mfCWTmDgmxi3X2tRpTybGLdfa1GlPJxt7u3E6AxEjDHSH1tliYp4VvhNYzz7fEKU4bkuJZse&_nc_ohc=N8IeAMq8oC4AX-g4-eO&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR8T1jlHSMRvFEl1v7zLnVcuRCYuSND7RQznqheTz7Wrg&oe=658424C7"/>
             <p class="item--dUm">Search</p>
@@ -108,30 +108,5 @@
     </div>
   </div>
 
-  <!-- index.html -->
-
-<!-- ... โค้ด HTML ที่มีอยู่แล้ว ... -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('searchButton').addEventListener('click', function () {
-          // รับค่าจากฟอร์ม
-          var tripType = document.getElementById('tripType').value;
-          var seatClass = document.getElementById('seatClass').value;
-          var departure = document.getElementById('departure').value;
-          var destination = document.getElementById('destination').value;
-          var startDate = document.getElementById('startDate').value;
-          var endDate = document.getElementById('endDate').value;
-
-          // ส่งค่าไปยังหน้า search_flights
-          window.location.href = '/search_flights?tripType=' + tripType + '&seatClass=' + seatClass +
-              '&departure=' + departure + '&destination=' + destination + '&startDate=' + startDate + '&endDate=' + endDate;
-      });
-  });
-</script>
-
-<!-- ... ส่วนที่เหลือของ HTML ... -->
-
-  
 </body>
 
