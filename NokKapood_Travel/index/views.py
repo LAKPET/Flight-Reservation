@@ -22,34 +22,6 @@ def page_login(request):
     data = {}
     return render(request, 'page_login.html', data)
 
-def search_flights(request):
-    if request.method == 'POST':
-        form = FlightSearchForm(request.POST)
-        if form.is_valid():
-            trip_type = form.cleaned_data['trip_type']
-            seat_class = form.cleaned_data['seat_class']
-            departure = form.cleaned_data['departure']
-            destination = form.cleaned_data['destination']
-            start_date = form.cleaned_data['start_date']
-            end_date = form.cleaned_data['end_date']
-
-            # Query the database based on the user input
-            flights = Flight.objects.filter(
-                flight_class=seat_class,
-                departure_airport=departure,
-                arrival_airport=destination,
-                departure_date__gte=start_date,
-                arrival_date__lte=end_date
-            )
-
-            return render(request, 'search_results.html', {'flights': flights})
-
-    else:
-        form = FlightSearchForm()
-
-    return render(request, 'search_flights.html', {'form': form})
-
-
 def information(request):
     data = {}
     return render(request, 'information.html', data)

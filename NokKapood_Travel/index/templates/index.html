@@ -106,6 +106,30 @@
     </div>
   </div>
 
+  <!-- index.html -->
+
+<!-- ... โค้ด HTML ที่มีอยู่แล้ว ... -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('searchButton').addEventListener('click', function () {
+          // รับค่าจากฟอร์ม
+          var tripType = document.getElementById('tripType').value;
+          var seatClass = document.getElementById('seatClass').value;
+          var departure = document.getElementById('departure').value;
+          var destination = document.getElementById('destination').value;
+          var startDate = document.getElementById('startDate').value;
+          var endDate = document.getElementById('endDate').value;
+
+          // ส่งค่าไปยังหน้า search_flights
+          window.location.href = '/search_flights?tripType=' + tripType + '&seatClass=' + seatClass +
+              '&departure=' + departure + '&destination=' + destination + '&startDate=' + startDate + '&endDate=' + endDate;
+      });
+  });
+</script>
+
+<!-- ... ส่วนที่เหลือของ HTML ... -->
+
   
 </body>
 
