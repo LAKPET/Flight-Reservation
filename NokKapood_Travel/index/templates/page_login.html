@@ -1,14 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/page_login.js' %}"></script>   
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nokkapood</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
-
-    <link rel="stylesheet" href="static/css/index.css"/>
-
+    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
+    <link rel='stylesheet' href="{% static 'css/page_login.css' %}">
 </head>
 <body>
   <div class="page-login-toT">
@@ -16,13 +20,12 @@
       <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
       <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
       <div class="group-33-85X">
-        <a href="register" class="buttonLink">
-          <div class="buttomF">Register</div>
+        <a href="การจองของฉัน" class="buttonLink">
+          <div class="buttomF">การจองของฉัน</div>
         </a>
       </div>
       <div class="group-33-85X">
-        <a href="login_page" class="buttonLink">
-          <div class="buttomF">Login</div>
+          <div class="buttomF">user_id</div>
         </a>
       </div>
     </div>
@@ -33,8 +36,9 @@
           <div class="group-8-xkh">
             <img class="mdi-airplane-tPT" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/400719315_875013934181296_858091162580590735_n.png?stp=cp0_dst-png&_nc_cat=111&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFMorv7lQfw5-uxPBpclcL6vqjMz-RTOga-qMzP5FM6BotN2jPGIyQ2VF0EyP6OtL9SxmUUCwgkxdGfS61-jlY1&_nc_ohc=294VKuLhnHIAX9mAjKB&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTqt902RHTIpkFivmrrZug6V5KU2_el1mebudIl7-UVkw&oe=658411E9">
             <div class="group-6-Cuw">
-              <label for="tripType">Trip type</label>
-              <select id="tripType" name="tripType">
+              <label for="filght_class">Trip type</label>
+              <select id="filght_class" name="filght_class">
+                <option selected value="Select Trip type">Select Trip type</option>
                 <option value="roundTrip">Round Trip</option>
                 <option value="oneWay">One Way</option>
               </select>
@@ -45,11 +49,11 @@
         <div class="auto-group-7kz1-7fX"> 
           <div class="group-4-56Z">
             {% comment %} <img class="item-1--pK3 " src="https://scontent.xx.fbcdn.net/v/t1.15752-9/370131729_360142963212134_5926404278096297687_n.png?stp=cp0_dst-png&_nc_cat=102&ccb=1-7&_nc_sid=510075&_nc_eui2=AeG_BT5a4NnfRXOVgU60GnydcVFniOEaJg1xUWeI4RomDRd2KHenQzdqSjIt7p4rSNDWRQMoGgtDm9dmpg5hd4eK&_nc_ohc=uHOj2D19XIoAX_19RJB&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQwXqHVG-TwAnAVqrCIP5JnECWqGzJQb3USEtnYOsPk8g&oe=658414C0"> {% endcomment %}
-            <label for="seatClass">Flight Class</label>
-            <select id="seatClass" name="seatClass">
+            <label for="seatClass">Seat class</label>
+            <select  class="form-select" id="seatClass" name="seatClass">
+              <option selected value="Select Seat class">Select Seat class</option>
               <option value="economy">Economy Class</option>
-              <option value="business">
-                Business Class</option>
+              <option value="business">Business Class</option>
               <option value="firstClass">First class</option>
             </select>
             
@@ -60,9 +64,10 @@
       </div>
       <div class="auto-group-wpzp-cGq">
         <div class="rectangle-5-X8u" >
-          <div class="group-11-F9T">
+          <div class="group-11-F9T" method="post">
             <label for="departure">Departure airport</label>
-            <select id="departure" name="departure">
+            <select class="form-select" id="select_start" name="select_start">
+              <option selected value="Select Airport">Select Airport</option>
               <option value="donmueang">donmueang</option>
               <option value="khonkaen">khonkaen</option>
               <option value="chiangmai">chiangmai</option>
@@ -77,9 +82,10 @@
         </a>
         
         <div class="rectangle-6-ZbP">
-          <div class="group-4-56Z">
-            <label for="destination">Arrival airport</label>
-            <select id="destination" name="destination">
+          <div class="group-4-56Z" method="post">
+            <label for="select_goal">Arrival airport</label>
+            <select class="form-select" id="select_goal" name="select_goal">
+              <option selected value="Select destination">Select destination</option>
               <option value="donmueang">donmueang</option>
               <option value="khonkaen">khonkaen</option>
               <option value="chiangmai">chiangmai</option>
@@ -89,24 +95,18 @@
         </div>
         
       </div>
-      <div class="auto-group-kykh-6rD">
-        <div class="rectangle-7-Rdb"><form action="#" method="GET">
-          <label for="startDate">StartDate:</label>
-          <input type="date" id="startDate" name="startDate" required>
-      
-          <label for="endDate">EndDate:</label>
-          <input type="date" id="endDate" name="endDate" required>
-        </form></div>
+      <div class='col col-lg-4 col-md-8 col-12 col-auto'>
+        <div class="auto-group-kykh-6rD">
+          <div class="rectangle-7-Rdb"><form action="#" method="GET">
+            <label for="startDate">StartDate:</label>
+            <input type="date" id="txt_flightDate" name="startDate" required>
+          </form></div>
+      </div>
       <!-- Replaced the search div with a button div -->
-      <a href="search_flights" class="buttonLink">
-          <div class="auto-group-w6g1-mSZ">
-            <img class="material-symbols-search-hb7" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369515895_333309749319873_270780434578681218_n.png?stp=cp0_dst-png&_nc_cat=108&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFCWWF2lQ20luL4mfCWTmDgmxi3X2tRpTybGLdfa1GlPJxt7u3E6AxEjDHSH1tliYp4VvhNYzz7fEKU4bkuJZse&_nc_ohc=N8IeAMq8oC4AX-g4-eO&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR8T1jlHSMRvFEl1v7zLnVcuRCYuSND7RQznqheTz7Wrg&oe=658424C7"/>
-            <p class="item--dUm">Search</p>
-          </div>
+      <button class="btn btn-warning" type="submit" id="btnfindflight" aria-label="Search flight">ค้นหาเที่ยวบิน</button>
         </div>
       </a>
     </div>
   </div>
 
 </body>
-

@@ -6,6 +6,9 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from .models import Flight
+from .models import seat
+from django.views.generic import View
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -81,3 +84,28 @@ def custom(request):
 
 def home(request):
         return render(request, 'home.html')
+
+class FlightList(View):
+    def get(self, request, start, goal, date, seat_type):
+        flight_id     = Flight.objects.filter(departure_airport=start,arrival_airport=goal).values()
+        paths       = list(Flight.objects.filter(departure_airport=start,arrival_airport=goal).values())
+        cities = list(Flight.objects.filter(departure_airport=start).values())
+        cities2 = list(Flight.objects.filter(arrival_airport=goal).values())
+        flights     = Flight.objects.all().select_related('flight_id').filter(flight_id=flight_id,departure_date=date,flight_id__seat_class=seat_type).values('flight_id','airline','departure_time','arrival_time','departure_date','duration','arrival_date','departure_airport','arrival_airport','flight_id__seat_class', 'flight_id__price')
+        data = dict()
+        data['paths'] = paths[0]
+        data['flights'] = flights
+        data['cities'] = cities[0] 
+        data['cities2'] = cities2[0]
+        return render(request, 'ticket_list.html', data)
+
+class FlightDetail(View):
+    def get(self, request, id):
+        flight = list(Flight.objects.filter(flight_id=id).values('flight_id','airline','departure_time','arrival_time','duration','arrival_date', 'departure_date'))
+        flight_detail = list(seat.objects.select_related("flight_id").filter(flight_id=id).values('flight_id','seat_class','price'))
+        # paths = list(Path.objects.filter(path_id=Flight.objects.filter(flight_id=id).values('path_id')[0]["path_id"]).values())
+        data = dict()
+        data['flight'] = flight[0]
+        data['flight_detail'] = flight_detail[0]
+        # data['paths'] = paths[0]
+        return JsonResponse(data)
