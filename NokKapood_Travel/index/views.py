@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from .models import Flight
 from .models import seat
+from .models import Ticket
 from django.views.generic import View
 from django.http import JsonResponse
 
@@ -36,6 +37,16 @@ def search_flights(request):
 
     data = {'flights': flights}
     return render(request, 'search_flights.html', data)
+
+def bookingflight(request):
+    return render(request, 'ticket_info.html')
+
+def my_booking(request):
+    tickets = list(Ticket.objects.filter(username=request.user.username).order_by('-ticket_id').values('ticket_id','flight_id','departure_date',
+                                                                                            'seat_class','total_amount','booking_date','status'))
+    data=dict()
+    data['tickets'] = tickets
+    return render(request, 'my_booking.html', data)
 
 def finalreservation(request):
     data = {}
@@ -91,12 +102,17 @@ class FlightList(View):
         paths       = list(Flight.objects.filter(departure_airport=start,arrival_airport=goal).values())
         cities = list(Flight.objects.filter(departure_airport=start).values())
         cities2 = list(Flight.objects.filter(arrival_airport=goal).values())
-        flights     = Flight.objects.all().select_related('flight_id').filter(flight_id=flight_id,departure_date=date,flight_id__seat_class=seat_type).values('flight_id','airline','departure_time','arrival_time','departure_date','duration','arrival_date','departure_airport','arrival_airport','flight_id__seat_class', 'flight_id__price')
+        flights = Flight.objects.filter(flight_id=flight_id, departure_date=date, flight_class=seat_type).values('flight_id', 'airline', 'departure_time', 'arrival_time', 'departure_date', 'duration', 'arrival_date', 'departure_airport', 'arrival_airport', 'flight_class', 'price')
         data = dict()
-        data['paths'] = paths[0]
+        if paths:
+            data['paths'] = paths
+        else:
+            # Handle the case when paths is empty
+            data['paths'] = None  # Or set it to some default value
+
         data['flights'] = flights
-        data['cities'] = cities[0] 
-        data['cities2'] = cities2[0]
+        data['cities'] = cities
+        data['cities2'] = cities2
         return render(request, 'ticket_list.html', data)
 
 class FlightDetail(View):

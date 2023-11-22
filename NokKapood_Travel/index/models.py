@@ -25,6 +25,9 @@ class Flight(models.Model):
     price = models.IntegerField()
     departure_date = models.DateField(null=True)
     arrival_date = models.DateField(null=True)
+    departure_time = models.TimeField(null=True)
+    arrival_time = models.TimeField(null=True)
+    duration = models.TimeField(null=True)
 
     class Meta:
         db_table = "flight"
@@ -84,5 +87,20 @@ class users(models.Model):
         managed = False
     def __str__(self):
         return self.user_id
+    
+class Ticket(models.Model):
+    ticket_id = models.CharField(max_length=10,primary_key=True)
+    flight_id = models.CharField(max_length=5)
+    username = models.CharField(max_length=100)
+    seat_class = models.CharField(max_length=10)
+    total_amount = models.FloatField(null=True, blank=True)
+    departure_date = models.DateField()
+    booking_date = models.DateTimeField(blank=True,null=True)
+    status = models.CharField(max_length=10)
+    class Meta:
+        db_table = "ticket"
+        managed = False
+    def __str__(self):
+        return str(self.ticket_id)
 
 
