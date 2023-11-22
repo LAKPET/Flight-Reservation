@@ -56,23 +56,15 @@ def register(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
 
-        if not (email and username and password and first_name and last_name):
-            messages.error(request, 'Please fill in all the required fields.')
-            return redirect('register')
-
         user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name,
                                         last_name=last_name)
         user.save()
 
         # Log in the user after registration
-        if user is not None:
-            auth.login(request , user)
-            return redirect('information', user_id=user.id)   
-        else:
-            messages.info(request, 'invalid username or password')
-            return redirect("register")
+        auth.login(request, user)
+
         # Redirect to the information page with user data
-        
+        return redirect('information', user_id=user.id)
 
     return render(request, 'register.html')
 
