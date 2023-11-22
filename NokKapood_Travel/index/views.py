@@ -34,6 +34,14 @@ def search_flights(request):
     data = {'flights': flights}
     return render(request, 'search_flights.html', data)
 
+def finalreservation(request):
+    data = {}
+    return render(request, 'finalreservation.html', data)
+
+def payment(request):
+    data = {}
+    return render(request, 'payment.html', data)
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
