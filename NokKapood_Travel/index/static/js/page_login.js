@@ -1,10 +1,4 @@
 $(document).ready(function () {
-    $("#txt_flightDate").datepicker({
-        dateFormat: "dd/mm/yy",
-    });
-    $("#btn_flightDate").click(function () {
-        $("#txt_flightDate").datepicker("show");
-    });
 
     $("#btnfindflight").click(function () {
         var start = $("#select_start").find(":selected").attr("value");
