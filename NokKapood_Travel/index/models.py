@@ -1,11 +1,6 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
 
-# Create your models here.
-from django.db import models
-from django.db import models
 # Create your models here.
 class booking(models.Model):
     booking_id = models.IntegerField(primary_key=True)
@@ -31,7 +26,11 @@ class Flight(models.Model):
     departure_date = models.DateField(null=True)
     arrival_date = models.DateField(null=True)
 
+    class Meta:
+        db_table = "flight"
+        managed = False
     def __str__(self):
+
         return self.flight_id
 
 class payment(models.Model):

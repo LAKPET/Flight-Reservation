@@ -1,4 +1,5 @@
 <!-- search_results.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +10,14 @@
   <title>Search Results</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
-  <link rel="stylesheet" href="static/css/reservation.css"/>
+  <link rel="stylesheet" href="{% static 'css/reservation.css' %}"/>
 </head>
 <body>
   <div class="item--DeZ">
     <!-- Add your existing HTML structure for the search results here -->
     {% for flight in flights %}
       <div class="group-26-QzV">
+        <!-- Replace these placeholders with actual model fields -->
         <img class="image-3-J4H" src="{{ flight.image_url }}" alt="{{ flight.airline_name }} Logo">
         <p class="item--CfT">{{ flight.airline_name }}</p>
         <!-- Add other flight details here -->

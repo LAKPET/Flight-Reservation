@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from .models import Flight
+
 
 # Create your views here.
 
@@ -22,13 +23,16 @@ def login_page(request):
 def page_login(request):
     return render(request, 'page_login.html')
 
-def information(request):
-    data = {}
-    return render(request, 'information.html', data)
-
 def information(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     return render(request, 'information.html', {'user': user})
+
+def search_flights(request):
+    # For simplicity, let's retrieve all flights for now
+    flights = Flight.objects.all()
+
+    data = {'flights': flights}
+    return render(request, 'search_flights.html', data)
 
 def login(request):
     if request.method == 'POST':
@@ -37,12 +41,12 @@ def login(request):
         user = auth.authenticate(username = username, password =password  )
         if user is not None:
             auth.login(request , user)
-            return redirect('/custom')    
+            return redirect('page_login/')    
         else:
             messages.info(request, 'invalid username or password')
             return redirect("login_page")
     else:
-        return render(request,'home.html')
+        return render(request,'index.html')
     
 def register(request):
     if request.method == 'POST':
