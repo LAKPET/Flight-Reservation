@@ -41,7 +41,7 @@ def login(request):
         user = auth.authenticate(username = username, password =password  )
         if user is not None:
             auth.login(request , user)
-            return redirect('page_login/')    
+            return redirect('page_login')    
         else:
             messages.info(request, 'invalid username or password')
             return redirect("login_page")
