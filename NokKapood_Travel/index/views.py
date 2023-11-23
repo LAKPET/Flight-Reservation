@@ -99,6 +99,9 @@ def custom(request):
 def home(request):
         return render(request, 'home.html')
 
+def qrcode(request):
+        return render(request, 'qrcode.html')
+
 def search_results(request):
     if request.method == 'GET':
         departure_airport = request.GET.get('select_start')

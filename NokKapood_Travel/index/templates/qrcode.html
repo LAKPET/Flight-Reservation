@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode</title>
+</head>
+<body>
+    
+</body>
+
+    <div class="container">
+        <div class="qr-box">
+            <h3 class="headder">ชำระเงินด้วย Mobile Banking ของคุณโดยสแกน QR Code ด้านล่าง</h3>
+            <img class="qrcode" src="https://scontent.fbkk28-1.fna.fbcdn.net/v/t1.15752-9/400088572_872414317661272_644261394520929359_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=lPmQnGC1G0UAX9Sjghz&_nc_ht=scontent.fbkk28-1.fna&oh=03_AdTmzs-_Xp_FaeWLJgbShX2kIPdnViZcEQokF6RNgjXXtw&oe=65874278" alt="">
+            <div class="paid">
+                <button type="submit">Payment completed</button>
+        </div>
+    </div>
+
+</html>
+
+<style>
+   
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.headder {
+    font-size: 30px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    width: 550px;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1518893063132-36e46dbe2428?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.qr-box {
+    background-color: transparent;
+    text-align: center;
+    padding: 40px 90px;
+    color: white;
+    position: relative;
+    border-radius: 20px;
+    border: 2px solid rgb(126, 126, 126, .2);
+    backdrop-filter: blur(20px);
+}
+
+& .paid {
+
+& button {
+    width: 40%;
+    padding: .6rem;
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0);
+    color: var(--white);
+    border: none;
+    font-weight: 700;
+    margin-top: 25px;
+
+    }
+}
+
+</style>

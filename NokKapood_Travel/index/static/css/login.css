@@ -24,17 +24,17 @@ main {
 .left-box {
   display: flex;
   justify-content: center;
-  border: 2px solid rgba(255, 0, 0, 0.5);
+  align-items: center;
 
   .left-box-info {
 
       width: 400;
       align-items: center;
       position: relative;
-      width: 400px;
-      height: 440px;
+      width: 500px;
+      height: 420px;
       background: transparent;
-      border: 2px solid rgba(255, 0, 0, 0.5);
+      border: 2px solid rgb(137, 137, 137);
       padding: 20px;
       border-radius: 20px;
       box-sizing: border-box;
@@ -43,6 +43,7 @@ main {
       & h3 {
           font-size: 35px;
           font-weight: 500px;
+          margin-bottom: 30px;
           
       }
 
@@ -98,3 +99,7 @@ main {
   font-size: 36px;
   font-weight: 500px;
 }
+
+/* .right-box {
+  background-size: cover;
+} */
