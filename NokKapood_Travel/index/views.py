@@ -14,6 +14,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from datetime import datetime
 
+from .models import Booking
 
 # Create your views here.
 
@@ -51,9 +52,21 @@ def my_booking(request):
     data['tickets'] = tickets
     return render(request, 'my_booking.html', data)
 
-def finalreservation(request):
-    data = {}
-    return render(request, 'finalreservation.html', data)
+
+
+def finalreservation(request, booking_id):
+    # ใช้ get_object_or_404 เพื่อดึงข้อมูล Ticket ที่มี booking_id ตรงกับที่ระบุ
+    ticket = get_object_or_404(Booking, booking_id=booking_id, username=request.user.username)
+
+    context = {
+        'ticket': ticket,
+        # และคุณสามารถดึงข้อมูล Flight ด้วยการเข้าถึง ticket.flight_id
+        'flight': ticket.flight_id,
+    }
+
+    return render(request, 'finalreservation.html', context)
+
+
 
 def payment(request):
     data = {}
