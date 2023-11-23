@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from .models import Flight
 from .models import seat
+from .models import Ticket
 from django.views.generic import View
 from django.http import JsonResponse
 
@@ -88,12 +89,17 @@ class FlightList(View):
         paths       = list(Flight.objects.filter(departure_airport=start,arrival_airport=goal).values())
         cities = list(Flight.objects.filter(departure_airport=start).values())
         cities2 = list(Flight.objects.filter(arrival_airport=goal).values())
-        flights     = Flight.objects.all().select_related('flight_id').filter(flight_id=flight_id,departure_date=date,flight_id__seat_class=seat_type).values('flight_id','airline','departure_time','arrival_time','departure_date','duration','arrival_date','departure_airport','arrival_airport','flight_id__seat_class', 'flight_id__price')
+        flights = Flight.objects.filter(flight_id=flight_id, departure_date=date, flight_class=seat_type).values('flight_id', 'airline', 'departure_time', 'arrival_time', 'departure_date', 'duration', 'arrival_date', 'departure_airport', 'arrival_airport', 'flight_class', 'price')
         data = dict()
-        data['paths'] = paths[0]
+        if paths:
+            data['paths'] = paths
+        else:
+            # Handle the case when paths is empty
+            data['paths'] = None  # Or set it to some default value
+
         data['flights'] = flights
-        data['cities'] = cities[0] 
-        data['cities2'] = cities2[0]
+        data['cities'] = cities
+        data['cities2'] = cities2
         return render(request, 'ticket_list.html', data)
 
 class FlightDetail(View):
@@ -109,33 +115,21 @@ class FlightDetail(View):
     
     
     
+# views.py
+
 from django.shortcuts import render
-from django.views import View
-from .models import Booking, Flight
-# ให้แทนที่ด้วย Model ที่คุณใช้
+from .models import Booking, Flight  # Import your models
 
-class FinalReservationView(View):
-    template_name = 'finalreservation.html'
+def finalreservation(request, booking_id):
+    # Retrieve booking details from the database
+    booking = Booking.objects.get(pk=booking_id)
+    flight = Flight.objects.get(pk=booking.flight_id)
+    
+    # Pass the data to the template
+    context = {
+        'booking': booking,
+        'flight': flight,
+    }
 
-    def get(self, request, booking_id=None):
-        try:
-            booking = Booking.objects.get(booking_id=booking_id)
-            flight = Flight.objects.get(flight_id=booking.flight_id)
-
-            # คุณสามารถเพิ่มการดึงข้อมูลอื่น ๆ ที่ต้องการที่นี่
-
-            context = {
-                'booking': booking,
-                'flight': flight,
-                # เพิ่มตัวแปรอื่น ๆ ที่ต้องการส่งไปยัง HTML ที่นี่
-            }
-
-            return render(request, self.template_name, context)
-
-        except Booking.DoesNotExist:
-            # ให้ทำการ handle กรณีไม่พบข้อมูล Booking
-            return render(request, 'error.html', {'message': 'Booking not found'})
-
-        except Flight.DoesNotExist:
-            # ให้ทำการ handle กรณีไม่พบข้อมูล Flight
-            return render(request, 'error.html', {'message': 'Flight not found'})
+    # Render the HTML template with the data
+    return render(request, 'finalreservation.html', context)
