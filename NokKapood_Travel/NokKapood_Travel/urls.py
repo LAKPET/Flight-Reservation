@@ -18,6 +18,7 @@ from django.urls import path , include
 from index import views 
 from django.urls import path
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -34,6 +35,7 @@ urlpatterns = [
     path('flight/booking',views.bookingflight, name="bookpage"),
     path('mybooking',views.my_booking, name='mybooking'),
     path('search_results/',views.search_results, name='search_results'),
+    
     
     path('information/<int:user_id>/',views.information, name='information'),
     
