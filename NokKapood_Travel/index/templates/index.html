@@ -5,14 +5,14 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>   
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nokkapood</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
 
-    <link rel="stylesheet" href="static/css/index.css"/>
+    <!-- <link rel="stylesheet" href="static/css/index.css"/> -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
 
 </head>
 <body>
@@ -32,6 +32,7 @@
       </div>
     </div>
     <p class="item--6KB">Flight</p>
+    <form method="GET" action="{% url 'search_results' %}">
     <div class="auto-group-szld-zfT">
       <div class="auto-group-51cd-h45">
         <div class="auto-group-qqkz-1aZ">
@@ -41,8 +42,8 @@
               <label for="filght_class">Trip type</label>
               <select id="filght_class" name="filght_class">
                 <option selected value="Select Trip type">Select Trip type</option>
-                <option value="roundTrip">Round Trip</option>
-                <option value="oneWay">One Way</option>
+                <option value="Round Trip">Round Trip</option>
+                <option value="One Way">One Way</option>
               </select>
             </div>
           </div>
@@ -54,9 +55,9 @@
             <label for="seatClass">Seat class</label>
             <select  class="form-select" id="seatClass" name="seatClass">
               <option selected value="Select Seat class">Select Seat class</option>
-              <option value="economy">Economy Class</option>
-              <option value="business">Business Class</option>
-              <option value="firstClass">First class</option>
+              <option value="Economy Class">Economy Class</option>
+              <option value="Business Class">Business Class</option>
+              <option value="First Class">First Class</option>
             </select>
             
           </div>
@@ -69,10 +70,10 @@
             <label for="departure">Departure airport</label>
             <select class="form-select" id="select_start" name="select_start">
               <option selected value="Select Airport">Select Airport</option>
-              <option value="donmueang">donmueang</option>
-              <option value="khonkaen">khonkaen</option>
-              <option value="chiangmai">chiangmai</option>
-              <option value="phuket">phuket</option>
+              <option value="Don Mueang">Don Mueang</option>
+              <option value="Khon Kaen">Khon Kaen</option>
+              <option value="Chiang Mai">Chiang Mai</option>
+              <option value="Phuket">Phuket</option>
             </select>
           </div>
         </div>
@@ -87,10 +88,10 @@
             <label for="select_goal">Arrival airport</label>
             <select class="form-select" id="select_goal" name="select_goal">
               <option selected value="Select destination">Select destination</option>
-              <option value="donmueang">donmueang</option>
-              <option value="khonkaen">khonkaen</option>
-              <option value="chiangmai">chiangmai</option>
-              <option value="phuket">phuket</option>
+              <option value="Don Mueang">Don Mueang</option>
+              <option value="Khon Kaen">Khon Kaen</option>
+              <option value="Chiang Mai">Chiang Mai</option>
+              <option value="Phuket">Phuket</option>
             </select>
           </div>
         </div>
@@ -98,20 +99,21 @@
       </div>
       <div class='col col-lg-4 col-md-8 col-12 col-auto'>
         <div class="auto-group-wpzp-cGq">
-          <div class="rectangle-5-X8u"><form action="#" method="GET">
+          <div class="rectangle-5-X8u">
             <label for="startDate">StartDate:</label>
-            <input type="date" id="txt_flightDate" name="startDate" required>
-          </form></div>
-      </div>
-      <!-- Replaced the search div with a button div -->
-      <button class="btn btn-warning" type="submit" id="btnfindflight" aria-label="Search flight">ค้นหาเที่ยวบิน</button>
+            <input type="date" id="txt_flightDate" name="txt_flightDate" required>
+          </div>
         </div>
-          <!-- <a href="search_flights" class="buttonLink">
-            <div class="auto-group-w6g1-mSZ">
-              <img class="material-symbols-search-hb7" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369515895_333309749319873_270780434578681218_n.png?stp=cp0_dst-png&_nc_cat=108&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFCWWF2lQ20luL4mfCWTmDgmxi3X2tRpTybGLdfa1GlPJxt7u3E6AxEjDHSH1tliYp4VvhNYzz7fEKU4bkuJZse&_nc_ohc=N8IeAMq8oC4AX-g4-eO&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR8T1jlHSMRvFEl1v7zLnVcuRCYuSND7RQznqheTz7Wrg&oe=658424C7"/>
-              <p class="item--dUm">Search</p>
-            </div> 
-          </a> -->
+      <!-- Replaced the search div with a button div -->
+      <button type="submit">Search Flights</button>
+      </form>
+      <!-- <a href="search_results/" class="buttonLink">
+        <div class="auto-group-w6g1-mSZ">
+            <img class="material-symbols-search-hb7" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369515895_333309749319873_270780434578681218_n.png?stp=cp0_dst-png&_nc_cat=108&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFCWWF2lQ20luL4mfCWTmDgmxi3X2tRpTybGLdfa1GlPJxt7u3E6AxEjDHSH1tliYp4VvhNYzz7fEKU4bkuJZse&_nc_ohc=N8IeAMq8oC4AX-g4-eO&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR8T1jlHSMRvFEl1v7zLnVcuRCYuSND7RQznqheTz7Wrg&oe=658424C7"/>
+            <p class="item--dUm">Search</p>
+        </div> 
+      </a>
+    </form> -->
           <a href="finalreservation" class="buttonLink">
             finalreservation
           </a>      

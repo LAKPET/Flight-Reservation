@@ -59,9 +59,11 @@ class seat(models.Model):
     flight_id = models.CharField(max_length=10)
     seat_number = models.CharField(max_length=10)
     seat_class = models.CharField(max_length=100)
+
     class Meta:
         db_table = "seat"
-        managed = False
+        managed = True  # Set to True if you want Django to manage the table
+
     def __str__(self):
         return self.seat_id
         

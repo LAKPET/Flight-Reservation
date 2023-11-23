@@ -10,6 +10,9 @@ from .models import seat
 from .models import Ticket
 from django.views.generic import View
 from django.http import JsonResponse
+from django.db.models import Q
+from django.http import HttpResponse
+from datetime import datetime
 
 
 # Create your views here.
@@ -38,6 +41,19 @@ def search_flights(request):
     data = {'flights': flights}
     return render(request, 'search_flights.html', data)
 
+def bookingflight(request):
+    return render(request, 'ticket_info.html')
+
+def my_booking(request):
+    tickets = list(Ticket.objects.filter(username=request.user.username).order_by('-ticket_id').values('ticket_id','flight_id','departure_date',
+                                                                                            'seat_class','total_amount','booking_date','status'))
+    data=dict()
+    data['tickets'] = tickets
+    return render(request, 'my_booking.html', data)
+
+def finalreservation(request):
+    data = {}
+    return render(request, 'finalreservation.html', data)
 
 def payment(request):
     data = {}
@@ -85,22 +101,29 @@ def home(request):
 
 class FlightList(View):
     def get(self, request, start, goal, date, seat_type):
-        flight_id     = Flight.objects.filter(departure_airport=start,arrival_airport=goal).values()
-        paths       = list(Flight.objects.filter(departure_airport=start,arrival_airport=goal).values())
-        cities = list(Flight.objects.filter(departure_airport=start).values())
-        cities2 = list(Flight.objects.filter(arrival_airport=goal).values())
-        flights = Flight.objects.filter(flight_id=flight_id, departure_date=date, flight_class=seat_type).values('flight_id', 'airline', 'departure_time', 'arrival_time', 'departure_date', 'duration', 'arrival_date', 'departure_airport', 'arrival_airport', 'flight_class', 'price')
-        data = dict()
-        if paths:
-            data['paths'] = paths
-        else:
-            # Handle the case when paths is empty
-            data['paths'] = None  # Or set it to some default value
+        flight = Flight.objects.filter(departure_airport=start, arrival_airport=goal).first()
 
-        data['flights'] = flights
-        data['cities'] = cities
-        data['cities2'] = cities2
-        return render(request, 'ticket_list.html', data)
+        if flight:
+            paths = list(Flight.objects.filter(departure_airport=start, arrival_airport=goal).values())
+            cities = list(Flight.objects.filter(departure_airport=start).values())
+            cities2 = list(Flight.objects.filter(arrival_airport=goal).values())
+
+            flights = Flight.objects.filter(flight_id=flight.flight_id, departure_date=date, flight_class=seat_type).values(
+                'flight_id', 'airline', 'departure_time', 'arrival_time', 'departure_date', 'duration', 'arrival_date',
+                'departure_airport', 'arrival_airport', 'flight_class', 'price'
+            )
+
+            data = {
+                'paths': paths,
+                'flights': flights,
+                'cities': cities,
+                'cities2': cities2,
+            }
+            return render(request, 'ticket_list.html', data)
+        # else:
+        #     # Handle the case when no flight is found
+        #     return render(request, 'no_flight_found.html')
+
 
 class FlightDetail(View):
     def get(self, request, id):
@@ -113,23 +136,46 @@ class FlightDetail(View):
         # data['paths'] = paths[0]
         return JsonResponse(data)
     
-    
-    
-# views.py
+from datetime import datetime
 
-from django.shortcuts import render
-from .models import Booking, Flight  # Import your models
+def search_results(request):
+    if request.method == 'GET':
+        departure_airport = request.GET.get('select_start')
+        arrival_airport = request.GET.get('select_goal')
+        filght_class = request.GET.get('filght_class')
+        seat_class = request.GET.get('seatClass')
+        flight_date_str = request.GET.get('txt_flightDate')
+        print(departure_airport)
+        print(arrival_airport)
+        print(seat_class)
+        print(flight_date_str)
 
-def finalreservation(request, booking_id):
-    # Retrieve booking details from the database
-    booking = Booking.objects.get(pk=booking_id)
-    flight = Flight.objects.get(pk=booking.flight_id)
-    
-    # Pass the data to the template
-    context = {
-        'booking': booking,
-        'flight': flight,
-    }
+        # Check if flight_date_str is not None before parsing
+        if flight_date_str:
+            flight_date = datetime.strptime(flight_date_str, '%Y-%m-%d').date()
+            # Continue with your logic using flight_date
+        else:
+            # Handle the case when flight_date_str is None (e.g., set a default value or return an error response)
+            return HttpResponse("Invalid or missing flight date")
 
-    # Render the HTML template with the data
-    return render(request, 'finalreservation.html', context)
+        # Use the input values to query the database
+        flights = Flight.objects.filter(
+            departure_airport__icontains=departure_airport,
+            arrival_airport__icontains=arrival_airport,
+            flight_class__icontains=filght_class,
+            departure_date=flight_date
+        )
+        seats = seat.objects.filter(
+            seat_class__icontains=seat_class,
+        )
+        print(flights)
+        print(seats)
+        # Merge the dictionaries into a single dictionary
+        data = {'flights': flights, 'seats': seats}
+        print(data)
+
+        return render(request, 'search_results.html', data)
+    else:
+        # Handle other HTTP methods if needed
+        pass
+
