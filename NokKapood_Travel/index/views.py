@@ -112,45 +112,6 @@ def custom(request):
 def home(request):
         return render(request, 'home.html')
 
-class FlightList(View):
-    def get(self, request, start, goal, date, seat_type):
-        flight = Flight.objects.filter(departure_airport=start, arrival_airport=goal).first()
-
-        if flight:
-            paths = list(Flight.objects.filter(departure_airport=start, arrival_airport=goal).values())
-            cities = list(Flight.objects.filter(departure_airport=start).values())
-            cities2 = list(Flight.objects.filter(arrival_airport=goal).values())
-
-            flights = Flight.objects.filter(flight_id=flight.flight_id, departure_date=date, flight_class=seat_type).values(
-                'flight_id', 'airline', 'departure_time', 'arrival_time', 'departure_date', 'duration', 'arrival_date',
-                'departure_airport', 'arrival_airport', 'flight_class', 'price'
-            )
-
-            data = {
-                'paths': paths,
-                'flights': flights,
-                'cities': cities,
-                'cities2': cities2,
-            }
-            return render(request, 'ticket_list.html', data)
-        # else:
-        #     # Handle the case when no flight is found
-        #     return render(request, 'no_flight_found.html')
-
-
-class FlightDetail(View):
-    def get(self, request, id):
-        flight = list(Flight.objects.filter(flight_id=id).values('flight_id','airline','departure_time','arrival_time','duration','arrival_date', 'departure_date'))
-        flight_detail = list(seat.objects.select_related("flight_id").filter(flight_id=id).values('flight_id','seat_class','price'))
-        # paths = list(Path.objects.filter(path_id=Flight.objects.filter(flight_id=id).values('path_id')[0]["path_id"]).values())
-        data = dict()
-        data['flight'] = flight[0]
-        data['flight_detail'] = flight_detail[0]
-        # data['paths'] = paths[0]
-        return JsonResponse(data)
-    
-from datetime import datetime
-
 def search_results(request):
     if request.method == 'GET':
         departure_airport = request.GET.get('select_start')
@@ -158,11 +119,7 @@ def search_results(request):
         filght_class = request.GET.get('filght_class')
         seat_class = request.GET.get('seatClass')
         flight_date_str = request.GET.get('txt_flightDate')
-        print(departure_airport)
-        print(arrival_airport)
-        print(seat_class)
-        print(flight_date_str)
-
+        print(departure_airport,flight_date_str)
         # Check if flight_date_str is not None before parsing
         if flight_date_str:
             flight_date = datetime.strptime(flight_date_str, '%Y-%m-%d').date()
@@ -177,15 +134,14 @@ def search_results(request):
             arrival_airport__icontains=arrival_airport,
             flight_class__icontains=filght_class,
             departure_date=flight_date
-        )
+        ).values()
         seats = seat.objects.filter(
             seat_class__icontains=seat_class,
         )
         print(flights)
-        print(seats)
         # Merge the dictionaries into a single dictionary
         data = {'flights': flights, 'seats': seats}
-        print(data)
+        # print(data)
 
         return render(request, 'search_results.html', data)
     else:

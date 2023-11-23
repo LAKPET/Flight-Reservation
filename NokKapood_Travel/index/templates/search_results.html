@@ -18,7 +18,12 @@
           <!-- Use the correct variable 'seats' for seat class -->
           <p>Seat Class: {{ seats.0.seat_class }}</p>
           <p>Departure Date: {{ flight.departure_date }}</p>
+          <p>Departure Time: {{ flight.departure_time }}</p>
+          <p>Arrival Date: {{ flight.arrival_time }}</p>
+          <p>Duration: {{ flight.duration }}</p>
+          <p>price: {{ flight.price }}</p>
           <!-- Add other flight details as needed -->
+          <p>-------------------------------------------</p>
         </div>
       {% endfor %}
     {% else %}
