@@ -33,6 +33,7 @@ urlpatterns = [
     path('flight/list/<str:start>/<str:goal>/<str:date>/<str:seat_type>',views.FlightList.as_view(),name="FlightList"),
     path('flight/booking',views.bookingflight, name="bookpage"),
     path('mybooking',views.my_booking, name='mybooking'),
+    path('search_results/',views.search_results, name='search_results'),
     
     path('information/<int:user_id>/',views.information, name='information'),
     

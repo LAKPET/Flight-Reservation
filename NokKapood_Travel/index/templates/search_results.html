@@ -1,0 +1,29 @@
+<!-- search_results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Add your head content here -->
+</head>
+<body>
+  <h2>Search Results</h2>
+  <div class="item--DeZ">
+    {% if flights %}
+      {% for flight in flights %}
+        <div class="group-26-QzV">
+          <!-- Display flight details -->
+          <p>Airline: {{ flight.airline }}</p>
+          <p>Departure Airport: {{ flight.departure_airport }}</p>
+          <p>Arrival Airport: {{ flight.arrival_airport }}</p>
+          <p>Flight Class: {{ flight.flight_class }}</p>
+          <!-- Use the correct variable 'seats' for seat class -->
+          <p>Seat Class: {{ seats.0.seat_class }}</p>
+          <p>Departure Date: {{ flight.departure_date }}</p>
+          <!-- Add other flight details as needed -->
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No flights found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

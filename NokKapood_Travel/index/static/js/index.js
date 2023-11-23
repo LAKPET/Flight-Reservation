@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    // $("#txt_flightDate").datepicker({
+    //     dateFormat: "dd/mm/yy",
+    // });
+    
     $("#btnfindflight").click(function () {
         var start = $("#select_start").find(":selected").attr("value");
         if (start == "Select Airport") {
@@ -21,14 +25,14 @@ $(document).ready(function () {
             alert("กรุณาระบุวันที่");
             return false;
         }
-        var seatclass = $("#FlightType").find(":selected").attr("value");
-        if (seatclass == "") {
+        var seat_class = $("#seatClass").find(":selected").attr("value");
+        if (seat_class == "") {
             alert("โปรดเลือกประเภทที่นั่ง");
             return false;
         }
-        const Url = start + "/" + goal + "/" + flightDate + "/" + seatclass;
-        localStorage.setItem("url",Url);
-        window.open("/flight/list/" + Url);
+        // const Url = start + "/" + goal + "/" + flightDate + "/" + seatclass;
+        // localStorage.setItem("url",Url);
+        window.open("search_flights");
         
     });
 });
