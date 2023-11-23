@@ -14,9 +14,23 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking {self.booking_id} - User {self.user_id}"
+    
+class seat(models.Model):
+    seat_id = models.CharField(max_length=10, primary_key=True)
+    flight_id = models.CharField(max_length=10)
+    seat_number = models.CharField(max_length=10)
+    seat_class = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = "seat"
+        unique_together = (("flight_id", "seat_class"),)
+        managed = True  # Set to True if you want Django to manage the table
+
+    def __str__(self):
+        return self.seat_id
 
 class Flight(models.Model):
-    flight_id = models.CharField(max_length=100, primary_key=True)
+    flight_id = models.ForeignKey(seat,on_delete=models.CASCADE, db_column='flight_id')
     departure_airport = models.CharField(max_length=100)
     arrival_airport = models.CharField(max_length=100)
     airline = models.CharField(max_length=100)
@@ -25,13 +39,16 @@ class Flight(models.Model):
     price = models.IntegerField()
     departure_date = models.DateField()
     arrival_date = models.DateField()
+    departure_time = models.TimeField()
+    arrival_time = models.TimeField()
+    duration = models.TimeField()
 
     class Meta:
         db_table = "flight"
         managed = False
 
     def __str__(self):
-        return f"Flight {self.flight_id} - {self.airline} ({self.flight_no})"
+        return self.flight_id
     
 class payment(models.Model):
     booking_id = models.IntegerField()
@@ -53,20 +70,6 @@ class register(models.Model):
         managed = False
     def __str__(self):
         return self.name
-
-class seat(models.Model):
-    seat_id = models.CharField(max_length=10, primary_key=True)
-    flight_id = models.CharField(max_length=10)
-    seat_number = models.CharField(max_length=10)
-    seat_class = models.CharField(max_length=100)
-
-    class Meta:
-        db_table = "seat"
-        managed = True  # Set to True if you want Django to manage the table
-
-    def __str__(self):
-        return self.seat_id
-        
 
 class PaymentMethod(models.Model):
     payment_method = models.CharField(max_length=10, primary_key=True)
