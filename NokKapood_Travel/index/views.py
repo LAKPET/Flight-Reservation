@@ -37,9 +37,6 @@ def search_flights(request):
     data = {'flights': flights}
     return render(request, 'search_flights.html', data)
 
-def finalreservation(request):
-    data = {}
-    return render(request, 'finalreservation.html', data)
 
 def payment(request):
     data = {}
@@ -109,3 +106,36 @@ class FlightDetail(View):
         data['flight_detail'] = flight_detail[0]
         # data['paths'] = paths[0]
         return JsonResponse(data)
+    
+    
+    
+from django.shortcuts import render
+from django.views import View
+from .models import Booking, Flight
+# ให้แทนที่ด้วย Model ที่คุณใช้
+
+class FinalReservationView(View):
+    template_name = 'finalreservation.html'
+
+    def get(self, request, booking_id=None):
+        try:
+            booking = Booking.objects.get(booking_id=booking_id)
+            flight = Flight.objects.get(flight_id=booking.flight_id)
+
+            # คุณสามารถเพิ่มการดึงข้อมูลอื่น ๆ ที่ต้องการที่นี่
+
+            context = {
+                'booking': booking,
+                'flight': flight,
+                # เพิ่มตัวแปรอื่น ๆ ที่ต้องการส่งไปยัง HTML ที่นี่
+            }
+
+            return render(request, self.template_name, context)
+
+        except Booking.DoesNotExist:
+            # ให้ทำการ handle กรณีไม่พบข้อมูล Booking
+            return render(request, 'error.html', {'message': 'Booking not found'})
+
+        except Flight.DoesNotExist:
+            # ให้ทำการ handle กรณีไม่พบข้อมูล Flight
+            return render(request, 'error.html', {'message': 'Flight not found'})
