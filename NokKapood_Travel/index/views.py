@@ -127,8 +127,9 @@ def search_results(request):
         ).values()
         seats = seat.objects.filter(
             seat_class__icontains=seat_class,
-        )
-        print(flights)
+        ).values()
+        print('flights:',flights)
+        print('seats:',seats)
         # Merge the dictionaries into a single dictionary
         data = {'flights': flights, 'seats': seats}
         # print(data)
