@@ -13,39 +13,33 @@
           {% for seat in seats %}
             {% if seat.flight_id == flight.flight_id_id and seat.seat_class %}
               {% with has_seat_class=True %}
+              
+              <!-- Move the opening <form> tag here -->
+              <form action="booking" method="get">
                 <div class="group-26-QzV">
                   <!-- Display flight details -->
-                  <p>Airline: {{ flight.airline }}</p>
-                  <p>Fliht ID: {{ flight.flight_id_id }}</p>
-                  <p>Departure Airport: {{ flight.departure_airport }}</p>
-                  <p>Arrival Airport: {{ flight.arrival_airport }}</p>
-                  <p>Flight Class: {{ flight.flight_class }}</p>
+                  <p class="form-select">Airline: {{ flight.airline }}</p>
+                  <p class="form-select">Fliht ID: {{ flight.flight_id_id }}</p>
+                  <p class="form-select">Departure Airport: {{ flight.departure_airport }}</p>
+                  <p class="form-select">Arrival Airport: {{ flight.arrival_airport }}</p>
+                  <p class="form-select">Flight Class: {{ flight.flight_class }}</p>
                   <!-- Use the correct variable 'seats' for seat class -->
-                  <p>Seat Class: {{ seat.seat_class }}</p>
-                  <p>Seat ID: {{ seat.seat_id }}</p>
-                  <p>Departure Date: {{ flight.departure_date }}</p>
-                  <p>Departure Time: {{ flight.departure_time }}</p>
-                  <p>Arrival Time: {{ flight.arrival_time }}</p>
-                  <p>Duration: {{ flight.duration }}</p>
-                  <p>Price: {{ flight.price }}</p>
+                  <p class="form-select">Seat Class: {{ seat.seat_class }}</p>
+                  <p class="form-select">Seat ID: {{ seat.seat_id }}</p>
+                  <p class="form-select">Departure Date: {{ flight.departure_date }}</p>
+                  <p class="form-select">Departure Time: {{ flight.departure_time }}</p>
+                  <p class="form-select">Arrival Time: {{ flight.arrival_time }}</p>
+                  <p class="form-select">Duration: {{ flight.duration }}</p>
+                  <p class="form-select">Price: {{ flight.price }}</p>
+                  <p class="form-select" type="hidden">Price: {{ user.username }}</p>
                   <!-- Add other flight details as needed -->
-                  <div>
-                    {% if user.is_authenticated %}
-                    <form action="/flight/booking" method="get">
-                      <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flightinfo{{ forloop.counter }}" aria-expanded="false"
-                    aria-controls="collapseExample">รายละเอียดเที่ยวบิน</button>
-                      {% csrf_token %}
-                      <input type="hidden" name="flight_ID" id="txt_flightID" value="{{lineitem.flight_id}}">
-                      <button type="submit" class="btn btn-primary" value="{{lineitem.flight_id}}">เลือก</button>
-                      
-                    </form>
-                    {% else %}
-                  <h6>กรุณา register และ login ก่อนทำการจอง</h6>
-                    {% endif %}
                 </div>
-                  <p>-------------------------------------------</p>
+                <div>
+                    <button type="submit" class="btn btn-primary">เลือก</button>
                 </div>
+              </form>
+              <p>-------------------------------------------</p>
+              
               {% endwith %}
             {% endif %}
           {% endfor %}

@@ -6,7 +6,6 @@
     <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'js/page_login.js' %}"></script>   
     <script src="{% static 'js/index.js' %}"></script> 
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nokkapood</title>
@@ -24,8 +23,7 @@
         <a href="{% url 'finalreservation' %}" class="btn buttonLink">การจองของฉัน</a>
       </div>
       <div class="group-33-85X">
-          <div class="buttomF">user_id</div>
-        </a>
+          <div class="buttomF">Username: {{ user.username }}</div>
       </div>
     </div>
     <p class="item--6KB">Flight</p>
