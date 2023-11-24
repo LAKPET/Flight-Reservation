@@ -100,6 +100,7 @@ main {
   font-weight: 500px;
 }
 
-/* .right-box {
+.right-box {
   background-size: cover;
-} */
+  width: 50vw;
+}

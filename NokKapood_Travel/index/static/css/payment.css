@@ -25,15 +25,24 @@ body {
   margin-bottom: 6.3rem;
   box-sizing: border-box;
   padding: 20.7rem 5.1rem 2.3rem 2rem;
-  width: 100%;
+  width: 200rem;
   display: flex;
   align-items: center;
   background-color: rgba(255, 0, 0, 0.4600000083);
   flex-shrink: 0;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  max-width: 20rem;
+  height: auto;
+  margin-top: -500px;
+}
+
 .item--sc5 .rectangle-17-Hvh {
-  width: 250rem;
-  height: 85.1rem;
+  width: 153rem;
+  height: 53rem;
   position: absolute;
   left: 0;
   top: 18.1rem;
@@ -41,8 +50,8 @@ body {
   border-radius: 4rem;
 }
 .item--sc5 .nokkapood-travel-cTB {
-  width: 28rem;
-  height: 12.2rem;
+  width: 5rem;
+  height: 5rem;
   position: absolute;
   left: 16.7rem;
   top: 5rem;
@@ -53,8 +62,8 @@ body {
   font-family: Inter, 'Source Sans Pro';
 }
 .item--sc5 .red-cardinal-2-7Pw {
-  width: 13.2rem;
-  height: 13.2rem;
+  width: 5rem;
+  height: 5rem;
   position: absolute;
   left: 2rem;
   top: 3.7rem;

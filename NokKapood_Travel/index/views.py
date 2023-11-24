@@ -57,6 +57,10 @@ def payment(request):
     data = {}
     return render(request, 'payment.html', data)
 
+def payment2(request):
+    data = {}
+    return render(request, 'payment2.html', data)
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
