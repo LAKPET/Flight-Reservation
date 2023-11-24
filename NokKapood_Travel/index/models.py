@@ -89,34 +89,40 @@ class users(models.Model):
         managed = False
     def __str__(self):
         return self.user_id
-    
+
+class Passenger(models.Model):
+    id_no = models.CharField(max_length=20, primary_key=True)  # เลขบัตรประชาชน/หมายเลขพาสปอร์ต
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    phone_no = models.CharField(max_length=10)
+    email = models.CharField(max_length=30)
+
+    class Meta:
+        db_table = "passenger"
+        managed = True
+
+    def __str__(self):
+        return f"Passenger: {self.first_name} {self.last_name} {self.email}"
+
 class Ticket(models.Model):
-    ticket_id = models.CharField(max_length=10,primary_key=True)
+    ticket_id = models.OneToOneField(Passenger, on_delete=models.CASCADE, primary_key=True)
     flight_id = models.CharField(max_length=5)
     username = models.CharField(max_length=100)
     seat_class = models.CharField(max_length=10)
     total_amount = models.FloatField(null=True, blank=True)
     departure_date = models.DateField()
-    booking_date = models.DateTimeField(blank=True,null=True)
+    booking_date = models.DateTimeField(blank=True, null=True)
     status = models.CharField(max_length=10)
     
     class Meta:
         db_table = "ticket"
-        managed = False
+        managed = True
+
     def __str__(self):
         return str(self.ticket_id)
     
-class Passenger(models.Model):
-    id_no = models.CharField(max_length=20,primary_key=True) # id card/passport nunmber 
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    phone_no = models.CharField(max_length=10)
-    email = models.CharField(max_length=30)
-    ticket_id = models.CharField(max_length=10)
-    class Meta:
-        db_table = "passenger"
-        managed = False
-    def __str__(self):
-        return f"Passenger: {self.first_name} {self.last_name} {self.email}"
+    
+
+
 
 

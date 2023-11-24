@@ -4,17 +4,14 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
+from django.db.models import Max
+import re
+from django.utils import timezone
 from django.contrib.auth import authenticate, login
-from .models import Flight
-from .models import seat
-from .models import Ticket
-from django.views.generic import View
-from django.http import JsonResponse
-from django.db.models import Q
 from django.http import HttpResponse
 from datetime import datetime
-from .models import Passenger
-from .models import Booking
+from .models import Passenger,Flight,seat,Ticket
+
 
 # Create your views here.
 
@@ -210,27 +207,72 @@ def booking(request):
             'duration': duration,
             'price': price,
         }
-        print(data)
         return render(request, 'booking.html', data)
     else:
         # Handle other HTTP methods if needed
         return render(request, 'booking.html')
+
+def createticket(flight_id,seat_class,total_amount,username,booking_date,departure_date):  
+    if Ticket.objects.count() != 0:
+        ticket_id_max = Ticket.objects.aggregate(Max('ticket_id'))['ticket_id__max']
+        next_ticket_id = ticket_id_max[0:6] + str(int(ticket_id_max[6:10])+1)
+    else:
+        next_ticket_id = "TICKET1001"
+
+    ticket_id = next_ticket_id
+    booking_date = reFormatDateYYYYMMDDV2(booking_date)
     
-# def passenger(request):
-#     if request.method == 'POST':
-#         email = request.POST['email']
-#         phone_no = request.POST['phone']
-#         first_name = request.POST['first_name']
-#         last_name = request.POST['last_name']
+    ticket = Ticket.objects.create(
+            ticket_id=ticket_id,
+            flight_id=flight_id,
+            seat_class=seat_class,
+            total_amount=total_amount,
+            username =username,
+            booking_date=booking_date,
+            departure_date=departure_date,
+            status = 'PENDING'                    
+            )
+    ticket.save()
+    return ticket
+ 
+def passenger(request):
+    if request.method == 'POST':
+        if Passenger.objects.count() != 0:
+            id_no_max = Passenger.objects.aggregate(Max('id_no'))['id_no__max']
+            id_no_temp = [re.findall(r'(\w+?)(\d+)', id_no_max)[0]][0]
+            next_id_no = id_no_temp[0] + str(int(id_no_temp[1])+1)
+        else:
+            next_id_no = "7201"
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        phone_no = request.POST['phone_no']
+        email = request.POST['email']
 
-#         passenger = Passenger.objects.create_user( email=email, first_name=first_name,last_name=last_name,phone_no=phone_no)
-#         passenger.save()
+        flight_id       =   request.POST['flight_id']
+        seat_class      =   request.POST['seat_class']
+        total_amount    =   request.POST['price']
+        username        =   request.POST['username']
+        booking_date    =   request.POST['booking_date']
+        departure_date  =   request.POST['departure_date']
+        ticket = createticket(flight_id,seat_class,total_amount,username,booking_date,departure_date)
+        ticket.save()
+        # Create a new Passenger instance
+        passenger = Passenger.objects.create(
+                id_no=next_id_no,
+                first_name=first_name, 
+                last_name=last_name, 
+                email=email,
+                phone_no=phone_no,
+                ticket_id=ticket)
+        ticket_id = ticket.ticket_id
+        print(passenger)
+        # Save the Passenger instance to the database
+        try:passenger.save()
+            
+        except: redirect('/')
+    return render(request,'payment.html',{'ticket_id':ticket_id,'total_amount':total_amount})
 
-#         # Log in the user after registration
-#         auth.login(request, passenger)
-
-#         # Redirect to the information page with user data
-#         return redirect('information', user_id=user.id)
-
-#     return render(request, 'register.html')
-
+def reFormatDateYYYYMMDDV2(yyyymmdd):
+    if (yyyymmdd == ''):
+        return ''
+    return yyyymmdd[:4] + "-" + yyyymmdd[5:7] + "-" + yyyymmdd[8:10]
