@@ -29,8 +29,9 @@ urlpatterns = [
     path('page_login/', views.page_login, name='page_login'),
     path('home',views.home , name= 'home'),
     path('search_results/', views.search_results, name='search_results'),
+    path('search_results2/', views.search_results2, name='search_results2'),
     path('payment',views.payment , name= 'payment'),
-    path('finalreservation/<int:booking_id>/', views.finalreservation, name='finalreservation'),
+    path('finalreservation/', views.finalreservation, name='finalreservation'),
     path('qrcode',views.qrcode , name= 'qrcode'),
     
     path('information/<int:user_id>/',views.information, name='information'),

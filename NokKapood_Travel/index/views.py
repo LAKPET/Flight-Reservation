@@ -53,7 +53,7 @@ def my_booking(request):
 
 def finalreservation(request):
     data = {}
-    return render(request, 'finalreservation.html', data)
+    return render(request, 'finalreservation.html')
 
 def payment(request):
     data = {}
@@ -135,6 +135,43 @@ def search_results(request):
         # print(data)
 
         return render(request, 'search_results.html', data)
+    else:
+        # Handle other HTTP methods if needed
+        pass
+
+def search_results2(request):
+    if request.method == 'GET':
+        departure_airport = request.GET.get('select_start')
+        arrival_airport = request.GET.get('select_goal')
+        filght_class = request.GET.get('filght_class')
+        seat_class = request.GET.get('seatClass')
+        flight_date_str = request.GET.get('txt_flightDate')
+        print(departure_airport,flight_date_str)
+        # Check if flight_date_str is not None before parsing
+        if flight_date_str:
+            flight_date = datetime.strptime(flight_date_str, '%Y-%m-%d').date()
+            # Continue with your logic using flight_date
+        else:
+            # Handle the case when flight_date_str is None (e.g., set a default value or return an error response)
+            return HttpResponse("Invalid or missing flight date")
+
+        # Use the input values to query the database
+        flights = Flight.objects.filter(
+            departure_airport__icontains=departure_airport,
+            arrival_airport__icontains=arrival_airport,
+            flight_class__icontains=filght_class,
+            departure_date=flight_date
+        ).values()
+        seats = seat.objects.filter(
+            seat_class__icontains=seat_class,
+        ).values()
+        print('flights:',flights)
+        print('seats:',seats)
+        # Merge the dictionaries into a single dictionary
+        data = {'flights': flights, 'seats': seats}
+        # print(data)
+
+        return render(request, 'search_results2.html', data)
     else:
         # Handle other HTTP methods if needed
         pass

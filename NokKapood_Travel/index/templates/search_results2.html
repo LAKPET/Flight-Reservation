@@ -29,6 +29,21 @@
                   <p>Duration: {{ flight.duration }}</p>
                   <p>Price: {{ flight.price }}</p>
                   <!-- Add other flight details as needed -->
+                  <div>
+                    {% if user.is_authenticated %}
+                    <form action="/flight/booking" method="get">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flightinfo{{ forloop.counter }}" aria-expanded="false"
+                    aria-controls="collapseExample">รายละเอียดเที่ยวบิน</button>
+                      {% csrf_token %}
+                      <input type="hidden" name="flight_ID" id="txt_flightID" value="{{lineitem.flight_id}}">
+                      <button type="submit" class="btn btn-primary" value="{{lineitem.flight_id}}">เลือก</button>
+                      
+                    </form>
+                    {% else %}
+                  <h6>กรุณา register และ login ก่อนทำการจอง</h6>
+                    {% endif %}
+                </div>
                   <p>-------------------------------------------</p>
                 </div>
               {% endwith %}
