@@ -13,7 +13,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.http import HttpResponse
 from datetime import datetime
-
+from .models import Passenger
 from .models import Booking
 
 # Create your views here.
@@ -167,8 +167,6 @@ def search_results2(request):
         seats = seat.objects.filter(
             seat_class__icontains=seat_class,
         ).values()
-        print('flights:',flights)
-        print('seats:',seats)
         # Merge the dictionaries into a single dictionary
         data = {'flights': flights, 'seats': seats}
         # print(data)
@@ -180,38 +178,59 @@ def search_results2(request):
 
 def booking(request):
     if request.method == 'GET':
-        departure_airport = request.GET.get('select_start')
-        arrival_airport = request.GET.get('select_goal')
-        filght_class = request.GET.get('filght_class')
-        seat_class = request.GET.get('seatClass')
-        flight_date_str = request.GET.get('txt_flightDate')
-        print(departure_airport,flight_date_str)
-        # Check if flight_date_str is not None before parsing
-        if flight_date_str:
-            flight_date = datetime.strptime(flight_date_str, '%Y-%m-%d').date()
-            # Continue with your logic using flight_date
-        else:
-            # Handle the case when flight_date_str is None (e.g., set a default value or return an error response)
-            return HttpResponse("Invalid or missing flight date")
+        # Retrieve data from the URL parameters
+        flight_id = request.GET.get('flight_id')
+        airline = request.GET.get('airline')
+        departure_airport = request.GET.get('departure_airport')
+        arrival_airport = request.GET.get('arrival_airport')
+        flight_class = request.GET.get('flight_class')
+        seat_class = request.GET.get('seat_class')
+        seat_id = request.GET.get('seat_id')
+        departure_date = request.GET.get('departure_date')
+        departure_time = request.GET.get('departure_time')
+        arrival_date = request.GET.get('arrival_date')
+        arrival_time = request.GET.get('arrival_time')
+        duration = request.GET.get('duration')
+        price = request.GET.get('price')
 
-        # Use the input values to query the database
-        flights = Flight.objects.filter(
-            departure_airport__icontains=departure_airport,
-            arrival_airport__icontains=arrival_airport,
-            flight_class__icontains=filght_class,
-            departure_date=flight_date
-        ).values()
-        seats = seat.objects.filter(
-            seat_class__icontains=seat_class,
-        ).values()
-        print('flights:',flights)
-        print('seats:',seats)
-        # Merge the dictionaries into a single dictionary
-        data = {'flights': flights, 'seats': seats}
-        # print(data)
-
+        # Example: Perform additional logic with the retrieved data
+        # Here, we'll simply pass the data to the template
+        data = {
+            'flight_id': flight_id,
+            'airline': airline,
+            'departure_airport': departure_airport,
+            'arrival_airport': arrival_airport,
+            'flight_class': flight_class,
+            'seat_class': seat_class,
+            'seat_id': seat_id,
+            'departure_date': departure_date,
+            'departure_time': departure_time,
+            'arrival_date': arrival_date,
+            'arrival_time': arrival_time,
+            'duration': duration,
+            'price': price,
+        }
+        print(data)
         return render(request, 'booking.html', data)
     else:
         # Handle other HTTP methods if needed
-        pass
+        return render(request, 'booking.html')
+    
+# def passenger(request):
+#     if request.method == 'POST':
+#         email = request.POST['email']
+#         phone_no = request.POST['phone']
+#         first_name = request.POST['first_name']
+#         last_name = request.POST['last_name']
+
+#         passenger = Passenger.objects.create_user( email=email, first_name=first_name,last_name=last_name,phone_no=phone_no)
+#         passenger.save()
+
+#         # Log in the user after registration
+#         auth.login(request, passenger)
+
+#         # Redirect to the information page with user data
+#         return redirect('information', user_id=user.id)
+
+#     return render(request, 'register.html')
 

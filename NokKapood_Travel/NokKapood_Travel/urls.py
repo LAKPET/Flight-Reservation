@@ -33,7 +33,7 @@ urlpatterns = [
     path('payment',views.payment , name= 'payment'),
     path('finalreservation/', views.finalreservation, name='finalreservation'),
     path('qrcode',views.qrcode , name= 'qrcode'),
-    path('booking',views.booking , name= 'booking'),
+    path('search_results2/booking/',views.booking , name= 'booking'),
     
     path('information/<int:user_id>/',views.information, name='information'),
     

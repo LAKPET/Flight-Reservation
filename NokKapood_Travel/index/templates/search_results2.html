@@ -15,7 +15,7 @@
               {% with has_seat_class=True %}
               
               <!-- Move the opening <form> tag here -->
-              <form action="booking" method="get">
+                <form action="{% url 'booking' %}" method="GET">
                 <div class="group-26-QzV">
                   <!-- Display flight details -->
                   <p class="form-select">Airline: {{ flight.airline }}</p>
@@ -28,11 +28,24 @@
                   <p class="form-select">Seat ID: {{ seat.seat_id }}</p>
                   <p class="form-select">Departure Date: {{ flight.departure_date }}</p>
                   <p class="form-select">Departure Time: {{ flight.departure_time }}</p>
+                  <p class="form-select">Arrival Date: {{ flight.arrival_date }}</p>
                   <p class="form-select">Arrival Time: {{ flight.arrival_time }}</p>
                   <p class="form-select">Duration: {{ flight.duration }}</p>
                   <p class="form-select">Price: {{ flight.price }}</p>
-                  <p class="form-select" type="hidden">Price: {{ user.username }}</p>
                   <!-- Add other flight details as needed -->
+                  <input type="hidden" name="airline" value="{{ flight.airline }}">
+                  <input type="hidden" name="flight_id" value="{{ flight.flight_id_id }}">
+                  <input type="hidden" name="departure_airport" value="{{ flight.departure_airport }}">
+                  <input type="hidden" name="arrival_airport" value="{{ flight.arrival_airport }}">
+                  <input type="hidden" name="flight_class" value="{{ flight.flight_class }}">
+                  <input type="hidden" name="seat_class" value="{{ seat.seat_class }}">
+                  <input type="hidden" name="seat_id" value="{{ seat.seat_id }}">
+                  <input type="hidden" name="departure_date" value="{{ flight.departure_date }}">
+                  <input type="hidden" name="departure_time" value="{{ flight.departure_time }}">
+                  <input type="hidden" name="arrival_date" value="{{ flight.arrival_date }}">
+                  <input type="hidden" name="arrival_time" value="{{ flight.arrival_time }}">
+                  <input type="hidden" name="duration" value="{{ flight.duration }}">
+                  <input type="hidden" name="price" value="{{ flight.price }}">
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary">เลือก</button>
