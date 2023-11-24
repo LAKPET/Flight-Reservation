@@ -59,8 +59,8 @@ body {
   flex-shrink: 0;
 }
 .page-login-toT .auto-group-vzxu-cDf .group-33-85X {
-  margin: 0rem 6.4rem 4.7rem 0rem;
-  width: 30rem;
+  margin: 0rem auto 4.7rem 0rem;
+  width: 40rem;
   height: 8rem;
   font-size: 2.5rem;
   font-weight: 600;
@@ -76,6 +76,7 @@ body {
   border-radius: 1rem;
   flex-shrink: 0;
 }
+
 .page-login-toT .auto-group-vzxu-cDf .group-3-NEm {
   margin-bottom: 4.7rem;
   box-sizing: border-box;
