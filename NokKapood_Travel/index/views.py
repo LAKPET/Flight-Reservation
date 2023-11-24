@@ -112,6 +112,9 @@ def custom(request):
 def home(request):
         return render(request, 'home.html')
 
+def qrcode(request):
+        return render(request, 'qrcode.html')
+
 def search_results(request):
     if request.method == 'GET':
         departure_airport = request.GET.get('select_start')
@@ -137,8 +140,9 @@ def search_results(request):
         ).values()
         seats = seat.objects.filter(
             seat_class__icontains=seat_class,
-        )
-        print(flights)
+        ).values()
+        print('flights:',flights)
+        print('seats:',seats)
         # Merge the dictionaries into a single dictionary
         data = {'flights': flights, 'seats': seats}
         # print(data)

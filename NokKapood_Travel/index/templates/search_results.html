@@ -9,22 +9,35 @@
   <div class="item--DeZ">
     {% if flights %}
       {% for flight in flights %}
-        <div class="group-26-QzV">
-          <!-- Display flight details -->
-          <p>Airline: {{ flight.airline }}</p>
-          <p>Departure Airport: {{ flight.departure_airport }}</p>
-          <p>Arrival Airport: {{ flight.arrival_airport }}</p>
-          <p>Flight Class: {{ flight.flight_class }}</p>
-          <!-- Use the correct variable 'seats' for seat class -->
-          <p>Seat Class: {{ seats.0.seat_class }}</p>
-          <p>Departure Date: {{ flight.departure_date }}</p>
-          <p>Departure Time: {{ flight.departure_time }}</p>
-          <p>Arrival Date: {{ flight.arrival_time }}</p>
-          <p>Duration: {{ flight.duration }}</p>
-          <p>price: {{ flight.price }}</p>
-          <!-- Add other flight details as needed -->
-          <p>-------------------------------------------</p>
-        </div>
+        {% with has_seat_class=False %}
+          {% for seat in seats %}
+            {% if seat.flight_id == flight.flight_id_id and seat.seat_class %}
+              {% with has_seat_class=True %}
+                <div class="group-26-QzV">
+                  <!-- Display flight details -->
+                  <p>Airline: {{ flight.airline }}</p>
+                  <p>Fliht ID: {{ flight.flight_id_id }}</p>
+                  <p>Departure Airport: {{ flight.departure_airport }}</p>
+                  <p>Arrival Airport: {{ flight.arrival_airport }}</p>
+                  <p>Flight Class: {{ flight.flight_class }}</p>
+                  <!-- Use the correct variable 'seats' for seat class -->
+                  <p>Seat Class: {{ seat.seat_class }}</p>
+                  <p>Seat ID: {{ seat.seat_id }}</p>
+                  <p>Departure Date: {{ flight.departure_date }}</p>
+                  <p>Departure Time: {{ flight.departure_time }}</p>
+                  <p>Arrival Date: {{ flight.arrival_time }}</p>
+                  <p>Duration: {{ flight.duration }}</p>
+                  <p>Price: {{ flight.price }}</p>
+                  <!-- Add other flight details as needed -->
+                  <p>-------------------------------------------</p>
+                </div>
+              {% endwith %}
+            {% endif %}
+          {% endfor %}
+          {% if not has_seat_class %}
+            {# No seat_class found, do something if needed #}
+          {% endif %}
+        {% endwith %}
       {% endfor %}
     {% else %}
       <p>No flights found.</p>
