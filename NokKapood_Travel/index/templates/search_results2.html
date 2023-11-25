@@ -1,69 +1,110 @@
-<!-- search_results.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Add your head content here -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/page_login.js' %}"></script>   
+    <script src="{% static 'js/index.js' %}"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokkapood</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
+    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
+    <link rel='stylesheet' href="{% static 'css/page_login2.css' %}">
 </head>
 <body>
-  <h2>Search Results</h2>
-  <div class="item--DeZ">
-    {% if flights %}
-      {% for flight in flights %}
-        {% with has_seat_class=False %}
-          {% for seat in seats %}
-            {% if seat.flight_id == flight.flight_id_id and seat.seat_class %}
-              {% with has_seat_class=True %}
-              
-              <!-- Move the opening <form> tag here -->
-                <form action="{% url 'booking' %}" method="GET">
-                <div class="group-26-QzV">
-                  <!-- Display flight details -->
-                  <p class="form-select">Airline: {{ flight.airline }}</p>
-                  <p class="form-select">Fliht ID: {{ flight.flight_id_id }}</p>
-                  <p class="form-select">Departure Airport: {{ flight.departure_airport }}</p>
-                  <p class="form-select">Arrival Airport: {{ flight.arrival_airport }}</p>
-                  <p class="form-select">Flight Class: {{ flight.flight_class }}</p>
-                  <!-- Use the correct variable 'seats' for seat class -->
-                  <p class="form-select">Seat Class: {{ seat.seat_class }}</p>
-                  <p class="form-select">Seat ID: {{ seat.seat_id }}</p>
-                  <p class="form-select">Departure Date: {{ flight.departure_date }}</p>
-                  <p class="form-select">Departure Time: {{ flight.departure_time }}</p>
-                  <p class="form-select">Arrival Date: {{ flight.arrival_date }}</p>
-                  <p class="form-select">Arrival Time: {{ flight.arrival_time }}</p>
-                  <p class="form-select">Duration: {{ flight.duration }}</p>
-                  <p class="form-select">Price: {{ flight.price }}</p>
-                  <!-- Add other flight details as needed -->
-                  <input type="hidden" name="airline" value="{{ flight.airline }}">
-                  <input type="hidden" name="flight_id" value="{{ flight.flight_id_id }}">
-                  <input type="hidden" name="departure_airport" value="{{ flight.departure_airport }}">
-                  <input type="hidden" name="arrival_airport" value="{{ flight.arrival_airport }}">
-                  <input type="hidden" name="flight_class" value="{{ flight.flight_class }}">
-                  <input type="hidden" name="seat_class" value="{{ seat.seat_class }}">
-                  <input type="hidden" name="seat_id" value="{{ seat.seat_id }}">
-                  <input type="hidden" name="departure_date" value="{{ flight.departure_date }}">
-                  <input type="hidden" name="departure_time" value="{{ flight.departure_time }}">
-                  <input type="hidden" name="arrival_date" value="{{ flight.arrival_date }}">
-                  <input type="hidden" name="arrival_time" value="{{ flight.arrival_time }}">
-                  <input type="hidden" name="duration" value="{{ flight.duration }}">
-                  <input type="hidden" name="price" value="{{ flight.price }}">
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary">เลือก</button>
-                </div>
-              </form>
-              <p>-------------------------------------------</p>
-              
+  <div class="page-login-toT">
+    <div class="auto-group-vzxu-cDf">
+      <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+      <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+      <div class="group-33-85X">
+        <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
+      </div>
+      <div class="group-33-85X">
+          <div class="buttomF">Username: {{ user.username }}</div>
+      </div>
+    </div>
+
+    <div class='bg'>
+      <div class="scene">
+        <span class="cloud cloud--small"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" id="plane" class="plane" viewBox="0 0 104 47" x="0" y="0" width="104" height="47" background-color="#ffffff00">
+          <g id="avion">
+            <path d="M20 36C25 38 69 43 80 40 92 38 106 33 104 21 103 13 95 13 90 9 85 5 79 2 76 1 70-1 65 0 60 2 57 3 25 14 23 13 21 12 12 2 9 3 5 4 1 5 1 6 2 7 15 34 20 36Z" fill="#0085b2"/>
+            <path d="M23 36C28 37 69 43 80 40 88 38 98 34 102 29 82 32 22 36 23 36Z" stroke="#ffffff00" stroke-width="1" fill="#14647f"/>
+            <path d="M42 39C48 40 60 40 67 40 71 32 72 26 72 26L44 29C44 29 44 35 42 39Z" stroke="#ffffff00" stroke-width="1" fill="#0c3b4d"/>
+            <path d="M7 16C7 16 9 20 10 22 13 27 16 13 16 13L7 16Z" stroke="#ffffff00" stroke-width="1" fill="#0c3b4d"/>
+            <path d="M40 29C40 29 41 34 34 42 27 51 48 46 58 39 74 28 72 25 72 25L40 29Z" stroke="#ffffff00" stroke-width="1" fill="#006e96"/>
+            <path d="M5 14C5 14 6 15 3 19 1 22 10 20 13 17 19 11 17 11 17 11L5 14Z" stroke="#ffffff00" stroke-width="1" fill="#006e96"/>
+            <path d="M90 10C88 8 83 4 80 3 78 3 68 7 68 8 70 12 80 8 90 10Z" stroke="#ffffff00" stroke-width="1" fill="#0c3b4d"/>
+            <path d="M89 9C87 7 82 3 79 2 77 2 67 6 67 7 69 11 79 7 89 9Z" stroke="#ffffff00" stroke-width="1" fill="#afe2ff"/>
+          </g>
+        </svg>
+        <span class="cloud cloud--medium"></span>
+        <span class="cloud cloud--large"></span>
+      </div> 
+      
+      <div class='base'>
+        <h2>Search Results</h2>
+        <div class="item--DeZ">
+          {% if flights %}
+            {% for flight in flights %}
+              {% with has_seat_class=False %}
+                {% for seat in seats %}
+                  {% if seat.flight_id == flight.flight_id_id and seat.seat_class %}
+                    {% with has_seat_class=True %}
+                    
+                    <!-- Move the opening <form> tag here -->
+                      <form action="{% url 'booking' %}" method="GET">
+                        <div class="sub">
+                          <p><a class='head'>{{ flight.airline }}</a></p>
+                          <p><a class='head1'>{{ flight.departure_airport }}</a></p>
+                          <p><a class='head11'>{{ flight.duration }}</a></p>
+                          <p><a class='head2'>{{ flight.arrival_airport }}</a></p>
+                          <p><a class='head3'>{{ flight.price }}</a></p>
+                          <button type="submit" class="btn">เลือก</button>
+                        </div>
+                        
+                      <div class="sub1">
+                          <p><a class='head4'>{{ flight.departure_time }}</a></p>
+                          <p><a class='head5'>{{ flight.arrival_time }}</a></p>
+                          <p><a class='head6'>{{ flight.flight_class }}</a></p>
+                        </div>
+                      <div class='line'></div>
+                        <!-- Add other flight details as needed -->
+                        <input type="hidden" name="airline" value="{{ flight.airline }}">
+                        <input type="hidden" name="flight_id" value="{{ flight.flight_id_id }}">
+                        <input type="hidden" name="departure_airport" value="{{ flight.departure_airport }}">
+                        <input type="hidden" name="arrival_airport" value="{{ flight.arrival_airport }}">
+                        <input type="hidden" name="flight_class" value="{{ flight.flight_class }}">
+                        <input type="hidden" name="seat_class" value="{{ seat.seat_class }}">
+                        <input type="hidden" name="seat_id" value="{{ seat.seat_id }}">
+                        <input type="hidden" name="departure_date" value="{{ flight.departure_date }}">
+                        <input type="hidden" name="departure_time" value="{{ flight.departure_time }}">
+                        <input type="hidden" name="arrival_date" value="{{ flight.arrival_date }}">
+                        <input type="hidden" name="arrival_time" value="{{ flight.arrival_time }}">
+                        <input type="hidden" name="duration" value="{{ flight.duration }}">
+                        <input type="hidden" name="price" value="{{ flight.price }}">
+                      </div>
+                      
+                    </form>
+                    
+                    
+                    {% endwith %}
+                  {% endif %}
+                {% endfor %}
+                {% if not has_seat_class %}
+                  {# No seat_class found, do something if needed #}
+                {% endif %}
               {% endwith %}
-            {% endif %}
-          {% endfor %}
-          {% if not has_seat_class %}
-            {# No seat_class found, do something if needed #}
+            {% endfor %}
+          {% else %}
+            <p>No flights found.</p>
           {% endif %}
-        {% endwith %}
-      {% endfor %}
-    {% else %}
-      <p>No flights found.</p>
-    {% endif %}
-  </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
