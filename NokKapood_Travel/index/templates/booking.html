@@ -26,23 +26,28 @@
               <div class="buttomF">Username: {{ user.username }}</div>
           </div>
         </div>
+    <form action="passenger" method="post">    
         <div class ='bg'>
             <div class='base'>
                 <div class="left-side">
-                    <form action="passenger" method="post">
                         {% csrf_token %}
                         <h2 class='head1'>Booking Details</h2>
-                        <p>Flight ID: {{ flight_id }} Airline: {{ airline }}</p>
-                        <p>Departure Airport: {{ departure_airport }} Arrival Airport: {{ arrival_airport }}</p>
-                        <p>Flight Class: {{ flight_class }}   Seat Class: {{ seat_class }}   Seat ID: {{ seat_id }}</p>
-                        <p>Departure Date: {{ departure_date }}</p>
-                        <p>Departure Time: {{ departure_time }}</p>
-                        <p>Arrival Date: {{ arrival_date }}</p>
-                        <p>Arrival Time: {{ arrival_time }}</p>
-                        <p>Duration: {{ duration }}</p>
-                        <p>Price: {{ price }}</p>
+                        <p class='head1'>Flight ID: {{ flight_id }} Airline: {{ airline }}</p>
+                        <p class='head1'>Departure Airport: {{ departure_airport }} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAdNJREFUWEft1c2rTlEUx/HPTYZe4h9QCkle/gVlYKIUf4IxwkDkJWZS15S85D0GBpKJSEYGMr6Dy4CBkYgohdvSPjp29zx7P8991H3q7OE5v7X2d//W2mtPWWRrapHx6IFKFekd6h0qOVD6P5E9tBwHsQ9PcA3P8bt02lH+lxxai5dYnSV/j0u4inejbNwVUwKKuK24hY0dSZ7hdtJ8L8Btxh7sSoc8grvtmBqg0C/FcRzDko5Nv+EBLuJFq6QBsTeBbMhi4wDrEI7/WbVAjb7kVqN7i0fYgfUF17YjXB4JqHHrBI4OcKu2rcKhbZhZCFATuwU3sal290w3m0r5utRDu9P1/lKx0Sq8wpoKbUjCkWji612jI++hkziFz5jGecwHtgyHcAArKmCiyWN+3cPXQfocKGACqlmfcKEF1oDsx8oCSMyncOIK3lRAdzb1mXTF2zkC7H6q+SCQH0kXbjzFr1qQUlOfw+EhksU0D4g7qdxDhP4rHTSHSlAfcAOX29d2ZJLKOZRDRUkeJjce4+dCAfL4mkl9FjsTRLxpH8cNUZpD/3O/Yu4ah4pJximYCKB8OI7TgDzX6fQy/P0+n0M9UH/LhmnCibhlwxxo7NreoZKlc3UYVCX/co34AAAAAElFTkSuQmCC"/></p>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAaVJREFUWEftlj8oRVEcxz9PMlDKYJOUwuBfkcFoYWM0GWU2ymqU2SiDlY3NYFIGLCQZKIOiDJL866f76nXfOff3u++e+7rq3vV3fp/f55177vm+CgV7KgXzoRTS3ki5Q/9+h3qBRaBd+yWB6m/AHnBf5cXP0B3QF2iYFXMDDPiELoARKynQujNg0ic0AZwCLYGGaZhvYAoQqb/H9dlvAGsaKVBdZq3XslxCrZHxaKChPowcD3kjn5qQ1IeAc6AtJ6kPYAy4ivOTbupVYDMnIWFvudhJQlI7AaYDSx0DM8BPWiFZLxflJdAZSOo1Og6PPp4lXJeAnUBCwtpNYlmEpH8fmM8odQAsaAyrUBdwDXRrQE/9CRgEXrR+q5BwZoFDDeipzwFHlt40QsLbBpYt4Jo10rNi7Ukr1BFdmP3GAbfAMPBuXN/Qn3xrANcFp0Uq7Q5VmZYArgvOPIW0AHYGZ55CSQHsDc68hYTvCmBvcDZDKB7AicHZDCGZ0QPImZGvahx4sAzOEq4WvkTKF/BsWRwiXLPOMfc3eg+ZB6RdWAppO1a4HfoF0Ts9JdiVFzsAAAAASUVORK5CYII="/>
+                        <p class='head1'>Arrival Airport: {{ arrival_airport }} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAfxJREFUWEft103ITXEQx/HPI0nJArHBgiR5W3iNrJVEioWFsrNSFqSUwsZGUqzEQslC2ZBEihURSwvKxgIpSkQKpan/o+P0P8+550Xdp+6p2+neOfOb75mZ/0x3zJBdY0PGYwRUV5FRhvrO0D6cwye8wR58rQvSxN60ZFPxFvNSkJvY1SRg3bNNgULvGE4XhA/hfF2gQe1loMjAeizGtQqRWXiH6cn+C5vwfNCgEz1XBtqBW8lhCx5VOF/AwYItyrgSn7tClYHm4GMSfYnV+JkJsgivMaVgu4ttfQOF3issTcJHcaYiyA3sLtmO4GwXqFxTX8H+JPodS/A+E2QDnpZ+j37ajGdtoXJAB3CxIHgdeysCPE4NXTR36qcc0Aq8KAHcT70VAzE+0WdxX4vDGdg72N4mS1Vz6AtmthEs+FzCVTypOBhZ+Sqge9jaEWjcPfowxscDPEzz6neVdhVQlG0n1iGad0FPcCHzDbdxPI2Of6QHXR1zsTHBxT1AZ3eEjKU8v7ycBwXKxY71EmsmMhj3NZjREHJZmnt/3boAlWPH1F6Vshdwsd/ie+zH3BUndSF+FI19AuWCTkujITI4nsXl+JB66HLZ6X8DNayg0b+O2oxNipKdxInaV+nngVOIeBMe+xFQXYb6KUZLlUnR1C3frR+3UYbq8jh0GfoD/VRMJYFhWsAAAAAASUVORK5CYII="/></p>
+                        <p class='head1'>Flight Class: {{ flight_class }}   Seat Class: {{ seat_class }}   Seat ID: {{ seat_id }}</p>
+                        <p class='head1'>Departure Date: {{ departure_date }}</p>
+                        <p class='head1'>Departure Time: {{ departure_time }}</p>
+                        <p class='head1'>Arrival Date: {{ arrival_date }}</p>
+                        <p class='head1'>Arrival Time: {{ arrival_time }}</p>
+                        <p class='head1'>Duration: {{ duration }}</p>
+                        <p class='head1'>Price: {{ price }}</p>
                 </div>
+                <div class="mid-side"></div>
             </div>
+
+
             <div class='base1'>
                 <div class="right-side">
                     <label for="first_name">First Name:</label>
@@ -58,27 +63,28 @@
                     <input type="tel" id="phone_no" name="phone_no" required><br>
         
                     <!-- Submit button -->
+                    <input type="hidden" name="airline" value="{{ airline }}">
+                    <input type="hidden" name="flight_id" value="{{ flight_id }}">
+                    <input type="hidden" name="departure_airport" value="{{ departure_airport }}">
+                    <input type="hidden" name="arrival_airport" value="{{ arrival_airport }}">
+                    <input type="hidden" name="flight_class" value="{{ flight_class }}">
+                    <input type="hidden" name="seat_class" value="{{ seat_class }}">
+                    <input type="hidden" name="seat_id" value="{{ seat_id }}">
+                    <input type="hidden" name="departure_date" value="{{ departure_date }}">
+                    <input type="hidden" name="departure_time" value="{{ departure_time }}">
+                    <input type="hidden" name="arrival_date" value="{{ arrival_date }}">
+                    <input type="hidden" name="arrival_time" value="{{ arrival_time }}">
+                    <input type="hidden" name="duration" value="{{ duration }}">
+                    <input type="hidden" name="price" value="{{ price }}">
+                    <input type="hidden" name="username" value="{{ user.username }}">
+                    <input type='hidden' id='booking_date' name="booking_date" value="" readonly>
                     <input type="submit" value="Submit">
                 </div>
             </div>
         </div>
                  
         <!-- Hidden input fields for flight details -->
-        <input type="hidden" name="airline" value="{{ airline }}">
-        <input type="hidden" name="flight_id" value="{{ flight_id }}">
-        <input type="hidden" name="departure_airport" value="{{ departure_airport }}">
-        <input type="hidden" name="arrival_airport" value="{{ arrival_airport }}">
-        <input type="hidden" name="flight_class" value="{{ flight_class }}">
-        <input type="hidden" name="seat_class" value="{{ seat_class }}">
-        <input type="hidden" name="seat_id" value="{{ seat_id }}">
-        <input type="hidden" name="departure_date" value="{{ departure_date }}">
-        <input type="hidden" name="departure_time" value="{{ departure_time }}">
-        <input type="hidden" name="arrival_date" value="{{ arrival_date }}">
-        <input type="hidden" name="arrival_time" value="{{ arrival_time }}">
-        <input type="hidden" name="duration" value="{{ duration }}">
-        <input type="hidden" name="price" value="{{ price }}">
-        <input type="hidden" name="username" value="{{ user.username }}">
-        <input type='hidden' id='booking_date' name="booking_date" value="" readonly>
+        
         <!-- Input boxes for passenger information -->
     </form>
     <script>
