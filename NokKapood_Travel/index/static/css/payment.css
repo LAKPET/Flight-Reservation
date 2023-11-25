@@ -25,7 +25,7 @@ body {
   margin-bottom: 6.3rem;
   box-sizing: border-box;
   padding: 20.7rem 5.1rem 2.3rem 2rem;
-  width: 200rem;
+  width: 230rem;
   display: flex;
   align-items: center;
   background-color: rgba(255, 0, 0, 0.4600000083);
@@ -44,7 +44,7 @@ body {
   width: 153rem;
   height: 53rem;
   position: absolute;
-  left: 0;
+  left: 34rem;
   top: 18.1rem;
   background-color: #eaeaea;
   border-radius: 4rem;
@@ -74,7 +74,7 @@ body {
   width: 90rem;
   height: 36.900000000000006rem;
   position: absolute;
-  left: 70rem;
+  left: 66rem;
   top: 25.7rem;
   background-color: #ffffff;
 }
@@ -82,7 +82,7 @@ body {
   width: 82.5rem;
   height: 8rem;
   position: absolute;
-  left: 73.4rem;
+  left: 69.4rem;
   top: 38.7rem;
   border: solid 0.1rem #b3b2b2;
   box-sizing: border-box;
@@ -119,7 +119,7 @@ body {
   width: 10rem;
   height: 5.6259rem;
   position: absolute;
-  left: 143.7rem;
+  left: 140.7rem;
   top: 39.9rem;
   object-fit: cover;
   vertical-align: top;
@@ -128,7 +128,7 @@ body {
   width: 82.2rem;
   height: 8rem;
   position: absolute;
-  left: 73.8rem;
+  left: 69.8rem;
   top: 51.099999999999994rem;
   font-size: 4rem;
   font-weight: 700;
@@ -146,7 +146,7 @@ body {
   width: 82.5rem;
   height: 0.1rem;
   position: absolute;
-  left: 72.4rem;
+  left: 69.4rem;
   top: 34.1rem;
   background-color: #d9d9d9;
 }
