@@ -20,6 +20,7 @@ class seat(models.Model):
     flight_id = models.CharField(max_length=100)
     seat_number = models.CharField(max_length=100)
     seat_class = models.CharField(max_length=100)
+    price = models.IntegerField()
 
     class Meta:
         db_table = "seat"
