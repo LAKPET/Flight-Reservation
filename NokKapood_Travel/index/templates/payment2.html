@@ -24,7 +24,7 @@
             </div>
             <form action="{% url 'qrcode' %}" method="post">
                 {% csrf_token %}
-                <input type="radio" name="payment" id="QRCode">
+                <input type="radio" name="payment" id="QRCode" required>
                 <div class="category">
                     <label for="QRCode" class="qrMethod">
                         <div class="imgqr">
