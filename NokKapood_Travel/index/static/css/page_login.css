@@ -59,8 +59,8 @@ body {
   flex-shrink: 0;
 }
 .page-login-toT .auto-group-vzxu-cDf .group-33-85X {
-  margin: 0rem 6.4rem 4.7rem 0rem;
-  width: 30rem;
+  margin: 0rem auto 4.7rem 0rem;
+  width: 40rem;
   height: 8rem;
   font-size: 2.5rem;
   font-weight: 600;
@@ -341,3 +341,127 @@ body {
   flex-shrink: 0;
 } 
 
+
+.bg {
+  width: 1445px;
+  height: 851px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  padding-left: 430px;
+  padding-top: 100px; 
+  background: #EAEAEA;
+}
+
+.base {
+  width: 1000px;
+  height: 120px;
+  flex-shrink: 0;
+  background: #FFF;
+  align-items: center;
+  justify-items: center;
+}
+
+
+.sub {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.sub1 {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.p {
+  justify-items: center;
+  align-items: center;
+}
+.head {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.head1 {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 150px;
+}
+
+.head2 {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 270px;
+}
+
+.headbt {
+  width: 160px;
+  height: 1px;
+  background: #000;
+}
+
+
+.head3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 150px;
+}
+
+.head4 {
+  width: 115px;
+  height: 27px;
+  flex-shrink: 0;
+  color: #90989F;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 230px;
+}
+
+.head5 {
+  width: 115px;
+  height: 27px;
+  flex-shrink: 0;
+  color: #90989F;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 290px;
+}
+
+.head6 {
+  width: 115px;
+  height: 27px;
+  flex-shrink: 0;
+  color: #90989F;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 155px;
+}

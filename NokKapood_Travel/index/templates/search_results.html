@@ -1,47 +1,72 @@
-<!-- search_results.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Add your head content here -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/page_login.js' %}"></script>   
+    <script src="{% static 'js/index.js' %}"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokkapood</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
+    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
+    <link rel='stylesheet' href="{% static 'css/page_login.css' %}">
 </head>
 <body>
-  <h2>Search Results</h2>
-  <div class="item--DeZ">
-    {% if flights %}
-      {% for flight in flights %}
-        {% with has_seat_class=False %}
-          {% for seat in seats %}
-            {% if seat.flight_id == flight.flight_id_id and seat.seat_class %}
-              {% with has_seat_class=True %}
-                <div class="group-26-QzV">
-                  <!-- Display flight details -->
-                  <p>Airline: {{ flight.airline }}</p>
-                  <p>Fliht ID: {{ flight.flight_id_id }}</p>
-                  <p>Departure Airport: {{ flight.departure_airport }}</p>
-                  <p>Arrival Airport: {{ flight.arrival_airport }}</p>
-                  <p>Flight Class: {{ flight.flight_class }}</p>
-                  <!-- Use the correct variable 'seats' for seat class -->
-                  <p>Seat Class: {{ seat.seat_class }}</p>
-                  <p>Seat ID: {{ seat.seat_id }}</p>
-                  <p>Departure Date: {{ flight.departure_date }}</p>
-                  <p>Departure Time: {{ flight.departure_time }}</p>
-                  <p>Arrival Time: {{ flight.arrival_time }}</p>
-                  <p>Duration: {{ flight.duration }}</p>
-                  <p>Price: {{ flight.price }}</p>
-                  <!-- Add other flight details as needed -->
-                  <p>-------------------------------------------</p>
-                </div>
-              {% endwith %}
-            {% endif %}
+  <div class="page-login-toT">
+    <div class="auto-group-vzxu-cDf">
+      <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+      <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+      <div class="group-33-85X">
+        <a href="register" class="buttonLink">
+          <div class="buttomF">Register</div>
+        </a>
+      </div>
+      <div class="group-33-85X">
+        <a href="login_page" class="buttonLink">
+          <div class="buttomF">Login</div>
+        </a>
+      </div>
+    </div>
+  
+  <div class='bg'>
+    <h2>Search Results</h2>
+    <div class='base'>
+      <div class="item--DeZ">
+        {% if flights %}
+          {% for flight in flights %}
+            {% with has_seat_class=False %}
+              {% for seat in seats %}
+                {% if seat.flight_id == flight.flight_id_id and seat.seat_class %}
+                  {% with has_seat_class=True %}
+
+                  <div class="sub">
+                      <p><a class='head'>{{ flight.airline }}</a></p>
+                      <p><a class='head1'>{{ flight.departure_airport }}</a></p>
+                      <p><a class='head2'>{{ flight.arrival_airport }}</a></p>
+                      <p><a class='head3'>{{ flight.price }}</a></p>
+                    </div>
+                    
+                  <div class="sub1">
+                      <p><a class='head4'>{{ flight.departure_time }}</a></p>
+                      <p><a class='head5'>{{ flight.arrival_time }}</a></p>
+                      <p><a class='head6'>{{ flight.flight_class }}</a></p>
+                    </div>
+                  {% endwith %}
+                {% endif %}
+              {% endfor %}
+              {% if not has_seat_class %}
+                {# No seat_class found, do something if needed #}
+              {% endif %}
+            {% endwith %}
           {% endfor %}
-          {% if not has_seat_class %}
-            {# No seat_class found, do something if needed #}
-          {% endif %}
-        {% endwith %}
-      {% endfor %}
-    {% else %}
-      <p>No flights found.</p>
-    {% endif %}
+        {% else %}
+          <p>No flights found.</p>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </body>
 </html>
