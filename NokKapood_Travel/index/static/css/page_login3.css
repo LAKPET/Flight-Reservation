@@ -99,6 +99,11 @@ body {
   justify-content: space-between;
 }
 
+.Img{
+  padding-top: 3px;
+}
+
+
 .left-side {
   position: relative;
   width: 500px;
@@ -108,6 +113,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
   padding-top: auto;
   text-align: center;
+  
   
 }
 
@@ -122,17 +128,19 @@ body {
   transform: rotate(180deg);
 }
 
-
-
-
+.mid {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
 .base1 {
-  width: 300px;
-  height: 200px;
-  background: #FFF;
+  width: 700px;
+  height: 500px;
+  background: #000000;
   border-radius: 20px;
   position: absolute;
-  right: 20%;
-  top: 50%;
+  right: 10%;
+  top: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,10 +148,81 @@ body {
 }
 
 .right-side {
-  width: 300px;
-  height: 300px;
+  width: 670px;
+  height: 470px;
   background: #FFF;
   border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.tt {
+  width: 325px;
+  height: 30px;
+  flex-shrink: 0;
+  border: 2px solid #000; /* ขอบทั้งสี่ด้าน 2px สีดำ */
+  border-radius: 10px; /* ขอบทั้งสี่ด้านมีรัศมีเป็น 10px */
+  padding: 15px; /* ขยายพื้นที่ในขอบเขตของกรอบ */
+  margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+
+}
+.sl{
+  color: #90989F;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.headl-container {
+  display: flex;
+  justify-content: space-between; /* จัดให้บรรทัดเดียวกัน */
+  padding-top: 30px;
+}
+
+.headl {
+  color: #000;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.headl1 {
+  color: #000;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.btn1 {
+  width: 655px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #F00;
+  color: #FFF;
+
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .line {
@@ -184,6 +263,7 @@ body {
   font-weight: 600;
   line-height: normal;
   margin: 0; /* Reset margin for consistent spacing */
+  
 }
 
 .head4,
