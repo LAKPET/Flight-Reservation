@@ -216,26 +216,28 @@ def booking(request):
         # Handle other HTTP methods if needed
         return render(request, 'booking.html')
 
-def createticket(flight_id,seat_class,total_amount,username,booking_date,departure_date):  
+def createticket(flight_id, seat_class, total_amount, username, booking_date, departure_date):  
     if Ticket.objects.count() != 0:
         ticket_id_max = Ticket.objects.aggregate(Max('ticket_id'))['ticket_id__max']
-        next_ticket_id = ticket_id_max[0:6] + str(int(ticket_id_max[6:10])+1)
+        last_ticket_number = int(ticket_id_max[6:]) if ticket_id_max else 1000
+        next_ticket_number = last_ticket_number + 1
+        next_ticket_id = f'TICKET{next_ticket_number:04}'
     else:
         next_ticket_id = "TICKET1001"
 
     ticket_id = next_ticket_id
     booking_date = reFormatDateYYYYMMDDV2(booking_date)
-    
+
     ticket = Ticket.objects.create(
-            ticket_id=ticket_id,
-            flight_id=flight_id,
-            seat_class=seat_class,
-            total_amount=total_amount,
-            username =username,
-            booking_date=booking_date,
-            departure_date=departure_date,
-            status = 'PENDING'                    
-            )
+        ticket_id=ticket_id,
+        flight_id=flight_id,
+        seat_class=seat_class,
+        total_amount=total_amount,
+        username=username,
+        booking_date=booking_date,
+        departure_date=departure_date,
+        status='PENDING'
+    )
     ticket.save()
     return ticket
  
@@ -243,8 +245,13 @@ def passenger(request):
     if request.method == 'POST':
         if Passenger.objects.count() != 0:
             id_no_max = Passenger.objects.aggregate(Max('id_no'))['id_no__max']
-            id_no_temp = [re.findall(r'(\w+?)(\d+)', id_no_max)[0]][0]
-            next_id_no = id_no_temp[0] + str(int(id_no_temp[1])+1)
+            print(id_no_max)
+            id_no_matches = re.findall(r'(\w+?)(\d+)', id_no_max)
+            if id_no_matches:
+                id_no_temp = id_no_matches[0]
+                next_id_no = id_no_temp[0] + str(int(id_no_temp[1]) + 1)
+            else:
+                next_id_no = "7201"
         else:
             next_id_no = "7201"
         first_name = request.POST['first_name']
