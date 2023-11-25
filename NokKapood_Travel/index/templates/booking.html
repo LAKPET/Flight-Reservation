@@ -24,24 +24,24 @@
         <p>Arrival Time: {{ arrival_time }}</p>
         <p>Duration: {{ duration }}</p>
         <p>Price: {{ price }}</p>
+        <p>Price: {{ flight_id }}</p>
 
         <!-- Hidden input fields for flight details -->
-        <input type="hidden" name="airline" value="{{ flight.airline }}">
-        <input type="hidden" name="flight_id" value="{{ flight.flight_id_id }}">
-        <input type="hidden" name="departure_airport" value="{{ flight.departure_airport }}">
-        <input type="hidden" name="arrival_airport" value="{{ flight.arrival_airport }}">
-        <input type="hidden" name="flight_class" value="{{ flight.flight_class }}">
-        <input type="hidden" name="seat_class" value="{{ seat.seat_class }}">
-        <input type="hidden" name="seat_id" value="{{ seat.seat_id }}">
-        <input type="hidden" name="departure_date" value="{{ flight.departure_date }}">
-        <input type="hidden" name="departure_time" value="{{ flight.departure_time }}">
-        <input type="hidden" name="arrival_date" value="{{ flight.arrival_date }}">
-        <input type="hidden" name="arrival_time" value="{{ flight.arrival_time }}">
-        <input type="hidden" name="duration" value="{{ flight.duration }}">
-        <input type="hidden" name="price" value="{{ flight.price }}">
+        <input type="hidden" name="airline" value="{{ airline }}">
+        <input type="hidden" name="flight_id" value="{{ flight_id }}">
+        <input type="hidden" name="departure_airport" value="{{ departure_airport }}">
+        <input type="hidden" name="arrival_airport" value="{{ arrival_airport }}">
+        <input type="hidden" name="flight_class" value="{{ flight_class }}">
+        <input type="hidden" name="seat_class" value="{{ seat_class }}">
+        <input type="hidden" name="seat_id" value="{{ seat_id }}">
+        <input type="hidden" name="departure_date" value="{{ departure_date }}">
+        <input type="hidden" name="departure_time" value="{{ departure_time }}">
+        <input type="hidden" name="arrival_date" value="{{ arrival_date }}">
+        <input type="hidden" name="arrival_time" value="{{ arrival_time }}">
+        <input type="hidden" name="duration" value="{{ duration }}">
+        <input type="hidden" name="price" value="{{ price }}">
         <input type="hidden" name="username" value="{{ user.username }}">
-        <input type='hidden' id='booking_date' name="booking_date" value="">
-
+        <input type='hidden' id='booking_date' name="booking_date" value="" readonly>
         <!-- Input boxes for passenger information -->
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" placeholder="{{ user.first_name }}" required><br>
@@ -58,5 +58,18 @@
         <!-- Submit button -->
         <input type="submit" value="Submit">
     </form>
+    <script>
+        // Function to format the current date as 'YYYY-MM-DD'
+        function getCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = (today.getMonth() + 1).toString().padStart(2, '0');
+            const day = today.getDate().toString().padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+    
+        // Set the value of the 'booking_date' input to the current date when the page loads
+        document.getElementById('booking_date').value = getCurrentDate();
+    </script>
 </body>
 </html>

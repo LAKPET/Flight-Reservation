@@ -216,17 +216,20 @@ def booking(request):
         # Handle other HTTP methods if needed
         return render(request, 'booking.html')
 
-def createticket(flight_id, seat_class, total_amount, username, booking_date, departure_date):  
-    if Ticket.objects.count() != 0:
-        ticket_id_max = Ticket.objects.aggregate(Max('ticket_id'))['ticket_id__max']
-        last_ticket_number = int(ticket_id_max[6:]) if ticket_id_max else 1000
-        next_ticket_number = last_ticket_number + 1
-        next_ticket_id = f'TICKET{next_ticket_number:04}'
-    else:
-        next_ticket_id = "TICKET1001"
+def createticket(flight_id, seat_class, total_amount, username, booking_date, departure_date,ticket_id=None):  
 
+    # booking_date = datetime.strptime(booking_date, '%b. %d, %Y').strftime('%Y-%m-%d')
+    departure_date = datetime.strptime(departure_date, '%b. %d, %Y').strftime('%Y-%m-%d')
+
+    if not ticket_id:
+        if Ticket.objects.count() != 0:
+            ticket_id_max = Ticket.objects.aggregate(Max('ticket_id'))['ticket_id__max']
+            last_ticket_number = int(ticket_id_max[6:]) if ticket_id_max else 1000
+            next_ticket_number = last_ticket_number + 1
+            next_ticket_id = f'TICKET{next_ticket_number:04}'
+        else:
+            next_ticket_id = "TICKET1001"
     ticket_id = next_ticket_id
-    booking_date = reFormatDateYYYYMMDDV2(booking_date)
 
     ticket = Ticket.objects.create(
         ticket_id=ticket_id,
@@ -238,14 +241,13 @@ def createticket(flight_id, seat_class, total_amount, username, booking_date, de
         departure_date=departure_date,
         status='PENDING'
     )
-    ticket.save()
     return ticket
- 
+
 def passenger(request):
     if request.method == 'POST':
+        print(request.POST)
         if Passenger.objects.count() != 0:
             id_no_max = Passenger.objects.aggregate(Max('id_no'))['id_no__max']
-            print(id_no_max)
             id_no_matches = re.findall(r'(\w+?)(\d+)', id_no_max)
             if id_no_matches:
                 id_no_temp = id_no_matches[0]
@@ -269,21 +271,20 @@ def passenger(request):
         ticket.save()
         # Create a new Passenger instance
         passenger = Passenger.objects.create(
-                id_no=next_id_no,
-                first_name=first_name, 
-                last_name=last_name, 
-                email=email,
-                phone_no=phone_no,
-                ticket_id=ticket)
-        ticket_id = ticket.ticket_id
-        print(passenger)
+            id_no=next_id_no,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone_no=phone_no,
+            ticket_id=ticket  # Use ticket_id instead of next_ticket_id
+        )
         # Save the Passenger instance to the database
         try:passenger.save()
             
         except: redirect('/')
-    return render(request,'payment.html',{'ticket_id':ticket_id,'total_amount':total_amount})
+    return render(request,'payment2.html',{'ticket_id':ticket.ticket_id,'total_amount':total_amount})
 
-def reFormatDateYYYYMMDDV2(yyyymmdd):
+def reFormatDateYYYYMMDDV(yyyymmdd):
     if (yyyymmdd == ''):
         return ''
     return yyyymmdd[:4] + "-" + yyyymmdd[5:7] + "-" + yyyymmdd[8:10]
