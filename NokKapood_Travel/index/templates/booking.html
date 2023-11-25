@@ -1,31 +1,68 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/page_login.js' %}"></script>   
+    <script src="{% static 'js/index.js' %}"></script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Details</title>
-    <!-- Add your head content here -->
+    <title>BookingDetail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
+    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
+    <link rel='stylesheet' href="{% static 'css/page_login3.css' %}">
 </head>
 <body>
-    <form action="passenger" method="post">
-        {% csrf_token %}
-        <h2>Booking Details</h2>
-
-        <p>Flight ID: {{ flight_id }}</p>
-        <p>Airline: {{ airline }}</p>
-        <p>Departure Airport: {{ departure_airport }}</p>
-        <p>Arrival Airport: {{ arrival_airport }}</p>
-        <p>Flight Class: {{ flight_class }}</p>
-        <p>Seat Class: {{ seat_class }}</p>
-        <p>Seat ID: {{ seat_id }}</p>
-        <p>Departure Date: {{ departure_date }}</p>
-        <p>Departure Time: {{ departure_time }}</p>
-        <p>Arrival Date: {{ arrival_date }}</p>
-        <p>Arrival Time: {{ arrival_time }}</p>
-        <p>Duration: {{ duration }}</p>
-        <p>Price: {{ price }}</p>
-        <p>Price: {{ flight_id }}</p>
-
+    <div class="page-login-toT">
+        <div class="auto-group-vzxu-cDf">
+          <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+          <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+          <div class="group-33-85X">
+            <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
+          </div>
+          <div class="group-33-85X">
+              <div class="buttomF">Username: {{ user.username }}</div>
+          </div>
+        </div>
+        <div class ='bg'>
+            <div class='base'>
+                <div class="left-side">
+                    <form action="passenger" method="post">
+                        {% csrf_token %}
+                        <h2 class='head1'>Booking Details</h2>
+                        <p>Flight ID: {{ flight_id }} Airline: {{ airline }}</p>
+                        <p>Departure Airport: {{ departure_airport }} Arrival Airport: {{ arrival_airport }}</p>
+                        <p>Flight Class: {{ flight_class }}   Seat Class: {{ seat_class }}   Seat ID: {{ seat_id }}</p>
+                        <p>Departure Date: {{ departure_date }}</p>
+                        <p>Departure Time: {{ departure_time }}</p>
+                        <p>Arrival Date: {{ arrival_date }}</p>
+                        <p>Arrival Time: {{ arrival_time }}</p>
+                        <p>Duration: {{ duration }}</p>
+                        <p>Price: {{ price }}</p>
+                </div>
+            </div>
+            <div class='base1'>
+                <div class="right-side">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="{{ user.first_name }}" required><br>
+        
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="{{ user.last_name }}" required><br>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="{{ user.email }}" required><br>
+        
+                    <label for="phone_no">Phone Number:</label>
+                    <input type="tel" id="phone_no" name="phone_no" required><br>
+        
+                    <!-- Submit button -->
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+                 
         <!-- Hidden input fields for flight details -->
         <input type="hidden" name="airline" value="{{ airline }}">
         <input type="hidden" name="flight_id" value="{{ flight_id }}">
@@ -43,20 +80,6 @@
         <input type="hidden" name="username" value="{{ user.username }}">
         <input type='hidden' id='booking_date' name="booking_date" value="" readonly>
         <!-- Input boxes for passenger information -->
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" placeholder="{{ user.first_name }}" required><br>
-
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" placeholder="{{ user.last_name }}" required><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="{{ user.email }}" required><br>
-
-        <label for="phone_no">Phone Number:</label>
-        <input type="tel" id="phone_no" name="phone_no" required><br>
-
-        <!-- Submit button -->
-        <input type="submit" value="Submit">
     </form>
     <script>
         // Function to format the current date as 'YYYY-MM-DD'
