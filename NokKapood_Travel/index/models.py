@@ -41,7 +41,7 @@ class Flight(models.Model):
     arrival_date = models.DateField()
     departure_time = models.TimeField()
     arrival_time = models.TimeField()
-    duration = models.DurationField()
+    duration = models.CharField(max_length=20)
 
     class Meta:
         db_table = "flight"
