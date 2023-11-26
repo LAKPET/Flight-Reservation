@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from datetime import datetime
 from .models import Passenger,Flight,seat,Ticket
+from django.db.models import F, ExpressionWrapper, fields
 
 
 # Create your views here.
@@ -31,27 +32,6 @@ def page_login(request):
 def information(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     return render(request, 'information.html', {'user': user})
-
-def search_flights(request):
-    # For simplicity, let's retrieve all flights for now
-    flights = Flight.objects.all()
-
-    data = {'flights': flights}
-    return render(request, 'search_flights.html', data)
-
-def bookingflight(request):
-    return render(request, 'ticket_info.html')
-
-def my_booking(request):
-    tickets = list(Ticket.objects.filter(username=request.user.username).order_by('-ticket_id').values('ticket_id','flight_id','departure_date',
-                                                                                            'seat_class','total_amount','booking_date','status'))
-    data=dict()
-    data['tickets'] = tickets
-    return render(request, 'my_booking.html', data)
-
-def finalreservation(request):
-    data = {}
-    return render(request, 'finalreservation.html')
 
 def payment(request):
     data = {}
@@ -131,11 +111,9 @@ def search_results(request):
         seats = seat.objects.filter(
             seat_class__icontains=seat_class,
         ).values()
-        print('flights:',flights)
-        print('seats:',seats)
         # Merge the dictionaries into a single dictionary
         data = {'flights': flights, 'seats': seats}
-        # print(data)
+        print(data)
 
         return render(request, 'search_results.html', data)
     else:
@@ -218,7 +196,6 @@ def booking(request):
 
 def createticket(flight_id, seat_class, total_amount, username, booking_date, departure_date,ticket_id=None):  
 
-    # booking_date = datetime.strptime(booking_date, '%b. %d, %Y').strftime('%Y-%m-%d')
     departure_date = datetime.strptime(departure_date, '%b. %d, %Y').strftime('%Y-%m-%d')
 
     if not ticket_id:
@@ -288,3 +265,6 @@ def reFormatDateYYYYMMDDV(yyyymmdd):
     if (yyyymmdd == ''):
         return ''
     return yyyymmdd[:4] + "-" + yyyymmdd[5:7] + "-" + yyyymmdd[8:10]
+
+def finalreservation(request):
+    return render(request, 'finalreservation.html')

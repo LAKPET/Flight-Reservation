@@ -34,33 +34,38 @@
                         <h2 class='head1'>Booking Details</h2>
                         <p class='head1'>Flight ID: {{ flight_id }} Airline: {{ airline }}</p>
                         <p class='head1'>Departure Airport: {{ departure_airport }} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAdNJREFUWEft1c2rTlEUx/HPTYZe4h9QCkle/gVlYKIUf4IxwkDkJWZS15S85D0GBpKJSEYGMr6Dy4CBkYgohdvSPjp29zx7P8991H3q7OE5v7X2d//W2mtPWWRrapHx6IFKFekd6h0qOVD6P5E9tBwHsQ9PcA3P8bt02lH+lxxai5dYnSV/j0u4inejbNwVUwKKuK24hY0dSZ7hdtJ8L8Btxh7sSoc8grvtmBqg0C/FcRzDko5Nv+EBLuJFq6QBsTeBbMhi4wDrEI7/WbVAjb7kVqN7i0fYgfUF17YjXB4JqHHrBI4OcKu2rcKhbZhZCFATuwU3sal290w3m0r5utRDu9P1/lKx0Sq8wpoKbUjCkWji612jI++hkziFz5jGecwHtgyHcAArKmCiyWN+3cPXQfocKGACqlmfcKEF1oDsx8oCSMyncOIK3lRAdzb1mXTF2zkC7H6q+SCQH0kXbjzFr1qQUlOfw+EhksU0D4g7qdxDhP4rHTSHSlAfcAOX29d2ZJLKOZRDRUkeJjce4+dCAfL4mkl9FjsTRLxpH8cNUZpD/3O/Yu4ah4pJximYCKB8OI7TgDzX6fQy/P0+n0M9UH/LhmnCibhlwxxo7NreoZKlc3UYVCX/co34AAAAAElFTkSuQmCC"/></p>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAaVJREFUWEftlj8oRVEcxz9PMlDKYJOUwuBfkcFoYWM0GWU2ymqU2SiDlY3NYFIGLCQZKIOiDJL866f76nXfOff3u++e+7rq3vV3fp/f55177vm+CgV7KgXzoRTS3ki5Q/9+h3qBRaBd+yWB6m/AHnBf5cXP0B3QF2iYFXMDDPiELoARKynQujNg0ic0AZwCLYGGaZhvYAoQqb/H9dlvAGsaKVBdZq3XslxCrZHxaKChPowcD3kjn5qQ1IeAc6AtJ6kPYAy4ivOTbupVYDMnIWFvudhJQlI7AaYDSx0DM8BPWiFZLxflJdAZSOo1Og6PPp4lXJeAnUBCwtpNYlmEpH8fmM8odQAsaAyrUBdwDXRrQE/9CRgEXrR+q5BwZoFDDeipzwFHlt40QsLbBpYt4Jo10rNi7Ukr1BFdmP3GAbfAMPBuXN/Qn3xrANcFp0Uq7Q5VmZYArgvOPIW0AHYGZ55CSQHsDc68hYTvCmBvcDZDKB7AicHZDCGZ0QPImZGvahx4sAzOEq4WvkTKF/BsWRwiXLPOMfc3eg+ZB6RdWAppO1a4HfoF0Ts9JdiVFzsAAAAASUVORK5CYII="/>
+
+                        <img class='Img'src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAaVJREFUWEftlj8oRVEcxz9PMlDKYJOUwuBfkcFoYWM0GWU2ymqU2SiDlY3NYFIGLCQZKIOiDJL866f76nXfOff3u++e+7rq3vV3fp/f55177vm+CgV7KgXzoRTS3ki5Q/9+h3qBRaBd+yWB6m/AHnBf5cXP0B3QF2iYFXMDDPiELoARKynQujNg0ic0AZwCLYGGaZhvYAoQqb/H9dlvAGsaKVBdZq3XslxCrZHxaKChPowcD3kjn5qQ1IeAc6AtJ6kPYAy4ivOTbupVYDMnIWFvudhJQlI7AaYDSx0DM8BPWiFZLxflJdAZSOo1Og6PPp4lXJeAnUBCwtpNYlmEpH8fmM8odQAsaAyrUBdwDXRrQE/9CRgEXrR+q5BwZoFDDeipzwFHlt40QsLbBpYt4Jo10rNi7Ukr1BFdmP3GAbfAMPBuXN/Qn3xrANcFp0Uq7Q5VmZYArgvOPIW0AHYGZ55CSQHsDc68hYTvCmBvcDZDKB7AicHZDCGZ0QPImZGvahx4sAzOEq4WvkTKF/BsWRwiXLPOMfc3eg+ZB6RdWAppO1a4HfoF0Ts9JdiVFzsAAAAASUVORK5CYII="/>
                         <p class='head1'>Arrival Airport: {{ arrival_airport }} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAfxJREFUWEft103ITXEQx/HPI0nJArHBgiR5W3iNrJVEioWFsrNSFqSUwsZGUqzEQslC2ZBEihURSwvKxgIpSkQKpan/o+P0P8+550Xdp+6p2+neOfOb75mZ/0x3zJBdY0PGYwRUV5FRhvrO0D6cwye8wR58rQvSxN60ZFPxFvNSkJvY1SRg3bNNgULvGE4XhA/hfF2gQe1loMjAeizGtQqRWXiH6cn+C5vwfNCgEz1XBtqBW8lhCx5VOF/AwYItyrgSn7tClYHm4GMSfYnV+JkJsgivMaVgu4ttfQOF3issTcJHcaYiyA3sLtmO4GwXqFxTX8H+JPodS/A+E2QDnpZ+j37ajGdtoXJAB3CxIHgdeysCPE4NXTR36qcc0Aq8KAHcT70VAzE+0WdxX4vDGdg72N4mS1Vz6AtmthEs+FzCVTypOBhZ+Sqge9jaEWjcPfowxscDPEzz6neVdhVQlG0n1iGad0FPcCHzDbdxPI2Of6QHXR1zsTHBxT1AZ3eEjKU8v7ycBwXKxY71EmsmMhj3NZjREHJZmnt/3boAlWPH1F6Vshdwsd/ie+zH3BUndSF+FI19AuWCTkujITI4nsXl+JB66HLZ6X8DNayg0b+O2oxNipKdxInaV+nngVOIeBMe+xFQXYb6KUZLlUnR1C3frR+3UYbq8jh0GfoD/VRMJYFhWsAAAAAASUVORK5CYII="/></p>
-                        <p class='head1'>Flight Class: {{ flight_class }}   Seat Class: {{ seat_class }}   Seat ID: {{ seat_id }}</p>
+                        <p class='head1'>Flight Class: {{ flight_class }} </p>
+                        <p class='head1'>Seat Class: {{ seat_class }}   Seat ID: {{ seat_id }}</p>
                         <p class='head1'>Departure Date: {{ departure_date }}</p>
-                        <p class='head1'>Departure Time: {{ departure_time }}</p>
                         <p class='head1'>Arrival Date: {{ arrival_date }}</p>
-                        <p class='head1'>Arrival Time: {{ arrival_time }}</p>
                         <p class='head1'>Duration: {{ duration }}</p>
-                        <p class='head1'>Price: {{ price }}</p>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAARZJREFUWEft101KxEAQhuFn8AqK4FzMhRvXLsSdyPiHigtBEA/gZhZeTFQ8gygNozYxSacncZyBzjLdVfX1W5XqysiSPaMl06MISmWkEMolFIhNsIfNlHHP9Vfc4yr2U03ZLQ56Bso1v8DJl1FV0BvWcz323P+MrSZBHz2dz2v+DaZKqAiaIe1M6BE7eI9ysYYptufNT41dZ0HnOKtxEN6dFkG4xHENidA7QgMd6umcsic81NTQLsZDqeFn6iiffQPVzikbMCutrlZXUFMfio8b96Tc/b/u1FRR5wbI3b/6gkpRp2ro3wm9LGC4rx6ydYS9xuGisMzitA75IYVH2MfGHwsLF/cdbuI45c81Rb0QKoRSBFLrn2UwOCVPnc7aAAAAAElFTkSuQmCC"/>
+                        <p class='head1'>Price : ฿ {{ price }}</p>
+                        
                 </div>
                 <div class="mid-side"></div>
             </div>
 
+            <img class='mid' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAxNJREFUeF7t3L2q1EAYxvH/afxAsLVQUPQqVARRCxux8EoV/ADFQlFvwsJC1CsQFQsZyMCy7iaT+XgynHm2PUmezG/fM5lMMnuCPxKBE0mKQzC0qAgMbWiRgCjGFW1okYAoxhVtaJGAKMYVbWiRgCjGFW1okYAoxhVtaJGAKMYVbWiRgCjGFX0KoG8DHwTtuAH8Br4KsrIjWlX0Q+Ap8BZ4DPzJPsP5Ha8B74G/wJ2esVtAR+Qzk9GrRtgR+cqU86Vn7NrQ+8ixHmtj7yPHnG6xa0IfQ66NfQy5a+xa0EvItbCXkLvFrgF9D3gJxD556bqX242EvvgTEPvkpZyuupFS6ID8HDi31Oq9vwfsR9NoIWXXgBtGF6Gi13wC9k3gx5qdWmxbAn0B+AZczDyxZ9NoJGX3N8D9lA0PbPN5Go1sil0CHdp0FwjVeTYTIWA/Sajsy9PNz9XMnM2xS6GNnfjN14A2dgJ2LWhjL2DXhDb2DHZtaGMfwW4BbewD2K2gjb2H3RLa2DvYraGNPWEroI0N0jUsQ9+uqyo69lbDYquhYzfyAjifcOd6aJM1E1HvgOuZOVUnoraADu2+BYSpz9bYl4CPPWBvBT0c9pbQQ2FvDT0MtqHTr5RFF8etoYe5KG4JPQxy+KfZCnoo5K2gh0PeAnpIZDV0mOcY7tY7DmpUffSwk0lK6OGRFV2HkQVPWIwseGZoZMFTcCML3uswsuBNJSPPzATWGkcbeWG6tQa0kRPmtEuhjZyAXHrDolws9Bp4kNim/c2KnoxkZv63W2lF5y5/S303I55w7vK3LpBLKzoirMVei5yL3Q1yLehwnNTVs7nIu9gpq2e7Qq4JHY61tB68FDliL60H7w65NvQcdi3kJewukVtAH8KujXwMu1vkVtC72GH5csoS5NxRVOxGfvWw3nuuEaXDu7ljh18VCBeu1p/w41U/ge+tg0qO3xK65LxO3b6GFn2lhja0SEAU44o2tEhAFOOKNrRIQBTjija0SEAU44o2tEhAFOOKNrRIQBTjija0SEAU44o2tEhAFPMPIBU8agY42QYAAAAASUVORK5CYII="/>
 
             <div class='base1'>
                 <div class="right-side">
-                    <label for="first_name">First Name:</label>
-                    <input type="text" id="first_name" name="first_name" placeholder="{{ user.first_name }}" required><br>
+                    <p class='head1'>Passenger Information</p>
+
+                    <label for="first_name" class='head1'>First Name:</label>
+                    <input class='tt'type="text" id="first_name" name="first_name" placeholder="{{ user.first_name }}" required><br>
         
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" id="last_name" name="last_name" placeholder="{{ user.last_name }}" required><br>
+                    <label for="last_name" class='head1'>Last Name:</label>
+                    <input class='tt'type="text" id="last_name" name="last_name" placeholder="{{ user.last_name }}" required><br>
         
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="{{ user.email }}" required><br>
+                    <label for="email" class='head1'>Email:</label>
+                    <input class='tt'type="email" id="email" name="email" placeholder="{{ user.email }}" required><br>
         
-                    <label for="phone_no">Phone Number:</label>
-                    <input type="tel" id="phone_no" name="phone_no" required><br>
+                    <label for="phone_no" class='head1'>Phone Number:</label>
+                    <input class='tt'type="tel" id="phone_no" name="phone_no" required><br>
         
                     <!-- Submit button -->
                     <input type="hidden" name="airline" value="{{ airline }}">
@@ -78,7 +83,13 @@
                     <input type="hidden" name="price" value="{{ price }}">
                     <input type="hidden" name="username" value="{{ user.username }}">
                     <input type='hidden' id='booking_date' name="booking_date" value="" readonly>
-                    <input type="submit" value="Submit">
+                    <div class ="sl">ฉันได้อ่านและยอมรับข้อกำหนดและเงื่อนไขการจองของ  Nokkapood Travel แล้ว</div>
+                    <div class="headl-container">
+                        <p class='headl'>Total </p>
+                        <p class='headl1'>฿ {{ price }}</p>
+                      </div>
+                      
+                    <input class='btn1'type="submit" value="Submit">
                 </div>
             </div>
         </div>
