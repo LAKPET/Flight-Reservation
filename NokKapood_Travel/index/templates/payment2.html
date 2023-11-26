@@ -32,6 +32,7 @@
                                 <img src="https://sys4school.com/images/promptpay.png" alt="">
                                 <div class="name">
                                     <span class="name">QR PromptPay</span>
+                                    
                                     <span class="check"><i class='bx bxs-check-circle' style='color:#ff0000'></i></span>
                                 </div>
                             </div>
@@ -41,8 +42,11 @@
                     <div class="topp"></div>
                 </div>
                 <div class="continue">
-                    <button type="submit">Continue</button>
+                    <button type="submit" name="total_amount">ชำระ ฿ {{ total_amounts }}</button>
                 </div>
+                <input type="hidden" name="ticket_id" value="{{ ticket_ids }}">
+                <input type="hidden" name="total_amount" value="{{ total_amounts }}">
+                <input type="hidden" name="status" value="{{ statuss }}">
             </form>
         </div>
 
