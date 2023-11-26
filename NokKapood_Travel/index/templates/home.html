@@ -10,9 +10,10 @@
 <body>
 
     <header>
-        <h2 class="logo">
+        <div class="logo"> 
             <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1177422315043172452/red-cardinal_1.png?ex=657272fb&is=655ffdfb&hm=267f647492cd9e8f7b753e3914a3284b3be0f9ff792280d0fac19a3c7c620179&" alt="">
-        </h2>
+        </div>
+        <h3>Nokkapood Travel</h3>
         <nav class="navigation">
             <button class="register">Register</button>
             <button class="login">Login</button>
@@ -21,28 +22,55 @@
         <form method="get" action="{% url 'search_results' %}"></form>
         <div class="box">
             <p class="flight">Flight</p>
-            <div class="select-type">
-                <div class="select-btn" id="select-btn">
-                    <span id="text">Select trip type</span>
-                    <i class='bx bx-chevron-down' class="markdown"></i>
-                    <div>
-                        <ul class="list">
-                            <li class="option" style="--i:5;">
-                                <span class="type-text">Round Trip</span>
-                            </li>
-                            <li class="option" style="--i:5;">
-                                <span class="type-text">One way </span>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="dropdown">
+                <div class="container">
+                    <div class="select-type">
+                        <select class="select-type-trip">
+                            <option value="Select Trip type">Select trip type</option>
+                            <option value="Round Trip">Round trip</option>
+                            <option value="One Way">One way</option>
+                        </select>
+                        <div class="select-class">
+                            <select class="select-type-class">
+                                <option value="Select Seat class">Select seat class</option>
+                                <option value="Economy Class">Economy Class</option>
+                                <option value="Business Class">Business Class</option>
+                                <option value="First Class">First Class</option>
+                            </select>
+                        </div>
+                    </div>    
                 </div>
+
+                <div class="container2">
+                    <label for="departure">Departure Airport</label>
+                    <div class="select-airport">  
+                        <div class="departure-airport">
+                            <select class="select-departure-airport">
+                                <option selected value="Select Airport">Select Airport</option>
+                                <option value="Don Mueang">Don Mueang</option>
+                                <option value="Khon Kaen">Khon Kaen</option>
+                                <option value="Chiang Mai">Chiang Mai</option>
+                                <option value="Phuket">Phuket</option>
+                            </select>
+                        </div>
+                        <label for="arrival">Arrival Airport</label>
+                        <div class="arrival-airport">
+                                <select class="select-arrival-airport">
+                                <option selected value="Select destination">Select destination</option>
+                                <option value="Don Mueang">Don Mueang</option>
+                                <option value="Khon Kaen">Khon Kaen</option>
+                                <option value="Chiang Mai">Chiang Mai</option>
+                                <option value="Phuket">Phuket</option>
+                            </select>
+                        </div>
+                    </div> 
+                </div>
+
+                <a class="buttonLink">
+                    <i class='bx bxs-chevrons-right'></i>
+                </a>
             </div>
         </div>
-        <div class="ticket">
-            <div></div>
-        </div>
-
-        
     <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
@@ -66,10 +94,21 @@
             align-items: center;
             z-index: 99;
         }
+
+        h3{
+            display: flex;
+            font-size: 2.5rem;
+            word-wrap: break-word;
+            width: 18.75rem;
+            height: auto;
+            margin-left: -35rem;
+            margin-top: 0.438;
+            color: white;
+        }
         
         .nk {
             display: flex;
-            width: 6rem;
+            width: 7rem;
             height: auto;
 
         }
@@ -124,62 +163,32 @@
             margin-top: 0.5rem;
         }
 
-        .select-type .select-btn {
-            position: relative;
+        .select-type {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            width: 210px;
-            height: 35px;
+        }
+
+        .select-type-trip {
+            border: none;
+            width: 200px;
+            height: 30px;
             margin-left: 10px;
-            background: white;
-            color: #333;
-            font-size: 18px;
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            font-size: 16px;
+            
         }
 
-        .select-btn .markdown {
-            font-size: 25px;
-        }
-
-        .select-type .list {
-            position: absolute;
-            width: 210px;
-            top: 450%;
-            left: 0;
-            transform: translateY(-140px);
-            margin-top: 10px;
-        }
-
-        .list .option {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 35px;
-            background-color: white;
-            padding: 0 16px;
-            cursor: pointer;
-        }
-
-        .list .option:hover {
-            background: white;
-        }
-
-        .list .option:nth-child(1) {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        
-        .list .option:nth-child(2) {
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+        .select-type-class {
+            border: none;
+            width: 200px;
+            height: 30px;
+            margin-right: 500px;
+            margin-bottom: 100px;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
 
     </style>
-    <script src="/NokKapood_Travel/index/static/js/home.js"></script>
 </body>
 </html>
