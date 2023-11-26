@@ -11,8 +11,7 @@
     <title>Nokkapood</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
-    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
-    <link rel='stylesheet' href="{% static 'css/page_login2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page_login2.css' %}">
 </head>
 <body>
   <div class="page-login-toT">
@@ -26,31 +25,50 @@
           <div class="buttomF">Username: {{ user.username }}</div>
       </div>
     </div>
-    <h1>Reservation Details</h1>
-    {{dataReservation.first_name}}
-    {{dataReservation.flight_id}}
-            <form action="{% url 'payment2' %}" method="GET"></form>
-                <h2>Flight Information</h2>
-                <p>Flight ID: {{ dataReservation.flight_id }}</p> 
-                <p>Departure Airport: {{ dataReservation.departure_airport }}</p>
-                <p>Arrival Airport: {{ dataReservation.arrival_airport }}</p>
-                <p>Departure Date: {{ dataReservation.departure_date }}</p>
-                <p>Arrival Date: {{ dataReservation.arrival_date }}</p>
-                <p>Departure Time: {{ dataReservation.departure_time }}</p>
-                <p>Arrival Time: {{ dataReservation.arrival_time }}</p>
+    <h1>Flight Information</h1>
+    <ul>
+        {% for ticket in tickets %}
+            {% for flight in flights %}
+                {% for passenger in passengers %}
+                    {% if ticket.username == user.username and flight.flight_no == ticket.flight_id and ticket.ticket_id == passenger.ticket_id.ticket_id  %}
+                        <form action="{% url 'payment2' %}" method="POST">
+                            {% csrf_token %}
+                            <li>
+                                <h2>Flight Information</h2>
+                                Flight ID: {{ flight.flight_no }}
+                                Departure Airport: {{ flight.departure_airport }}
+                                Arrival Airport: {{ flight.arrival_airport }}
+                                Airline: {{ flight.airline }}
+                                Departure Date: {{ flight.departure_date }}
+                                Arrival Date: {{ flight.arrival_date }}
+                                Departure Time: {{ flight.departure_time }}
+                                Arrival Time: {{ flight.arrival_time }}
+                                Duration: {{ flight.duration }}
 
-                <h2>Passenger Information</h2>
-                <p>First Name: {{ dataReservation.first_name }}</p>
-                <p>Last Name: {{ dataReservation.last_name }}</p>
+                                <h2>Passenger Information</h2>
+                                First Name: {{ passenger.first_name }}
+                                ticket_id: {{ passenger.ticket_id }}
+                                Last Name: {{ passenger.last_name }}
 
-                <h2>Ticket Information</h2>
-                <p>Ticket ID: {{ dataReservation.ticket_id }}</p>
-                <p>Total Amount: {{ dataReservation.total_amount }}</p>
-                <p>Booking Date: {{ dataReservation.booking_date }}</p>
-                <button type="submit" class="btn">เลือก</button>
-                <input type="hidden" name="total_amount" value="{{ reservation.total_amount  }}">
-            </form>
-            <hr>  <!-- เพิ่มเส้นขั้นระหว่างการจองตั๋วแต่ละรอบ -->
-    
+                                <h2>Ticket Information</h2>
+                                Ticket ID: {{ ticket.ticket_id }}
+                                Payment Status: {{ ticket.status }}
+                                username: {{ ticket.username }}
+                                Seat Class: {{ ticket.seat_class }}
+                                Total Amount: {{ ticket.total_amount }}
+                                Booking Date: {{ ticket.booking_date }}
+
+                                <input type="hidden" name="ticket_id" value="{{ ticket.ticket_id }}">
+                                <input type="hidden" name="total_amount" value="{{ ticket.total_amount }}">
+                                <input type="hidden" name="status" value="{{ ticket.status }}">
+                                <button type="submit" class="btn">เลือก</button>
+                            </li>
+                        </form>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    <!-- Continue with Ticket Information, Passenger Information, etc. -->
 </body>
 </html>

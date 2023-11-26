@@ -15,9 +15,6 @@ from django.db.models import F, ExpressionWrapper, fields
 
 
 # Create your views here.
-def finalreservation(request):
-    data = {}
-    return render(request, 'finalreservation.html', data)
 
 def index(request):
     data = {}
@@ -37,12 +34,27 @@ def information(request, user_id):
     return render(request, 'information.html', {'user': user})
 
 def payment(request):
-    data = {}
-    return render(request, 'payment.html', data)
+    if request.method == 'POST':
+        print(request.method)
+        ticket_id = request.POST.get('ticket_id')
+        try:
+            ticket = Ticket.objects.get(ticket_id=ticket_id)
+            ticket.status = 'COMPLETED'
+            ticket.save()
+            return render(request,'page_login.html')
+        except Exception as e:
+            return HttpResponse(e)
+    else:
+        return HttpResponse("Method must be post.")
 
 def payment2(request):
-    data = {}
-    return render(request, 'payment2.html', data)
+    if request.method == 'POST':
+        total_amounts = request.POST.get('total_amount')
+        ticket_ids = request.POST.get('ticket_id')
+        statuss = request.POST.get('status')
+        data = {'total_amounts': total_amounts,'ticket_ids': ticket_ids,'statuss': statuss}
+        print(data)
+        return render(request, 'payment2.html', data)
 
 def login(request):
     if request.method == 'POST':
@@ -86,7 +98,14 @@ def home(request):
         return render(request, 'home.html')
 
 def qrcode(request):
-        return render(request, 'qrcode.html')
+    if request.method == 'POST':
+        total_amounts = request.POST.get('total_amount')
+        ticket_ids = request.POST.get('ticket_id')
+        statuss = request.POST.get('status')
+        data = {'total_amounts': total_amounts,'ticket_ids': ticket_ids,'statuss': statuss}
+        print(data)
+        
+        return render(request, 'qrcode.html', data)
 
 def search_results(request):
     if request.method == 'GET':
@@ -263,7 +282,7 @@ def passenger(request):
         
         
         except: redirect('/') 
-    return render(request,'payment2.html',{'ticket_id':ticket.ticket_id,'total_amount':total_amount})
+    return render(request,'page_login.html',{'ticket_id':ticket.ticket_id,'total_amount':total_amount})
 
 def reFormatDateYYYYMMDDV(yyyymmdd):
     if (yyyymmdd == ''):
@@ -271,7 +290,9 @@ def reFormatDateYYYYMMDDV(yyyymmdd):
     return yyyymmdd[:4] + "-" + yyyymmdd[5:7] + "-" + yyyymmdd[8:10]
 
 def finalreservation(request):
-    data = dict()
-    data['dataReservation'] = request.POST
-    print(data)
+
+    flights = Flight.objects.all().values('departure_airport','arrival_airport','airline','flight_class','flight_no','departure_date','arrival_date','departure_time','arrival_time','duration')
+    tickets = Ticket.objects.all()
+    passengers = Passenger.objects.all()
+    data = {'flights': flights, 'tickets': tickets, 'passengers': passengers}
     return render(request, 'finalreservation.html',data)

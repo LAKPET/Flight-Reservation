@@ -93,8 +93,8 @@ class users(models.Model):
 
 
 class Ticket(models.Model):
-    ticket_id = models.CharField(max_length=200, primary_key=True, unique=True)
-    flight_id = models.CharField(max_length=100)
+    ticket_id = models.CharField(max_length=10, primary_key=True, unique=True)
+    flight_id = models.CharField(max_length=5)
     username = models.CharField(max_length=100)
     seat_class = models.CharField(max_length=100)
     total_amount = models.FloatField(null=True, blank=True)
