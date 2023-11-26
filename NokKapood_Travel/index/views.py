@@ -15,6 +15,9 @@ from django.db.models import F, ExpressionWrapper, fields
 
 
 # Create your views here.
+def finalreservation(request):
+    data = {}
+    return render(request, 'finalreservation.html', data)
 
 def index(request):
     data = {}
@@ -222,7 +225,7 @@ def createticket(flight_id, seat_class, total_amount, username, booking_date, de
 
 def passenger(request):
     if request.method == 'POST':
-        print(request.POST)
+        # print(request.POST)
         if Passenger.objects.count() != 0:
             id_no_max = Passenger.objects.aggregate(Max('id_no'))['id_no__max']
             id_no_matches = re.findall(r'(\w+?)(\d+)', id_no_max)
@@ -257,8 +260,9 @@ def passenger(request):
         )
         # Save the Passenger instance to the database
         try:passenger.save()
-            
-        except: redirect('/')
+        
+        
+        except: redirect('/') 
     return render(request,'payment2.html',{'ticket_id':ticket.ticket_id,'total_amount':total_amount})
 
 def reFormatDateYYYYMMDDV(yyyymmdd):
@@ -267,4 +271,7 @@ def reFormatDateYYYYMMDDV(yyyymmdd):
     return yyyymmdd[:4] + "-" + yyyymmdd[5:7] + "-" + yyyymmdd[8:10]
 
 def finalreservation(request):
-    return render(request, 'finalreservation.html')
+    data = dict()
+    data['dataReservation'] = request.POST
+    print(data)
+    return render(request, 'finalreservation.html',data)

@@ -27,31 +27,30 @@
       </div>
     </div>
     <h1>Reservation Details</h1>
-    
-        {% for reservation in data %}
+    {{dataReservation.first_name}}
+    {{dataReservation.flight_id}}
             <form action="{% url 'payment2' %}" method="GET"></form>
                 <h2>Flight Information</h2>
-                <p>Flight ID: {{ reservation.flight_id_id }}</p>
-                <p>Departure Airport: {{ reservation.departure_airport }}</p>
-                <p>Arrival Airport: {{ reservation.flight.arrival_airport }}</p>
-                <p>Departure Date: {{ reservation.flight.departure_date }}</p>
-                <p>Arrival Date: {{ reservation.flight.arrival_date }}</p>
-                <p>Departure Time: {{ reservation.flight.departure_time }}</p>
-                <p>Arrival Time: {{ reservation.flight.arrival_time }}</p>
+                <p>Flight ID: {{ dataReservation.flight_id }}</p> 
+                <p>Departure Airport: {{ dataReservation.departure_airport }}</p>
+                <p>Arrival Airport: {{ dataReservation.arrival_airport }}</p>
+                <p>Departure Date: {{ dataReservation.departure_date }}</p>
+                <p>Arrival Date: {{ dataReservation.arrival_date }}</p>
+                <p>Departure Time: {{ dataReservation.departure_time }}</p>
+                <p>Arrival Time: {{ dataReservation.arrival_time }}</p>
 
                 <h2>Passenger Information</h2>
-                <p>First Name: {{ reservation.passenger.first_name }}</p>
-                <p>Last Name: {{ reservation.passenger.last_name }}</p>
+                <p>First Name: {{ dataReservation.first_name }}</p>
+                <p>Last Name: {{ dataReservation.last_name }}</p>
 
                 <h2>Ticket Information</h2>
-                <p>Ticket ID: {{ reservation.ticket.ticket_id }}</p>
-                <p>Total Amount: {{ reservation.ticket.total_amount }}</p>
-                <p>Booking Date: {{ reservation.ticket.booking_date }}</p>
+                <p>Ticket ID: {{ dataReservation.ticket_id }}</p>
+                <p>Total Amount: {{ dataReservation.total_amount }}</p>
+                <p>Booking Date: {{ dataReservation.booking_date }}</p>
                 <button type="submit" class="btn">เลือก</button>
-                <input type="hidden" name="total_amount" value="{{ reservation.ticket.total_amount  }}">
+                <input type="hidden" name="total_amount" value="{{ reservation.total_amount  }}">
             </form>
             <hr>  <!-- เพิ่มเส้นขั้นระหว่างการจองตั๋วแต่ละรอบ -->
-        {% endfor %}
     
 </body>
 </html>
