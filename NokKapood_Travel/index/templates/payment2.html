@@ -16,14 +16,12 @@
 </head>
 <body>
     
-    <div class="page-login-toT">
-        <div class="auto-group-vzxu-cDf">
-            <a href="{% url 'page_login' %}">
-                <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
-            </a>            
-            <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
-
+    <header>
+        <a href="{% url 'page_login' %}">
+        <div class="logo"> 
+            <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1178496270520823931/nokkapood-travel.png?ex=65765b2e&is=6563e62e&hm=1299f63426dc58460a9f61cdaa3c2023d3872b5295ee0408aefa2d01ef055d7a&" alt="">
         </div>
+        </a>
     </header>
     <div class="bg">
         <div class='space'>
@@ -55,8 +53,149 @@
             </div>
         </div>    
     </div>
-
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
     
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+        position: fixed;
+        top: 0rem;
+        left: 0rem;
+        width: 100%;
+        padding: 20px 100px 20px;
+        background: rgba(200, 139, 142, 0.6999999881);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+    }
+
+    .nk {
+        display: flex;
+        width: 20rem;
+        height: auto;
+
+    }
+    .bg {
+        margin: 0 auto;
+        width: 100%;
+        height: 100vh;
+        flex-shrink: 0;
+        border-radius: 20px;
+        background: #EAEAEA;
+        margin-top:6%;
+    }
+    
+    .base {
+        width: 90%;
+        max-width: 900px;
+        height: 500px;
+        background: #FFF;
+        border-radius: 10px;
+        position: relative;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        margin-left: 28%;
+        
+    }
+    
+    .space {
+      margin-top: 20%;
+      
+    }
+    
+    .h1{
+      width: 219px;
+      height: 43px;
+      flex-shrink: 0;
+      color: #000;
+      font-family: Inter;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      white-space: nowrap;
+      margin-left: 4%; 
+    }
+    
+    .line {
+      width: 825px;
+      height: 1px;
+      background: #D9D9D9;
+      margin-left: 4%; 
+    }
+    
+    .stroke {
+      border: 2px solid #B4B3B3; /* Set the color of the stroke */
+      border-radius: 10px; /* Set the border radius for rounded corners */
+      padding: auto; /* Add some padding inside the stroke */
+      display: flex; /* Ensure the container only takes as much width as needed */
+      width: 825px;
+      margin-top: 3%;
+      margin-left: 4%;
+      justify-items: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .cercle{
+      margin-left: 5%;
+    }
+    .btn {
+      width: 800px;
+      height: 50px;
+      flex-shrink: 0;
+      border-radius: 5px;
+      background: #F00;
+      color: #FFF;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 9%;
+      margin-left: 6%;
+    }
+    
+    .btnCancel {
+      margin-left: 3%; /* Adjust the margin-left value to your preference */
+    }
+    
+    .name {
+      flex-shrink: 0;
+      color: #000;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      white-space: nowrap;
+      margin-left: 3%;
+    
+    }
+    .imgqr img {
+      width: 100%; /* Set the width to 100% to make the image fill the container */
+      height: auto; /* Maintain the aspect ratio while resizing */
+      max-width: 300px; /* Set a maximum width to control the size */
+      display: block; /* Remove extra spacing below the image */
+      margin-left: 100%; /* Center the image horizontally */
+    }
+    
+    .imgqr1 img {
+      width: 100%; /* Set the width to 100% to make the image fill the container */
+      height: auto; /* Maintain the aspect ratio while resizing */
+      max-width: 200px; /* Set a maximum width to control the size */
+      display: block; /* Remove extra spacing below the image */
+      margin-left: 110%;
+    }
+</style>
 
 </body>
 </html>

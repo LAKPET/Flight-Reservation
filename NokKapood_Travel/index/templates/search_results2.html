@@ -15,19 +15,22 @@
     <link rel='stylesheet' href="{% static 'css/search_results2.css' %}">
 </head>
 <body>
-  <div class="page-login-toT">
-    <div class="auto-group-vzxu-cDf">
+    <header>
         <a href="{% url 'page_login' %}">
-            <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
-        </a>         
-        <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
-      <div class="group-33-85X">
-        <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
-      </div>
-      <div class="group-33-85X">
-          <div class="buttomF">Username: {{ user.username }}</div>
-      </div>
-    </div>
+        <div class="logo"> 
+            <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1178496270520823931/nokkapood-travel.png?ex=65765b2e&is=6563e62e&hm=1299f63426dc58460a9f61cdaa3c2023d3872b5295ee0408aefa2d01ef055d7a&" alt="">
+        </div>
+        </a>
+        <nav class="navigation">
+            <form action="{% url 'finalreservation' %}" method="post">
+                    {% csrf_token %}
+
+                    <button class="register" type="submit">My Booking</a></button>
+            </form>
+
+                    <button class="login" type="submit">User: {{user.username}}</a></button>
+        </nav>
+    </header>
 
     <div class='bg'>
       <div class="scene">
@@ -104,5 +107,432 @@
         </div>
     </div>
 </div>
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+    
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+    
+            header {
+                position: fixed;
+                top: 0rem;
+                left: 0rem;
+                width: 100%;
+                padding: 20px 100px 20px;
+                background: rgba(200, 139, 142, 0.6999999881);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 99;
+            }
+    
+            lable.nkt {
+                display: flex;
+                font-size: 2.5rem;
+                word-wrap: break-word;
+                width: 18.75rem;
+                height: auto;
+                margin-left: -35rem;
+                margin-top: 0.438;
+                color: white;
+            }
+            
+            .bg {
+                width: 1873px;
+                height: 100vh;
+                flex-shrink: 0;
+                border-radius: 20px;
+                background: #EAEAEA;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 5.5%;
+            }
+              
+            .base {
+                width: 1500px;
+                height: 500px;
+                background: #FFF;
+                border-radius: 20px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+            }
+
+            .line {
+                width: 1000px;
+                height: 1px;
+                background: #000;
+              }
+              
+            .line1 {
+                width: 1000px;
+                height: 1px;
+                background: #000;
+            }
+              
+            .sub,
+            .sub1 {
+                display: flex;
+                flex-direction: row; /* Set to row for horizontal arrangement */
+                justify-content: space-between; /* Adjust as needed for spacing */
+                align-items: center;
+                padding-top: 20px;
+            }
+              
+            .sub p,
+            .sub1 p {
+                margin: 0;
+            }
+              
+            .head,
+            .head1,
+            .head11,
+            .head2,
+            .head3 {
+                color: #000;
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0; /* Reset margin for consistent spacing */
+            }
+              
+            .head4,
+            .head5,
+            .head6 {
+                color: #90989F;
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0; /* Reset margin for consistent spacing */
+            }
+              
+              /* Adjust padding and width as needed */
+            .head1 {
+                padding-left: 20px;
+            }
+              
+            .head11 {
+                padding-left: 40px;
+            }
+              
+            .head2 {
+                padding-left: 20px;
+            }
+              
+            .head3 {
+                padding-left: 40px;
+            }
+              
+            .head4 {
+                padding-left: 175px;
+                width: 150px;
+            }
+              
+            .head5 {
+                padding-left: 120px;
+                width: 150px;
+            }
+              
+            .head6 {
+                padding-left: 100px;
+                width: 150px;
+            }
+              
+            .btn {
+                width: 100px;
+                height: 30px;
+                flex-shrink: 0;
+                border-radius: 5px;
+                background: #F00;
+                color: #FFF;
+              
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+              
+              
+            .scene {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                width: 300px;
+                height: 200px;
+                margin-top:30%;
+            }
+              
+            .plane,
+            .cloud {
+                position: absolute;
+            }
+              
+              /*plane animation*/
+            .plane {
+                animation-duration: 1s;
+                animation-name: anim-plane;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-timing-function: linear;
+              
+                animation-fill-mode: forwards;
+                display: block;
+                margin: 0 auto;
+                transform: translateY(80px);
+                left: 30%;
+            }
+              
+            @keyframes anim-plane {
+                to {
+                    transform: translateY(95px);
+                }
+            }
+              
+              
+              /* Cloud Animation */
+              
+            @keyframes fade {
+                0% {
+                    opacity: 0;
+                }
+              
+                10% {
+                    opacity: 1;
+                }
+              
+                90% {
+                    opacity: 1;
+                }
+              
+                100% {
+                    opacity: 0;
+                }
+            }
+              
+            @keyframes move {
+                from {
+                    left: 200px;
+                }
+              
+                to {
+                    left: 0px;
+                }
+            }
+              
+              
+            .cloud {
+                animation-duration: 10s;
+                animation-name: move, fade;
+                animation-direction: normal;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+              
+                display: block;
+                background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iY2xvdWQiIHZpZXdCb3g9IjAgMCA1MiA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiAgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI1MnB4IiBoZWlnaHQ9IjQwcHgiPgoJPGRlZnM+CgkJPGZpbHRlciBpZD0iZjEiIHg9Ii0xMDAlIiB5PSItMTAwJSIgd2lkdGg9IjMwMCUiIGhlaWdodD0iMzAwJSI+IAoJCQk8ZmVPZmZzZXQgcmVzdWx0PSJvdXQiIGluPSJTb3VyY2VHcmFwaGljIiBkeD0iMCIgZHk9IjEiLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSJvdXQiIGluPSJvdXQiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgIDAgMCAwIDAgMCAgMCAwIDAgMCAwICAwIDAgMCAwLjQgMCIvPgoJCQk8ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJvdXQiIGluPSJvdXQiIHN0ZERldmlhdGlvbj0iMiIvPgoJCQk8ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJvdXQiIG1vZGU9Im5vcm1hbCIgcmVzdWx0PSJkcCIvPgoJCTwvZmlsdGVyPgoJPC9kZWZzPiAKCTxwYXRoIGlkPSJmZy1jbG91ZCIgZmlsdGVyPSJ1cmwoI2YxKSIgZD0iTTYuMyAzNS4xQzQuNyAzNC4yLTAuNCAzMi4zIDEuNCAyNSAzLjEgMTguMSA4LjcgMTkuNSA4LjcgMTkuNSA4LjcgMTkuNSAzLjIgMTQuMSAxMC40IDYuOCAxNi45IDAuMiAyMy4xIDQuNiAyMy4xIDQuNiAyMy4xIDQuNiAzMC0xLjcgMzUuMiAyLjQgNDQuNiA5LjcgNDIuOCAyNS4zIDQyLjggMjUuMyA0Mi44IDI1LjMgNDggMjIuNiA0OS44IDI4LjYgNTEgMzIuNyA0NiAzNS44IDQyLjggMzYuNyAzOS43IDM3LjUgOC45IDM2LjYgNi4zIDM1LjFaIiBzdHJva2U9IiNjY2NjY2MiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4=);
+                height: 40px;
+                width: 53px;
+                margin: 0 auto;
+            }
+              
+            .cloud--small {
+                animation-duration: 6s;
+                top: 65px;
+                transform: scaleX(0.5) scaleY(0.5);
+            }
+              
+            .cloud--medium {
+                animation-duration: 5s;
+                animation-delay: 1s;
+                top: 95px;
+                transform: scaleX(0.7) scaleY(0.7);
+            }
+              
+            .cloud--large {
+                animation-duration: 4.5s;
+                animation-delay: 2.5s;
+                top: 95px;
+                transform: scaleX(0.8) scaleY(0.8);
+            }
+            
+            .whoami {
+                padding-top: 3em;
+                text-align: center;
+            }    
+
+            .nk {
+                display: flex;
+                width: 20rem;
+                height: auto;
+    
+            }
+    
+            .navigation {
+                display: flex;
+            }
+    
+            .register {
+                width: 15rem;
+                height: 3rem;
+                margin-right: 2rem;
+                background-color: red;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                color: white;
+            }
+    
+            .login {
+                width: 20rem;
+                height: 3rem;
+                background-color: red;
+                font-size: 1.5rem; 
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                color: white;
+            }
+    
+            .search-flight button {
+                padding: 5px 10px; /* ขนาดขอบของปุ่ม */
+                font-size: 16px; /* ขนาดตัวอักษร */
+                background-color: red; /* สีพื้นหลัง */
+                color: white; /* สีตัวอักษร */
+                border: none; /* ไม่มีเส้นขอบ */
+                margin-top: 5px;
+                margin-left: 800px;
+                border-radius: 5px; /* ขอบโค้ง */
+                cursor: pointer; /* เปลี่ยนเป็น cursor ที่บ่งบอกถึงการคลิกได้ */
+            }
+    
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-size: cover;
+                background-position: center;
+                background-image: url(https://cdn.discordapp.com/attachments/698939910131941466/1178039611847618560/image-2-bg.png?ex=6574b1e2&is=65623ce2&hm=1de53c58cde093b39cf114623ec535dec67794983860737b10a13a4a8fb1ea48&);
+    
+            }
+    
+            .box {
+                margin-top: 7rem;
+                width: 60rem;
+                height: 18.75rem;
+                background-color: #d9d9d9;
+                border: none;
+                border-radius: 1.5rem;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+    
+            p {
+                font-size: 30px;
+                font-weight: bold;
+                margin-left: 1rem;
+                border: 0 0 10px rgba(103, 103, 103, 0.5);
+                margin-top: 0.5rem;
+            }
+    
+            .select-type {
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-between;
+            }
+    
+            .datetable {
+                margin-left: 5px;
+            }
+    
+            .select-type-trip {
+                border: none;
+                width: 200px;
+                height: 30px;
+                margin-left: 15px;
+                border-radius: 5px;
+                font-size: 16px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                
+            }
+    
+            .select-type-class {
+                border: none;
+                width: 200px;
+                height: 30px;
+                margin-right: 20px;
+                margin-left: -5px;
+                margin-bottom: 50px;
+                border-radius: 5px;
+                font-size: 16px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+            }
+    
+            .departure-airport {
+                font-size: 20px;
+                margin-left: 15px;
+            }
+    
+            .select-departure-airport {
+                border: none;
+                width: 200px;
+                height: 30px;
+                border-radius: 5px;
+                font-size: 16px;
+                margin-left: 15px;
+                margin-bottom: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            
+            .select-arrival-airport {
+                border: none;
+                width: 200px;
+                height: 30px;
+                border-radius: 5px;
+                font-size: 16px;
+                margin-left: 50px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+            }
+    
+            .bx.bx-calendar {
+                font-size: 25px;
+                margin-left: -20px;
+                border: none;
+                
+            }
+    
+            .date {
+                margin-right: 250px;
+            }
+    
+            label {
+                font-size: 20px;
+    
+                & .datee {
+                    margin-right: 5px;
+                }
+            }
+    
+    
+        </style>
 </body>
 </html>

@@ -15,19 +15,22 @@
     <link rel='stylesheet' href="{% static 'css/finalreservation.css' %}">
 </head>
 <body>
-    <div class="page-login-toT">
-        <div class="auto-group-vzxu-cDf">
-            <a href="{% url 'page_login' %}">
-                <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
-            </a>            
-            <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
-            <div class="group-33-85X">
-                <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
-            </div>
-            <div class="group-33-85X">
-                <div class="buttomF">Username: {{ user.username }}</div>
-            </div>
+    <header>
+        <a href="{% url 'page_login' %}">
+        <div class="logo"> 
+            <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1178496270520823931/nokkapood-travel.png?ex=65765b2e&is=6563e62e&hm=1299f63426dc58460a9f61cdaa3c2023d3872b5295ee0408aefa2d01ef055d7a&" alt="">
         </div>
+        </a>
+        <nav class="navigation">
+            <form action="{% url 'finalreservation' %}" method="post">
+                    {% csrf_token %}
+
+                    <button class="register" type="submit">My Booking</a></button>
+            </form>
+
+                    <button class="login" type="submit">User: {{user.username}}</a></button>
+        </nav>
+    </header>
         <div class='bg'>
                 <ul>
                     {% for ticket in tickets %}
@@ -102,6 +105,506 @@
             </div>    
         </div>
     </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+        
+                *{
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Poppins', sans-serif;
+                }
+        
+                header {
+                    position: fixed;
+                    top: 0rem;
+                    left: 0rem;
+                    width: 100%;
+                    padding: 20px 100px 20px;
+                    background: rgba(200, 139, 142, 0.6999999881);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    z-index: 99;
+                }
+        
+                lable.nkt {
+                    display: flex;
+                    font-size: 2.5rem;
+                    word-wrap: break-word;
+                    width: 18.75rem;
+                    height: auto;
+                    margin-left: -35rem;
+                    margin-top: 0.438;
+                    color: white;
+                }
+                
+                html {
+                    font-size: 62.5%;
+                }
+                
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                ul, li {
+                    list-style: none;
+                }
+                
+                input {
+                    border: none;
+                }
+                
+                body {
+                    width: 100%;
+                }
+                .space {
+                 margin-top: 15%;
+                }
+                
+                .bg {
+                    margin-top:6%;
+                    width: 100%;
+                    height: 100vh;
+                    flex-shrink: 0;
+                    border-radius: 20px;
+                    background: #EAEAEA;
+                    overflow: auto;
+                }
+                
+                .base {
+                    width: 90%;
+                    max-width: 900px;
+                    height: 500px;
+                    background: #FFF;
+                    border-radius: 10px;
+                    margin: 0 auto;
+                    position: relative;
+                    transform: translateY(-50%);
+                    display: flex;
+                    flex-direction: column;
+                    
+                }
+                
+                
+                
+                .h1{
+                  width: 219px;
+                  height: 43px;
+                  flex-shrink: 0;
+                  color: #000;
+                  font-family: Inter;
+                  font-size: 30px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: normal;
+                  white-space: nowrap;
+                  margin-left: 4%; 
+                }
+                
+                .line {
+                  width: 825px;
+                  height: 1px;
+                  background: #D9D9D9;
+                  margin-left: 4%; 
+                }
+                
+                .sub {
+                  width: 825px;
+                  height: 402px;
+                  margin-top: 3%;
+                  margin-left: 4%;
+                  flex-shrink: 0;
+                  border: 1px solid rgba(0, 0, 0, 0.50);
+                  background: #FFF;
+                  mix-blend-mode: darken;
+                  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                  text-align: center;
+                }
+                
+                .plane{
+                  margin-left: 5%;
+                  margin-bottom: 10%;
+                }
+                
+                .border1 {
+                  display: flex;
+                  margin-left: 5%;
+                  margin-top: 3%;
+                  
+                }
+                
+                .l1{
+                  width: 267px;
+                  height: 13px;
+                  margin-top: 1%;
+                  flex-shrink: 0;
+                  color: #000;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                  
+                }
+                
+                .l2{
+                  width: 267px;
+                  height: 13px;
+                  margin-top: 1%;
+                  flex-shrink: 0;
+                  color: #000;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                  padding-left: 170px;
+                }
+                
+                .border2 {
+                  display: flex;
+                  margin-left: 5%;
+                  margin-top: 3%;
+                }
+                
+                .l3 {
+                  width: 267px;
+                  height: 13px;
+                  margin-top: 1%;
+                  flex-shrink: 0;
+                  color: #000;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                  padding-left: 50px;
+                }
+                
+                .total-amount {
+                  width: 267px;
+                  height: 13px;
+                  flex-shrink: 0;
+                  color: red;
+                  font-weight: 1000;
+                  margin-left: auto; /* This will push it to the right */
+                  font-size: 32px;
+                }
+                
+                
+                .l4{
+                  width: 267px;
+                  height: 13px;
+                  margin-top: 1.5%;
+                  flex-shrink: 0;
+                  color: #F00;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                  padding-left: 50px;
+                }
+                .border3 {
+                  display: flex;
+                  flex-direction: row;
+                  gap: 150px;
+                  margin-top: 3%;
+                  padding-left: 133px;
+                  padding-top: 10px;
+                }
+                
+                .border3 p {
+                  height: 27px;
+                  flex-shrink: 0;
+                  color: #90989F;
+                  font-family: Inter;
+                  font-size: 15px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                }
+                
+                .border4 {
+                  display: flex;
+                  flex-direction: row;
+                  gap: 150px;
+                  margin-top: 1.5%;
+                  padding-left: 133px;
+                  padding-top: 10px;
+                  color: #000;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                }
+                
+                .border4 p {
+                  height: 13px;
+                  flex-shrink: 0;
+                  color: #000000;
+                  font-size: 15px;
+                  white-space: nowrap;
+                }
+                
+                .tt {
+                  margin-left: -5%; /* Adjust the negative value based on your preference */
+                }
+                
+                
+                .border5 {
+                  display: flex;
+                  flex-direction: row; /* Display the children in a row */
+                  gap: 140px; /* Adjust the value to control the space between <p> elements */
+                  margin-top: 3%;
+                  padding-left: 133px;
+                  padding-top: 10px;
+                }
+                
+                .border5 p {
+                  height: 27px;
+                  flex-shrink: 0;
+                  color: #90989F;
+                  font-family: Inter;
+                  font-size: 15px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                }
+                
+                .border6{
+                  width: 267px;
+                  height: 13px;
+                  margin-top: 1.5%;
+                  flex-shrink: 0;
+                  display: flex;
+                  flex-direction: row; 
+                  color: #000;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  padding-left: 30px;
+                  padding-top: 10px;
+                }
+                
+                .border6 p {
+                  width: 267px;
+                  height: 13px;
+                  flex-shrink: 0;
+                  color: #000000;
+                  font-family: Inter;
+                  font-size: 15px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  white-space: nowrap;
+                }
+                
+                .border7 {
+                  display: flex;
+                  align-items: center;
+                  margin-left: 70%;
+                }
+                
+                
+                .tt3 {
+                  margin-left: 10%;
+                  /* Adjust the negative value based on your preference */
+                }
+                
+                .tt1 {
+                  margin-left: -23%; /* Adjust the negative value based on your preference */
+                }
+                .btn {
+                  width: 100px;
+                  height: 30px;
+                  flex-shrink: 0;
+                  border-radius: 5px;
+                  background: #F00;
+                  color: #FFF;
+                  font-family: Inter;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  margin-top: 3%;
+                  margin-right: 3%;
+                }
+                
+                .btnCancel {
+                  margin-left: 3%; /* Adjust the margin-left value to your preference */
+                }
+                
+                .line1{
+                  width: 740px;
+                  height: 1px;
+                  background: #D9D9D9;
+                  margin-left: 5%;
+                  margin-top: 3%;
+                }
+            
+
+                .nk {
+                    display: flex;
+                    width: 20rem;
+                    height: auto;
+        
+                }
+        
+                .navigation {
+                    display: flex;
+                }
+        
+                .register {
+                    width: 15rem;
+                    height: 3rem;
+                    margin-right: 2rem;
+                    background-color: red;
+                    font-size: 1.5rem;
+                    border: none;
+                    border-radius: 0.5rem;
+                    cursor: pointer;
+                    color: white;
+                }
+        
+                .login {
+                    width: 20rem;
+                    height: 3rem;
+                    background-color: red;
+                    font-size: 1.5rem; 
+                    border: none;
+                    border-radius: 0.5rem;
+                    cursor: pointer;
+                    color: white;
+                }
+        
+                .search-flight button {
+                    padding: 5px 10px; /* ขนาดขอบของปุ่ม */
+                    font-size: 16px; /* ขนาดตัวอักษร */
+                    background-color: red; /* สีพื้นหลัง */
+                    color: white; /* สีตัวอักษร */
+                    border: none; /* ไม่มีเส้นขอบ */
+                    margin-top: 5px;
+                    margin-left: 800px;
+                    border-radius: 5px; /* ขอบโค้ง */
+                    cursor: pointer; /* เปลี่ยนเป็น cursor ที่บ่งบอกถึงการคลิกได้ */
+                }
+        
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    background-size: cover;
+                    background-position: center;
+                    background-image: url(https://cdn.discordapp.com/attachments/698939910131941466/1178039611847618560/image-2-bg.png?ex=6574b1e2&is=65623ce2&hm=1de53c58cde093b39cf114623ec535dec67794983860737b10a13a4a8fb1ea48&);
+        
+                }
+        
+                .box {
+                    margin-top: 7rem;
+                    width: 60rem;
+                    height: 18.75rem;
+                    background-color: #d9d9d9;
+                    border: none;
+                    border-radius: 1.5rem;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                }
+
+                .select-type {
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+        
+                .datetable {
+                    margin-left: 5px;
+                }
+        
+                .select-type-trip {
+                    border: none;
+                    width: 200px;
+                    height: 30px;
+                    margin-left: 15px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    
+                }
+        
+                .select-type-class {
+                    border: none;
+                    width: 200px;
+                    height: 30px;
+                    margin-right: 20px;
+                    margin-left: -5px;
+                    margin-bottom: 50px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        
+                }
+        
+                .departure-airport {
+                    font-size: 20px;
+                    margin-left: 15px;
+                }
+        
+                .select-departure-airport {
+                    border: none;
+                    width: 200px;
+                    height: 30px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    margin-left: 15px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                }
+                
+                .select-arrival-airport {
+                    border: none;
+                    width: 200px;
+                    height: 30px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    margin-left: 50px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        
+                }
+        
+                .bx.bx-calendar {
+                    font-size: 25px;
+                    margin-left: -20px;
+                    border: none;
+                    
+                }
+        
+                .date {
+                    margin-right: 250px;
+                }
+        
+                label {
+                    font-size: 20px;
+        
+                    & .datee {
+                        margin-right: 5px;
+                    }
+                }
+        
+        
+            </style>
 </body>
 </html>
 
