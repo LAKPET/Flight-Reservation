@@ -11,9 +11,8 @@
 
     <header>
         <div class="logo"> 
-            <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1177422315043172452/red-cardinal_1.png?ex=657272fb&is=655ffdfb&hm=267f647492cd9e8f7b753e3914a3284b3be0f9ff792280d0fac19a3c7c620179&" alt="">
+            <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1178496270520823931/nokkapood-travel.png?ex=65765b2e&is=6563e62e&hm=1299f63426dc58460a9f61cdaa3c2023d3872b5295ee0408aefa2d01ef055d7a&" alt="">
         </div>
-        <h3>Nokkapood Travel</h3>
         <nav class="navigation">
             <button class="register">Register</button>
             <button class="login">Login</button>
@@ -42,9 +41,10 @@
                 </div>
 
                 <div class="container2">
-                    <label for="departure">Departure Airport</label>
                     <div class="select-airport">  
                         <div class="departure-airport">
+                            <label for="departure">Departure Airport</label>
+                            <i class='bx bxs-plane-take-off bx-fade-right' ></i>
                             <select class="select-departure-airport">
                                 <option selected value="Select Airport">Select Airport</option>
                                 <option value="Don Mueang">Don Mueang</option>
@@ -52,23 +52,20 @@
                                 <option value="Chiang Mai">Chiang Mai</option>
                                 <option value="Phuket">Phuket</option>
                             </select>
-                        </div>
-                        <label for="arrival">Arrival Airport</label>
-                        <div class="arrival-airport">
+                            <div class="arrival-airport">
+                                <label for="arrival">Arrival Airport</label>
+                                <i class='bx bxs-plane-land bx-fade-right' ></i>
                                 <select class="select-arrival-airport">
-                                <option selected value="Select destination">Select destination</option>
-                                <option value="Don Mueang">Don Mueang</option>
-                                <option value="Khon Kaen">Khon Kaen</option>
-                                <option value="Chiang Mai">Chiang Mai</option>
-                                <option value="Phuket">Phuket</option>
-                            </select>
+                                    <option selected value="Select destination">Select Destination</option>
+                                    <option value="Don Mueang">Don Mueang</option>
+                                    <option value="Khon Kaen">Khon Kaen</option>
+                                    <option value="Chiang Mai">Chiang Mai</option>
+                                    <option value="Phuket">Phuket</option>
+                                </select>
+                            </div>
                         </div>
                     </div> 
                 </div>
-
-                <a class="buttonLink">
-                    <i class='bx bxs-chevrons-right'></i>
-                </a>
             </div>
         </div>
     <style>
@@ -95,7 +92,7 @@
             z-index: 99;
         }
 
-        h3{
+        lable.nkt {
             display: flex;
             font-size: 2.5rem;
             word-wrap: break-word;
@@ -108,7 +105,7 @@
         
         .nk {
             display: flex;
-            width: 7rem;
+            width: 20rem;
             height: auto;
 
         }
@@ -164,6 +161,7 @@
         }
 
         .select-type {
+            margin-top: 15px;
             display: flex;
             justify-content: space-between;
         }
@@ -172,7 +170,7 @@
             border: none;
             width: 200px;
             height: 30px;
-            margin-left: 10px;
+            margin-left: 15px;
             border-radius: 5px;
             font-size: 16px;
             
@@ -183,9 +181,34 @@
             width: 200px;
             height: 30px;
             margin-right: 500px;
-            margin-bottom: 100px;
+            margin-bottom: 50px;
             border-radius: 5px;
             font-size: 16px;
+        }
+
+        .departure-airport {
+            font-size: 20px;
+            margin-left: 15px;
+        }
+
+        .select-departure-airport {
+            border: none;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .select-arrival-airport {
+            border: none;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 50px;
+
         }
 
 
