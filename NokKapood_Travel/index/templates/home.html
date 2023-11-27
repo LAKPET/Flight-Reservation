@@ -10,64 +10,92 @@
 <body>
 
     <header>
+        <a href="">
         <div class="logo"> 
             <img class="nk" src="https://cdn.discordapp.com/attachments/698939910131941466/1178496270520823931/nokkapood-travel.png?ex=65765b2e&is=6563e62e&hm=1299f63426dc58460a9f61cdaa3c2023d3872b5295ee0408aefa2d01ef055d7a&" alt="">
         </div>
+        </a>
         <nav class="navigation">
-            <button class="register">Register</button>
-            <button class="login">Login</button>
+            <form action="{% url 'register_page' %}" method="post">
+                    {% csrf_token %}
+
+                    <button class="register" type="submit">Register</a></button>
+            </form>
+
+            <form action="{% url 'login_page' %}" method="post">
+                    {% csrf_token %}
+
+                    <button class="login" type="submit">Login</a></button>
+            </form>
         </nav>
     </header>
-        <form method="get" action="{% url 'search_results' %}"></form>
-        <div class="box">
-            <p class="flight">Flight</p>
-            <div class="dropdown">
-                <div class="container">
-                    <div class="select-type">
-                        <select class="select-type-trip">
-                            <option value="Select Trip type">Select trip type</option>
-                            <option value="Round Trip">Round trip</option>
-                            <option value="One Way">One way</option>
-                        </select>
-                        <div class="select-class">
-                            <select class="select-type-class">
-                                <option value="Select Seat class">Select seat class</option>
-                                <option value="Economy Class">Economy Class</option>
-                                <option value="Business Class">Business Class</option>
-                                <option value="First Class">First Class</option>
+        <form method="get" action="{% url 'search_results' %}">
+            {% csrf_token %}
+            <div class="box">
+            <p class="flight">Search Flight
+                <i class='bx bx-search-alt bx-rotate-90' ></i>
+            </p>
+            <form method="GET" action="{% url 'search_results' %}">
+                <div class="dropdown">
+                    <div class="container">
+                        <div class="select-type">
+                            <select class="select-type-trip">
+                                <option value="Select Trip type">Select trip type</option>
+                                <option value="Round Trip">Round trip</option>
+                                <option value="One Way">One way</option>
                             </select>
-                        </div>
-                    </div>    
-                </div>
+                            <div class="select-class">
+                                <select class="select-type-class">
+                                    <option value="Select Seat class">Select seat class</option>
+                                    <option value="Economy Class">Economy Class</option>
+                                    <option value="Business Class">Business Class</option>
+                                    <option value="First Class">First Class</option>
+                                </select>
+                            </div>
+                            <label for="datee">Date</label>
+                            <i class='bx bx-calendar'></i>
+                            <div class="date">
+                                <div class="date-table">
+                                    <input class="dated" type="date">
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
 
-                <div class="container2">
-                    <div class="select-airport">  
-                        <div class="departure-airport">
-                            <label for="departure">Departure Airport</label>
-                            <i class='bx bxs-plane-take-off bx-fade-right' ></i>
-                            <select class="select-departure-airport">
-                                <option selected value="Select Airport">Select Airport</option>
-                                <option value="Don Mueang">Don Mueang</option>
-                                <option value="Khon Kaen">Khon Kaen</option>
-                                <option value="Chiang Mai">Chiang Mai</option>
-                                <option value="Phuket">Phuket</option>
-                            </select>
-                            <div class="arrival-airport">
-                                <label for="arrival">Arrival Airport</label>
-                                <i class='bx bxs-plane-land bx-fade-right' ></i>
-                                <select class="select-arrival-airport">
-                                    <option selected value="Select destination">Select Destination</option>
+                    <div class="container2">
+                        <div class="select-airport">  
+                            <div class="departure-airport">
+                                <label for="departure">Departure Airport</label>
+                                <i class='bx bxs-plane-take-off bx-fade-right' ></i>
+                                <select class="select-departure-airport">
+                                    <option selected value="Select Airport">Select Airport</option>
                                     <option value="Don Mueang">Don Mueang</option>
                                     <option value="Khon Kaen">Khon Kaen</option>
                                     <option value="Chiang Mai">Chiang Mai</option>
                                     <option value="Phuket">Phuket</option>
                                 </select>
+                                <div class="arrival-airport">
+                                    <label for="arrival">Arrival Airport</label>
+                                    <i class='bx bxs-plane-land bx-fade-right' ></i>
+                                    <select class="select-arrival-airport">
+                                        <option selected value="Select destination">Select Destination</option>
+                                        <option value="Don Mueang">Don Mueang</option>
+                                        <option value="Khon Kaen">Khon Kaen</option>
+                                        <option value="Chiang Mai">Chiang Mai</option>
+                                        <option value="Phuket">Phuket</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                    </div> 
+                        </div> 
+                    </div>
                 </div>
-            </div>
-        </div>
+                <nav class="search-flight">
+                    <button type="submit">Search Flights</button>
+                </nav>
+        </form>
+         </div>
+
+        
     <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
@@ -110,6 +138,10 @@
 
         }
 
+        .navigation {
+            display: flex;
+        }
+
         .register {
             width: 8.7rem;
             height: 3rem;
@@ -118,6 +150,7 @@
             font-size: 1.5rem;
             border: none;
             border-radius: 0.5rem;
+            cursor: pointer;
             color: white;
         }
 
@@ -128,7 +161,20 @@
             font-size: 1.5rem; 
             border: none;
             border-radius: 0.5rem;
+            cursor: pointer;
             color: white;
+        }
+
+        .search-flight button {
+            padding: 5px 10px; /* ขนาดขอบของปุ่ม */
+            font-size: 16px; /* ขนาดตัวอักษร */
+            background-color: red; /* สีพื้นหลัง */
+            color: white; /* สีตัวอักษร */
+            border: none; /* ไม่มีเส้นขอบ */
+            margin-top: 5px;
+            margin-left: 800px;
+            border-radius: 5px; /* ขอบโค้ง */
+            cursor: pointer; /* เปลี่ยนเป็น cursor ที่บ่งบอกถึงการคลิกได้ */
         }
 
         body {
@@ -166,6 +212,10 @@
             justify-content: space-between;
         }
 
+        .datetable {
+            margin-left: 5px;
+        }
+
         .select-type-trip {
             border: none;
             width: 200px;
@@ -173,6 +223,7 @@
             margin-left: 15px;
             border-radius: 5px;
             font-size: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             
         }
 
@@ -180,10 +231,13 @@
             border: none;
             width: 200px;
             height: 30px;
-            margin-right: 500px;
+            margin-right: 20px;
+            margin-left: -5px;
             margin-bottom: 50px;
             border-radius: 5px;
             font-size: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
         }
 
         .departure-airport {
@@ -199,6 +253,7 @@
             font-size: 16px;
             margin-left: 15px;
             margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         
         .select-arrival-airport {
@@ -208,7 +263,27 @@
             border-radius: 5px;
             font-size: 16px;
             margin-left: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
+        }
+
+        .bx.bx-calendar {
+            font-size: 25px;
+            margin-left: -20px;
+            border: none;
+            
+        }
+
+        .date {
+            margin-right: 250px;
+        }
+
+        label {
+            font-size: 20px;
+
+            & .datee {
+                margin-right: 5px;
+            }
         }
 
 

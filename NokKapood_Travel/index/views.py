@@ -18,7 +18,7 @@ from django.db.models import F, ExpressionWrapper, fields
 
 def index(request):
     data = {}
-    return render(request, 'index.html', data)
+    return render(request, 'home.html', data)
 
 
 def login_page(request):
@@ -69,7 +69,7 @@ def login(request):
             messages.info(request, 'invalid username or password')
             return redirect("login_page")
     else:
-        return render(request,'index.html')
+        return render(request,'home.html')
     
 def register(request):
     if request.method == 'POST':
@@ -90,6 +90,11 @@ def register(request):
         return redirect('information', user_id=user.id)
 
     return render(request, 'register.html')
+
+def register_page(request):
+    data = {}
+    return render(request, 'register.html', data)
+
 
 def custom(request):
         return render(request, 'custom.html')
