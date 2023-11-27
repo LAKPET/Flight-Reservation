@@ -29,71 +29,74 @@
             </form>
         </nav>
     </header>
-        <form method="get" action="{% url 'search_results' %}">
-            {% csrf_token %}
-            <div class="box">
+    <form method="post" action="{% url 'search_results' %}">
+        {% csrf_token %}
+        <div class="box">
             <p class="flight">Search Flight
                 <i class='bx bx-search-alt bx-rotate-90' ></i>
             </p>
-            <form method="GET" action="{% url 'search_results' %}">
-                <div class="dropdown">
-                    <div class="container">
-                        <div class="select-type">
-                            <select class="select-type-trip">
-                                <option value="Select Trip type">Select trip type</option>
-                                <option value="Round Trip">Round trip</option>
-                                <option value="One Way">One way</option>
+            <div class="dropdown">
+                <div class="container">
+                    <div class="select-type">
+                        <label for="filght_class">Trip type</label>
+                        <select id="filght_class" name="filght_class">
+                            <option selected value="Select Trip type">Select Trip type</option>
+                            <option value="Round Trip">Round Trip</option>
+                            <option value="One Way">One Way</option>
+                        </select>
+                        <div class="select-class">
+                            <label for="seatClass">Seat class</label>
+                            <select  class="form-select" id="seatClass" name="seatClass">
+                                <option selected value="Select Seat class">Select Seat class</option>
+                                <option value="Economy Class">Economy Class</option>
+                                <option value="Business Class">Business Class</option>
+                                <option value="First Class">First Class</option>
                             </select>
-                            <div class="select-class">
-                                <select class="select-type-class">
-                                    <option value="Select Seat class">Select seat class</option>
-                                    <option value="Economy Class">Economy Class</option>
-                                    <option value="Business Class">Business Class</option>
-                                    <option value="First Class">First Class</option>
-                                </select>
+                        </div>
+                        <label for="datee">Date</label>
+                        <i class='bx bx-calendar'></i>
+                        <div class="date">
+                            <div class="date-table">
+                                <input type="date" id="txt_flightDate" name="txt_flightDate" required>
                             </div>
-                            <label for="datee">Date</label>
-                            <i class='bx bx-calendar'></i>
-                            <div class="date">
-                                <div class="date-table">
-                                    <input class="dated" type="date">
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-
-                    <div class="container2">
-                        <div class="select-airport">  
-                            <div class="departure-airport">
-                                <label for="departure">Departure Airport</label>
-                                <i class='bx bxs-plane-take-off bx-fade-right' ></i>
-                                <select class="select-departure-airport">
-                                    <option selected value="Select Airport">Select Airport</option>
+                        </div>
+                    </div>    
+                </div>
+    
+                <div class="container2">
+                    <div class="select-airport">  
+                        <div class="departure-airport" method="post">
+                            <label for="departure">Departure Airport</label>
+                            <i class='bx bxs-plane-take-off bx-fade-right' ></i>
+                            <select class="select-departure-airport" name="select_start">
+                                <option selected value="Select Airport">Select Airport</option>
+                                <option value="Don Mueang">Don Mueang</option>
+                                <option value="Khon Kaen">Khon Kaen</option>
+                                <option value="Chiang Mai">Chiang Mai</option>
+                                <option value="Phuket">Phuket</option>
+                            </select>
+                            <div class="arrival-airport" method="post">
+                                <label for="select_goal">Arrival Airport</label>
+                                <i class='bx bxs-plane-land bx-fade-right' ></i>
+                                <select class="form-select" id="select_goal" name="select_goal">
+                                    <option selected value="Select destination">Select Destination</option>
                                     <option value="Don Mueang">Don Mueang</option>
                                     <option value="Khon Kaen">Khon Kaen</option>
                                     <option value="Chiang Mai">Chiang Mai</option>
                                     <option value="Phuket">Phuket</option>
                                 </select>
-                                <div class="arrival-airport">
-                                    <label for="arrival">Arrival Airport</label>
-                                    <i class='bx bxs-plane-land bx-fade-right' ></i>
-                                    <select class="select-arrival-airport">
-                                        <option selected value="Select destination">Select Destination</option>
-                                        <option value="Don Mueang">Don Mueang</option>
-                                        <option value="Khon Kaen">Khon Kaen</option>
-                                        <option value="Chiang Mai">Chiang Mai</option>
-                                        <option value="Phuket">Phuket</option>
-                                    </select>
-                                </div>
                             </div>
-                        </div> 
-                    </div>
+                        </div>
+                    </div> 
                 </div>
-                <nav class="search-flight">
-                    <button type="submit">Search Flights</button>
-                </nav>
-        </form>
-         </div>
+            </div>
+            <div class="search-flight">
+                <button type="submit">Search Flights</button>
+            </div>
+        </div>
+    </form>
+    
+        
 
         
     <style>

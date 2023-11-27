@@ -64,7 +64,7 @@
                                             <p><a class='head1'>{{ flight.departure_airport }}</a></p>
                                             <p><a class='head11'>{{ flight.duration }}</a></p>
                                             <p><a class='head2'>{{ flight.arrival_airport }}</a></p>
-                                            <p><a class='head3'>{{ flight.price }}</a></p>
+                                            <p><a class='head3'>{{ seat.price }}</a></p>
                                             <button type="submit" class="btn">เลือก</button>
                                         </div>
 
@@ -87,7 +87,7 @@
                                         <input type="hidden" name="arrival_date" value="{{ flight.arrival_date }}">
                                         <input type="hidden" name="arrival_time" value="{{ flight.arrival_time }}">
                                         <input type="hidden" name="duration" value="{{ flight.duration }}">
-                                        <input type="hidden" name="price" value="{{ flight.price }}">
+                                        <input type="hidden" name="price" value="{{ seat.price }}">
                                         <!-- ... Other hidden inputs ... -->
                                     </form>
                                 {% endwith %}

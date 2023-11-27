@@ -113,13 +113,12 @@ def qrcode(request):
         return render(request, 'qrcode.html', data)
 
 def search_results(request):
-    if request.method == 'GET':
-        departure_airport = request.GET.get('select_start')
-        arrival_airport = request.GET.get('select_goal')
-        filght_class = request.GET.get('filght_class')
-        seat_class = request.GET.get('seatClass')
-        flight_date_str = request.GET.get('txt_flightDate')
-        print(departure_airport,flight_date_str)
+    if request.method == 'POST':
+        departure_airport = request.POST.get('select_start')
+        arrival_airport = request.POST.get('select_goal')
+        filght_class = request.POST.get('filght_class')
+        seat_class = request.POST.get('seatClass')
+        flight_date_str = request.POST.get('txt_flightDate')
         # Check if flight_date_str is not None before parsing
         if flight_date_str:
             flight_date = datetime.strptime(flight_date_str, '%Y-%m-%d').date()
@@ -148,13 +147,12 @@ def search_results(request):
         pass
 
 def search_results2(request):
-    if request.method == 'GET':
-        departure_airport = request.GET.get('select_start')
-        arrival_airport = request.GET.get('select_goal')
-        filght_class = request.GET.get('filght_class')
-        seat_class = request.GET.get('seatClass')
-        flight_date_str = request.GET.get('txt_flightDate')
-        print(departure_airport,flight_date_str)
+    if request.method == 'POST':
+        departure_airport = request.POST.get('select_start')
+        arrival_airport = request.POST.get('select_goal')
+        filght_class = request.POST.get('filght_class')
+        seat_class = request.POST.get('seatClass')
+        flight_date_str = request.POST.get('txt_flightDate')
         # Check if flight_date_str is not None before parsing
         if flight_date_str:
             flight_date = datetime.strptime(flight_date_str, '%Y-%m-%d').date()

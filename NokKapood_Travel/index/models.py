@@ -2,19 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class Booking(models.Model):
-    booking_id = models.PositiveIntegerField(primary_key=True)
-    user_id = models.PositiveIntegerField()
-    booking_date = models.DateField()
-    flight_id = models.CharField(max_length=100)
 
-    class Meta:
-        db_table = "booking"
-        managed = True
-
-    def __str__(self):
-        return f"Booking {self.booking_id} - User {self.user_id}"
-    
 class seat(models.Model):
     seat_id = models.CharField(max_length=200, primary_key=True)
     flight_id = models.CharField(max_length=100)
@@ -51,47 +39,6 @@ class Flight(models.Model):
     def __str__(self):
         return self.flight_id
     
-class payment(models.Model):
-    booking_id = models.IntegerField()
-    payment_id = models.IntegerField(primary_key=True)
-    payment_method = models.CharField(max_length=100)
-    payment_status = models.CharField(max_length=100, null=True)
-    class Meta:
-        db_table = "payment"
-        managed = True
-    def __str__(self):
-        return self.payment_id
-
-class register(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    password = models.CharField(max_length=100, null=True)
-    class Meta:
-        db_table = "register"
-        managed = True
-    def __str__(self):
-        return self.name
-
-class PaymentMethod(models.Model):
-    payment_method = models.CharField(max_length=100, primary_key=True)
-    description = models.CharField(max_length=100,null=True,blank=True)
-    class Meta:
-        db_table = "payment_method"
-        managed = True
-    def __str__(self):
-        return self.payment_method
-    
-class users(models.Model):
-    user_id = models.IntegerField(primary_key=True)
-    email = models.CharField(max_length=100,null=True )
-    password = models.CharField(max_length=100,null=True)
-    class Meta:
-        db_table = "users"
-        managed = True
-    def __str__(self):
-        return self.user_id
-
-
 class Ticket(models.Model):
     ticket_id = models.CharField(max_length=10, primary_key=True, unique=True)
     flight_id = models.CharField(max_length=5)
