@@ -17,8 +17,10 @@
 <body>
     <div class="page-login-toT">
         <div class="auto-group-vzxu-cDf">
-          <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
-          <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+            <a href="{% url 'page_login' %}">
+                <img class="red-cardinal-1-K85" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg">
+            </a>             
+            <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
           <div class="group-33-85X">
             <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
           </div>
@@ -99,17 +101,21 @@
         <!-- Input boxes for passenger information -->
     </form>
     <script>
-        // Function to format the current date as 'YYYY-MM-DD'
-        function getCurrentDate() {
+        // Function to format the current date and time as 'YYYY-MM-DD HH:mm:ss'
+        function getCurrentDateTime() {
             const today = new Date();
             const year = today.getFullYear();
-            const month = (today.getMonth() + 1).toString().padStart(2, '0');
-            const day = today.getDate().toString().padStart(2, '0');
-            return `${year}-${month}-${day}`;
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const hours = String(today.getHours()).padStart(2, '0');
+            const minutes = String(today.getMinutes()).padStart(2, '0');
+            const seconds = String(today.getSeconds()).padStart(2, '0');
+            const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            return formattedDateTime;
         }
     
-        // Set the value of the 'booking_date' input to the current date when the page loads
-        document.getElementById('booking_date').value = getCurrentDate();
+        // Set the value of the 'booking_date' input to the current date and time when the page loads
+        document.getElementById('booking_date').value = getCurrentDateTime();
     </script>
 </body>
 </html>

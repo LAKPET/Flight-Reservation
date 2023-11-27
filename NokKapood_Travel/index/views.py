@@ -296,3 +296,17 @@ def finalreservation(request):
     passengers = Passenger.objects.all()
     data = {'flights': flights, 'tickets': tickets, 'passengers': passengers}
     return render(request, 'finalreservation.html',data)
+
+def cancel_reservation(request):
+    if request.method == 'POST':
+        ticket_id = request.POST.get('ticket_id')  # ดึงข้อมูล ticket_id จาก POST request
+
+        try:
+            ticket = Ticket.objects.get(ticket_id=ticket_id)
+            ticket.delete()
+            # หลังจากดำเนินการเสร็จสิ้น, คุณอาจทำการ redirect ไปยังหน้าใดหน้าหนึ่ง
+            return redirect('finalreservation')  # เปลี่ยนเป็น URL pattern ที่คุณต้องการ
+        except Ticket.DoesNotExist:
+            return HttpResponse("Ticket not found.")
+    else:
+        return HttpResponse("Invalid request method.")
