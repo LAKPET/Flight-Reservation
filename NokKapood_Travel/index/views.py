@@ -297,7 +297,8 @@ def finalreservation(request):
     flights = Flight.objects.all().values('departure_airport','arrival_airport','airline','flight_class','flight_no','departure_date','arrival_date','departure_time','arrival_time','duration')
     tickets = Ticket.objects.all()
     passengers = Passenger.objects.all()
-    data = {'flights': flights, 'tickets': tickets, 'passengers': passengers}
+    seats = seat.objects.all()
+    data = {'flights': flights, 'tickets': tickets, 'passengers': passengers, 'seats': seats}
     return render(request, 'finalreservation.html',data)
 
 def cancel_reservation(request):

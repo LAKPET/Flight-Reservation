@@ -36,6 +36,7 @@
                     {% for ticket in tickets %}
                         {% for flight in flights %}
                             {% for passenger in passengers %}
+                              {% for seat in seats %}
                                 {% if ticket.username == user.username and flight.flight_no == ticket.flight_id and ticket.ticket_id == passenger.ticket_id.ticket_id  %}
                                         <li class='space'>
                                             <div class='base'>    
@@ -71,6 +72,7 @@
                                             
                                                     <div class='border6'>
                                                         <p>{{ passenger.first_name }} {{ passenger.last_name }}</p>
+                                                        <p>{{ seat.seat_id }}</p>
                                                         <p class='tt1'>{{ ticket.status }}</p>
                                                     </div>
 
@@ -98,6 +100,7 @@
                                         </li>                  
                                     
                                 {% endif %}
+                              {% endfor %}
                             {% endfor %}
                         {% endfor %}
                     {% endfor %}
