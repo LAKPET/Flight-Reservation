@@ -38,14 +38,18 @@
             <div class="dropdown">
                 <div class="container">
                     <div class="select-type">
-                        <label for="filght_class">Trip type</label>
-                        <select id="filght_class" name="filght_class">
-                            <option selected value="Select Trip type">Select Trip type</option>
-                            <option value="Round Trip">Round Trip</option>
-                            <option value="One Way">One Way</option>
-                        </select>
+                        <i class='bx bxs-plane-alt'></i>
+                        <div class="select-type-trip">
+                                <label for="filght_class"></label>
+                            <select id="filght_class" name="filght_class">
+                                <option selected value="Select Trip type">Select Trip type</option>
+                                <option value="Round Trip">Round Trip</option>
+                                <option value="One Way">One Way</option>
+                            </select>
+                        </div>
+                        <i class='bx bx-accessibility' ></i>
                         <div class="select-class">
-                            <label for="seatClass">Seat class</label>
+                            <label for="seatClass"></label>
                             <select  class="form-select" id="seatClass" name="seatClass">
                                 <option selected value="Select Seat class">Select Seat class</option>
                                 <option value="Economy Class">Economy Class</option>
@@ -157,6 +161,7 @@
             color: white;
         }
 
+
         .login {
             width: 8.7rem;
             height: 3rem;
@@ -205,14 +210,49 @@
             font-size: 30px;
             font-weight: bold;
             margin-left: 1rem;
+            margin-top: 10px;
             border: 0 0 10px rgba(103, 103, 103, 0.5);
             margin-top: 0.5rem;
         }
 
+        select {
+            border: none;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        } 
+
+        /* .select#flight-class {
+            border: none;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 500;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        } */
+
+        .form-select {
+            border: none;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
         .select-type {
-            margin-top: 15px;
+            margin-left: 15px;
+            margin-top: 20px;
             display: flex;
             justify-content: space-between;
+        }
+
+        .select-class {
+            margin-left: 50px;
         }
 
         .datetable {
@@ -220,13 +260,9 @@
         }
 
         .select-type-trip {
-            border: none;
             width: 200px;
             height: 30px;
-            margin-left: 15px;
-            border-radius: 5px;
             font-size: 16px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             
         }
 
@@ -244,8 +280,10 @@
         }
 
         .departure-airport {
+
             font-size: 20px;
             margin-left: 15px;
+            margin-top: 50px;
         }
 
         .select-departure-airport {
@@ -259,7 +297,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         
-        .select-arrival-airport {
+        .select_goal.form-select {
             border: none;
             width: 200px;
             height: 30px;
@@ -272,9 +310,21 @@
 
         .bx.bx-calendar {
             font-size: 25px;
-            margin-left: -20px;
+            margin-left: 5px;
             border: none;
             
+        }
+
+        .bx.bxs-plane-alt {
+            font-size: 30px;
+            margin-left: 20px;
+            margin-right: -40px;
+        }
+
+        .bx.bx-accessibility {
+            font-size: 30px;
+            margin-left: 95px;
+            margin-right: -100px;
         }
 
         .date {
@@ -282,6 +332,8 @@
         }
 
         label {
+            width: 100px;
+            margin-left: 20px;
             font-size: 20px;
 
             & .datee {

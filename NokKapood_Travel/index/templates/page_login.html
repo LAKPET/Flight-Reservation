@@ -34,14 +34,16 @@
             <div class="dropdown">
                 <div class="container">
                     <div class="select-type">
-                        <label for="filght_class">Trip type</label>
+                      <i class='bx bxs-plane-alt'></i>
+                        <label for="filght_class"></label>
                         <select id="filght_class" name="filght_class">
                             <option selected value="Select Trip type">Select Trip type</option>
                             <option value="Round Trip">Round Trip</option>
                             <option value="One Way">One Way</option>
                         </select>
+                        <i class='bx bx-accessibility' ></i>
                         <div class="select-class">
-                            <label for="seatClass">Seat class</label>
+                            <label for="seatClass"></label>
                             <select  class="form-select" id="seatClass" name="seatClass">
                                 <option selected value="Select Seat class">Select Seat class</option>
                                 <option value="Economy Class">Economy Class</option>
@@ -97,195 +99,243 @@
         
     <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        header {
-            position: fixed;
-            top: 0rem;
-            left: 0rem;
-            width: 100%;
-            padding: 20px 100px 20px;
-            background: rgba(200, 139, 142, 0.6999999881);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 99;
-        }
-
-        lable.nkt {
-            display: flex;
-            font-size: 2.5rem;
-            word-wrap: break-word;
-            width: 18.75rem;
-            height: auto;
-            margin-left: -35rem;
-            margin-top: 0.438;
-            color: white;
-        }
-        
-        .nk {
-            display: flex;
-            width: 20rem;
-            height: auto;
-
-        }
-
-        .navigation {
-            display: flex;
-        }
-
-        .register {
-            width: 15rem;
-            height: 3rem;
-            margin-right: 2rem;
-            background-color: red;
-            font-size: 1.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        .login {
-            width: 20rem;
-            height: 3rem;
-            background-color: red;
-            font-size: 1.5rem; 
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        .search-flight button {
-            padding: 5px 10px; /* ขนาดขอบของปุ่ม */
-            font-size: 16px; /* ขนาดตัวอักษร */
-            background-color: red; /* สีพื้นหลัง */
-            color: white; /* สีตัวอักษร */
-            border: none; /* ไม่มีเส้นขอบ */
-            margin-top: 5px;
-            margin-left: 800px;
-            border-radius: 5px; /* ขอบโค้ง */
-            cursor: pointer; /* เปลี่ยนเป็น cursor ที่บ่งบอกถึงการคลิกได้ */
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-image: url(https://cdn.discordapp.com/attachments/698939910131941466/1178039611847618560/image-2-bg.png?ex=6574b1e2&is=65623ce2&hm=1de53c58cde093b39cf114623ec535dec67794983860737b10a13a4a8fb1ea48&);
-
-        }
-
-        .box {
-            margin-top: 7rem;
-            width: 60rem;
-            height: 18.75rem;
-            background-color: #d9d9d9;
-            border: none;
-            border-radius: 1.5rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        p {
-            font-size: 30px;
-            font-weight: bold;
-            margin-left: 1rem;
-            border: 0 0 10px rgba(103, 103, 103, 0.5);
-            margin-top: 0.5rem;
-        }
-
-        .select-type {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .datetable {
-            margin-left: 5px;
-        }
-
-        .select-type-trip {
-            border: none;
-            width: 200px;
-            height: 30px;
-            margin-left: 15px;
-            border-radius: 5px;
-            font-size: 16px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            
-        }
-
-        .select-type-class {
-            border: none;
-            width: 200px;
-            height: 30px;
-            margin-right: 20px;
-            margin-left: -5px;
-            margin-bottom: 50px;
-            border-radius: 5px;
-            font-size: 16px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-        }
-
-        .departure-airport {
-            font-size: 20px;
-            margin-left: 15px;
-        }
-
-        .select-departure-airport {
-            border: none;
-            width: 200px;
-            height: 30px;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-left: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        
-        .select-arrival-airport {
-            border: none;
-            width: 200px;
-            height: 30px;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-left: 50px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-        }
-
-        .bx.bx-calendar {
-            font-size: 25px;
-            margin-left: -20px;
-            border: none;
-            
-        }
-
-        .date {
-            margin-right: 250px;
-        }
-
-        label {
-            font-size: 20px;
-
-            & .datee {
-                margin-right: 5px;
-            }
-        }
-
-
-    </style>
-</body>
-</html>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+      
+              *{
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+                  font-family: 'Poppins', sans-serif;
+              }
+      
+              header {
+                  position: fixed;
+                  top: 0rem;
+                  left: 0rem;
+                  width: 100%;
+                  padding: 20px 100px 20px;
+                  background: rgba(200, 139, 142, 0.6999999881);
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  z-index: 99;
+              }
+      
+              lable.nkt {
+                  display: flex;
+                  font-size: 2.5rem;
+                  word-wrap: break-word;
+                  width: 18.75rem;
+                  height: auto;
+                  margin-left: -35rem;
+                  margin-top: 0.438;
+                  color: white;
+              }
+              
+              .nk {
+                  display: flex;
+                  width: 20rem;
+                  height: auto;
+      
+              }
+      
+              .navigation {
+                  display: flex;
+              }
+      
+              .register {
+                  width: 15rem;
+                  height: 3rem;
+                  margin-right: 2rem;
+                  background-color: red;
+                  font-size: 1.5rem;
+                  border: none;
+                  border-radius: 0.5rem;
+                  cursor: pointer;
+                  color: white;
+              }
+      
+      
+              .login {
+                  width: 20rem;
+                  height: 3rem;
+                  background-color: red;
+                  font-size: 1.5rem; 
+                  border: none;
+                  border-radius: 0.5rem;
+                  cursor: pointer;
+                  color: white;
+              }
+      
+              .search-flight button {
+                  padding: 5px 10px; /* ขนาดขอบของปุ่ม */
+                  font-size: 16px; /* ขนาดตัวอักษร */
+                  background-color: red; /* สีพื้นหลัง */
+                  color: white; /* สีตัวอักษร */
+                  border: none; /* ไม่มีเส้นขอบ */
+                  margin-top: 5px;
+                  margin-left: 800px;
+                  border-radius: 5px; /* ขอบโค้ง */
+                  cursor: pointer; /* เปลี่ยนเป็น cursor ที่บ่งบอกถึงการคลิกได้ */
+              }
+      
+              body {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 100vh;
+                  background-size: cover;
+                  background-position: center;
+                  background-image: url(https://cdn.discordapp.com/attachments/698939910131941466/1178039611847618560/image-2-bg.png?ex=6574b1e2&is=65623ce2&hm=1de53c58cde093b39cf114623ec535dec67794983860737b10a13a4a8fb1ea48&);
+      
+              }
+      
+              .box {
+                  margin-top: 7rem;
+                  width: 60rem;
+                  height: 18.75rem;
+                  background-color: #d9d9d9;
+                  border: none;
+                  border-radius: 1.5rem;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              }
+      
+              p {
+                  font-size: 30px;
+                  font-weight: bold;
+                  margin-left: 1rem;
+                  margin-top: 10px;
+                  border: 0 0 10px rgba(103, 103, 103, 0.5);
+                  margin-top: 0.5rem;
+              }
+      
+              select {
+                  border: none;
+                  width: 200px;
+                  height: 30px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  margin-left: 50px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              } 
+      
+              /* .select#flight-class {
+                  border: none;
+                  width: 200px;
+                  height: 30px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  margin-left: 500;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              } */
+      
+              .form-select {
+                  border: none;
+                  width: 200px;
+                  height: 30px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              }
+      
+              .select-type {
+                  margin-left: 15px;
+                  margin-top: 20px;
+                  display: flex;
+                  justify-content: space-between;
+              }
+      
+              .select-class {
+                  margin-left: 50px;
+              }
+      
+              .datetable {
+                  margin-left: 5px;
+              }
+      
+              .select-type-trip {
+                  width: 200px;
+                  height: 30px;
+                  font-size: 16px;
+                  
+              }
+      
+              .select-type-class {
+                  border: none;
+                  width: 200px;
+                  height: 30px;
+                  margin-right: 20px;
+                  margin-left: -5px;
+                  margin-bottom: 50px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      
+              }
+      
+              .departure-airport {
+      
+                  font-size: 20px;
+                  margin-left: 15px;
+                  margin-top: 50px;
+              }
+      
+              .select-departure-airport {
+                  border: none;
+                  width: 200px;
+                  height: 30px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  margin-left: 15px;
+                  margin-bottom: 30px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              }
+              
+              .select_goal.form-select {
+                  border: none;
+                  width: 200px;
+                  height: 30px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  margin-left: 50px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      
+              }
+      
+              .bx.bx-calendar {
+                  font-size: 25px;
+                  margin-left: 5px;
+                  border: none;
+                  
+              }
+      
+              .bx.bxs-plane-alt {
+                  font-size: 30px;
+                  margin-left: 20px;
+                  margin-right: -40px;
+              }
+      
+              .bx.bx-accessibility {
+                  font-size: 30px;
+                  margin-left: 25px;
+                  margin-right: -100px;
+              }
+      
+              .date {
+                  margin-right: 250px;
+              }
+      
+              label {
+                  width: 100px;
+                  margin-left: 20px;
+                  font-size: 20px;
+      
+                  & .datee {
+                      margin-right: 5px;
+                  }
+              }
+      
+      
+          </style>
+      </body>
+      </html>
