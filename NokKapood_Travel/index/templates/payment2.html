@@ -1,239 +1,62 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/page_login.js' %}"></script>   
+    <script src="{% static 'js/index.js' %}"></script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment2</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
-
-
+    <title>Nokkapood</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
+    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
+    <link rel='stylesheet' href="{% static 'css/payment2.css' %}">
 </head>
 <body>
     
-    <header>
-        <h2 class="logo">
+    <div class="page-login-toT">
+        <div class="auto-group-vzxu-cDf">
             <a href="{% url 'page_login' %}">
                 <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
-            </a>               
-            <p>Nokkapood Travel</p>
-        </h2>
-    </header>
-        <div class="container">
-            <div class="pay-box">
-                <h3 class="select-payment">เลือกวิธีการชำระเงิน</h3>
-            </div>
-            <form action="{% url 'qrcode' %}" method="post">
-                {% csrf_token %}
-                <input type="radio" name="payment" id="QRCode" required>
-                <div class="category">
-                    <label for="QRCode" class="qrMethod">
-                        <div class="imgqr">
-                            <div class="imagecontainer">
-                                <img src="https://sys4school.com/images/promptpay.png" alt="">
-                                <div class="name">
-                                    <span class="name">QR PromptPay</span>
-                                    
-                                    <span class="check"><i class='bx bxs-check-circle' style='color:#ff0000'></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <div class="back"></div>
-                    <div class="topp"></div>
-                </div>
-                <div class="continue">
-                    <button type="submit" name="total_amount">ชำระ ฿ {{ total_amounts }}</button>
-                </div>
-                <input type="hidden" name="ticket_id" value="{{ ticket_ids }}">
-                <input type="hidden" name="total_amount" value="{{ total_amounts }}">
-                <input type="hidden" name="status" value="{{ statuss }}">
-            </form>
+            </a>            
+            <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+
         </div>
+    </header>
+    <div class="bg">
+        <div class='space'>
+            <div class='base'>
+                <h3 class="h1">เลือกวิธีการชำระเงิน</h3>
+                <div class='line'></div>
+                <form action="{% url 'qrcode' %}" method="post">
+                    {% csrf_token %}
+                    <div class='stroke'>
+                        <input class='cercle' type="radio" name="payment" id="QRCode" required>
+                                <span class="name">QR PromptPay</span>
+                                <div class="imgqr">
+                                    <img src="https://sys4school.com/images/promptpay.png" alt="">
+                                </div>
+                        <input type="hidden" name="ticket_id" value="{{ ticket_ids }}">
 
+                    </div>
 
-    <style>
+                    <div class ='stroke'>
+                        <input class='cercle' type="radio" name="payment" id="QRCode" required>
+                                <span class="name">โอนเงินผ่านแอป K PLUS</span>
+                                <div class="imgqr1">
+                                    <img src="data:image/png;base64,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" alt="">
+                                </div>
+                        <input type="hidden" name="ticket_id" value="{{ ticket_ids }}">
+                    </div>
+                <button class='btn'type="submit" name="total_amount">ชำระ ฿ {{ total_amounts }}</button>
+                </form>
+            </div>
+        </div>    
+    </div>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 96rem;
-            height: 30vh;
-            padding: 20px 100px;
-            background: rgba(255, 0, 0, 0.45);
-            z-index: -2;
-        }
-
-        .back {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            width: 100vw;
-            height: 35.8rem;
-            left: 0;
-            top: -3.8rem;
-            margin-left: -31.25rem;
-            background-color: #eaeaea;
-            border-top-left-radius: 4rem;
-            border-top-right-radius: 4rem;
-            z-index: -1; /* ให้ .back อยู่หลัง .container */
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            width: 100px;
-            margin-left: -40px;
-            margin-top: -40px;
-        }
-
-        .select-payment {
-
-            font-size: 30px;
-        }
-
-        .pay-box {
-            font-size: 30px;
-
-        }
-
-        .category {
-            margin-top: 10px;
-            padding-top: 20px;
-        }
-
-        label {
-            width: 25rem;
-            height: 5rem;
-            padding: 20px;
-            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .imagecontainer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 18.75rem;
-            margin-left: 20px;
-            margin-top: 50px;
-        }
-
-        .name {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            align-items: center;
-            margin-left: 10px;
-            margin-bottom: 15px;
-        }
-
-        .imgqr {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 40px;
-            word-wrap: break-word;
-            width: 18.75rem;
-            margin-left: 20px;
-            margin-top: -30px;
-            color: white;
-        }
-
-        body    {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            min-height: 100vh;
-            background-color: white;
-            border-radius: 30px;
-        }
-
-        .container {
-            position: relative;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-left: 31.25rem;
-            width: 100%;
-            height: 20rem;
-            border-radius: 30px;
-            padding: 40px 90px;
-            background-color: white;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1),
-                        0 5px 12px -2px rgba(0, 0, 0, 0.1),
-                        0 18px 36px -6px rgba(0, 0, 0, 0.1);
-
-            & .continue {
-                & button {
-
-                    width: 40%;
-                    padding: .6rem;
-                    border-radius: 10px;
-                    background-color: rgb(255, 0, 0);
-                    color: white;
-                    border: none;
-                    font-weight: 700;
-                    margin-top: 50px;
-
-                }
-            }
-        }
-
-        .container form input {
-            display: none;
-        }
-
-        img {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 90px;
-            height: auto;
-            margin-top: -30px;
-        }
-
-        .check i {
-            font-size: 20px;
-            margin-bottom: 10px;
-            margin-right: -30px;
-        }
-
-        .check {
-            display: none;
-        }
-
-        #QRCode:checked ~ .category .qrMethod {
-            box-shadow: 0 0 0 1px rgba(255, 0, 0)
-        }
-
-        #QRCode:checked ~ .category .qrMethod .check{
-
-            display: block;
-        }
-
-
-    </style>
+    
 
 </body>
 </html>

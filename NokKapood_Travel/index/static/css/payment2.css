@@ -1,0 +1,202 @@
+html {
+	font-size: 62.5%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul, li {
+	list-style: none;
+}
+
+input {
+	border: none;
+}
+
+body {
+	width: 100%;
+}
+
+.page-login-toT {
+	box-sizing: border-box;
+	padding-bottom: 34.4rem;
+	margin: 0 auto;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(https://cdn.pixabay.com/photo/2018/07/26/14/38/plane-3563768_1280.jpg);
+	background-color: #ffffff;
+}
+
+.page-login-toT .auto-group-vzxu-cDf {
+	box-sizing: border-box;
+	padding: 3.7rem 5.1rem 2.3rem 2rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background-color: rgba(200, 139, 142, 0.6999999881);
+	flex-shrink: 0;
+}
+
+.page-login-toT .auto-group-vzxu-cDf .red-cardinal-1-K85 {
+	margin: 0rem 1.5rem 0.3rem 0rem;
+	width: 13.2rem;
+	height: 13.2rem;
+	object-fit: cover;
+	vertical-align: top;
+	flex-shrink: 0;
+}
+
+.page-login-toT .auto-group-vzxu-cDf .nokkapood-travel-q6R {
+	margin: 1.3rem 27.8rem 0rem 0rem;
+	max-width: 28rem;
+	font-size: 5rem;
+	font-weight: 700;
+	line-height: 1.2125;
+	color: #ffffff;
+	font-family: Inter, 'Source Sans Pro';
+	flex-shrink: 0;
+}
+
+.page-login-toT .auto-group-vzxu-cDf .group-33-85X {
+	margin: 0rem auto 4.7rem 0rem;
+	width: 40rem;
+	height: 8rem;
+	font-size: 2.5rem;
+	font-weight: 600;
+	line-height: 1.2125;
+	color: #ffffff;
+	font-family: Inter, 'Source Sans Pro';
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ff0000;
+	border-radius: 1rem;
+	flex-shrink: 0;
+}
+
+
+
+.bg {
+	margin: 0 auto;
+	width: 100%;
+	height: 100vh;
+	flex-shrink: 0;
+	border-radius: 20px;
+	background: #EAEAEA;
+  overflow: auto;
+}
+
+.base {
+	width: 90%;
+	max-width: 900px;
+	height: 500px;
+	background: #FFF;
+	border-radius: 10px;
+	position: relative;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+  margin-left: 28%;
+	
+}
+
+.space {
+  margin-top: 20%;
+  
+}
+
+.h1{
+  width: 219px;
+  height: 43px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  margin-left: 4%; 
+}
+
+.line {
+  width: 825px;
+  height: 1px;
+  background: #D9D9D9;
+  margin-left: 4%; 
+}
+
+.stroke {
+  border: 2px solid #B4B3B3; /* Set the color of the stroke */
+  border-radius: 10px; /* Set the border radius for rounded corners */
+  padding: auto; /* Add some padding inside the stroke */
+  display: flex; /* Ensure the container only takes as much width as needed */
+  width: 825px;
+  margin-top: 3%;
+  margin-left: 4%;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+.cercle{
+  margin-left: 5%;
+}
+.btn {
+  width: 800px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #F00;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 9%;
+  margin-left: 6%;
+}
+
+.btnCancel {
+  margin-left: 3%; /* Adjust the margin-left value to your preference */
+}
+
+.name {
+  flex-shrink: 0;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  margin-left: 3%;
+
+}
+.imgqr img {
+  width: 100%; /* Set the width to 100% to make the image fill the container */
+  height: auto; /* Maintain the aspect ratio while resizing */
+  max-width: 300px; /* Set a maximum width to control the size */
+  display: block; /* Remove extra spacing below the image */
+  margin-left: 100%; /* Center the image horizontally */
+}
+
+.imgqr1 img {
+  width: 100%; /* Set the width to 100% to make the image fill the container */
+  height: auto; /* Maintain the aspect ratio while resizing */
+  max-width: 200px; /* Set a maximum width to control the size */
+  display: block; /* Remove extra spacing below the image */
+  margin-left: 110%;
+}
