@@ -11,23 +11,89 @@
     <title>Nokkapood</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A500%2C600%2C700"/>
-    <link rel="stylesheet" href="{% static 'css/page_login2.css' %}">
+    <!-- <link rel="stylesheet" href="static/css/page_login.css"/> -->
+    <link rel='stylesheet' href="{% static 'css/finalreservation.css' %}">
 </head>
 <body>
-  <div class="page-login-toT">
-    <div class="auto-group-vzxu-cDf">
-      <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
-      <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
-      <div class="group-33-85X">
-        <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
-      </div>
-      <div class="group-33-85X">
-          <div class="buttomF">Username: {{ user.username }}</div>
-      </div>
+    <div class="page-login-toT">
+        <div class="auto-group-vzxu-cDf">
+            <img class="red-cardinal-1-K85" src="https://s3-alpha-sig.figma.com/img/bd5d/0786/26161c54c1074136c4ce5a99c49768ec?Expires=1701043200&Signature=JCvmcWi3P-AjqsX74KzSYKpJ-rvvRtQARCA95IPkhApbK4HeMjWTzm~MG4MXEKIs6shCccW29pI8f2k77LPmf5BI4-ZNvcgcKpY~v3DpT-9RZzkkKIRB0NMVCW1~UUlvab~ixgGdrHw5QUmbFeIU91M8iV1t52-gTcQpoESMrHSHEzA1fxfkKw6QVjl-VpnCjpfNAyqY-B9QSc10SHyTFeSS5iNtYBCAxCZpzSO0eo9xJbyLYzHcGqnPku3RfuXAyUHzYVa28nGDCZR9sbDwYb~lNOknMYPUiMBAThz~QIN2TSwJPhkccNUkpqf5Uh4yEOy-xIH4Xju0TJ8Dgff7Zw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+            <p class="nokkapood-travel-q6R">Nokkapood Travel</p>
+            <div class="group-33-85X">
+                <a href="{% url 'finalreservation' %}">การจองของฉัน</a>
+            </div>
+            <div class="group-33-85X">
+                <div class="buttomF">Username: {{ user.username }}</div>
+            </div>
+          </div>
+        <div class='bg'>
+                <ul>
+                    {% for ticket in tickets %}
+                        {% for flight in flights %}
+                            {% for passenger in passengers %}
+                                {% if ticket.username == user.username and flight.flight_no == ticket.flight_id and ticket.ticket_id == passenger.ticket_id.ticket_id  %}
+                                    <form action="{% url 'payment2' %}" method="POST">
+                                        {% csrf_token %}    
+                                        <li class='space'>
+                                            <div class='base'>    
+                                                <h1 class='h1'>Reservation Details</h1>
+                                                <div class='line'></div>
+                                                <div class='sub'>
+                                                    <div class="border1">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAA51JREFUWEftl02IXEUQx//V3dVDMBqJSBT8uMUcVgnEW1wSQvw4CCJI/DbqQTQharIHUQRBCIiIIoheFPxAicaDByPiRQ9BEEE0QSIKBmcwJOagkcDudL3pkh7ehNm3b+b1TnZlQfs2U9X/+r3qrnr1CCts0Qrjwf9ATSfy382QAqvBvAEiRwgIozL1r2RInbshEn0G4EIQnYwx3sNF8WUd1LIDiXPbDNGnAFYNAcwaok0UwrEq1LICiXM3GqJDAHhBNoietyE8lwUkzm03ROs1xrY1pgORNgF/NlXIsL3w/jZS/RiAq92n+rQtihcagQrv7yLV92qEzgJoE1FHVdtQ7ShRW1U7zto2ut0E3b+shfe3k+pHI2GA40ZkIwF/jwVSwEbmlwA8BqC1mIyUvqcVOE7A9QDMiMycMM5N09zcr9mXWoFLo/f7oLoLwEUTgNVvUf3dOLeZ5uZ+m6jsFVgTnXscRE8AuOS8wDJgkn5WlSlwQXTuURgzA9XLFw2WCZMNNABQoBWZHwLwDIArc8GUaIcL4WCOf1aGqkLp8veY7yPgVQBrMgLttiKvZ/jlHVmdUI85VWJWEBC9aEN4atmACuaHCXgrJ0Dpc8CK3J3jv+gjK2HezC2IBKHA105k80RAmirP+ymEcIyAYt7rgPl+At7NEa74tK3I1Tn75mVIAReZ3wewA4AAOALgBwDfl533lTGZ+UuJHiHVD2t8ohFpVR+wsVP3mN8B8EDOk1R8zhhgG4l812M+AODOqoZx7iqane00aVcztCoy7wSQOvOGps2l/RxM/754PxVVjy4AUp2mojjcpDnyUotzt1hjnlTVm8Yc01kDbEmZGQ4Uvf9cVW8e/k+J7nUhfDAx0Lnu3GpdE2PcWx7l8NSXYLaTyDfVIOLcVkM0f0QdMf9U92aXfVGpMAUOO5HpUU9cMH9bjiEDlzesSJoexq5soLICTwFYWyrOGpHVBMS6COXE+MnARkSHTAi3LhlQEup5vx+q6cXaX4ZoikL4sS5I6meR+ScA60v7USty3ZICKbAuMp8YTIMKPOhEUquoXQXzTgLeLo1nrMjFSwqUxKJzB5XojlL4NSuyZ1SQ8pjTqJpGlT+MyGXUf5OMXtl3aCChzm2JRF/1f6vO2KJ4eVyAHnMCftYYM03d7s9LnqH+XWJOje8LKzLTFEDTB2KrdQV1u780+Sb7ojPUT4z311IIC7pxTsAmn4mAmkTPx77igP4B4FZGNFPHJXcAAAAASUVORK5CYII="/>
+                                                        <p class='l1'>Booking ID: {{ ticket.ticket_id }}</p>
+                                                        <p class='l2'>Booking Date: {{ ticket.booking_date }}</p> 
+                                                    </div>
+                                                    <div class='line1'></div>
+                                                    <div class='border2'>
+                                                        <p class='l3'>{{ flight.departure_airport }}-{{ flight.arrival_airport }}</p>
+                                                        <p class='total-amount'>฿ {{ ticket.total_amount }}</p>
+                                                    </div>
+                                                    
+                                                    <div class='border3'>
+                                                        <p>เที่ยวบิน</p>
+                                                        <p>เวลาออกเดินทาง</p>
+                                                        <p>เวลาเดินทางถึง</p>
+                                                    </div>
+                                                    <div class='border4'>
+                                                        <p>{{ flight.flight_no  }}</p>
+                                                        <p>{{ flight.departure_date }} {{ flight.departure_time }}</p>
+                                                        <p class='tt'>{{ flight.arrival_date }} {{ flight.arrival_time }}</p> 
+                                                    </div>
+                                            
+                                                    <div class='border5'>
+                                                        <p>ผู้โดยสาร</p>
+                                                        <p>สถานะ</p>
+                                                    </div>
+                                            
+                                                    <div class='border6'>
+                                                        <p>{{ passenger.first_name }} {{ passenger.last_name }}</p>
+                                                        <p class='tt1'>{{ ticket.status }}</p>
+                                                    </div>
+                                                    
+                                                    <input type="hidden" name="ticket_id" value="{{ ticket.ticket_id }}">
+                                                    <input type="hidden" name="total_amount" value="{{ ticket.total_amount }}">
+                                                    <input type="hidden" name="status" value="{{ ticket.status }}">
+                                                    <button type="submit" class="btn btnCancel">ยกเลิก</button>
+                                                    <button type="submit" class="btn">ชำระ</button>
+                                                </div>
+                                            </div>
+                                        </li>                  
+                                    </form>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>    
+        </div>
     </div>
-    <h1>Flight Information</h1>
-    <ul>
-        {% for ticket in tickets %}
+</body>
+</html>
+     
+
+
+        {% comment %} {% for ticket in tickets %}
             {% for flight in flights %}
                 {% for passenger in passengers %}
                     {% if ticket.username == user.username and flight.flight_no == ticket.flight_id and ticket.ticket_id == passenger.ticket_id.ticket_id  %}
@@ -68,7 +134,6 @@
                 {% endfor %}
             {% endfor %}
         {% endfor %}
-    </ul>
-    <!-- Continue with Ticket Information, Passenger Information, etc. -->
-</body>
-</html>
+    </li>
+    <!-- Continue with Ticket Information, Passenger Information, etc. --> {% endcomment %}
+

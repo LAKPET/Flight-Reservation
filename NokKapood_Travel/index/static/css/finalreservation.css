@@ -1,0 +1,539 @@
+html {
+	font-size: 62.5%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul, li {
+	list-style: none;
+}
+
+input {
+	border: none;
+}
+
+body {
+	width: 100%;
+}
+
+.page-login-toT {
+	box-sizing: border-box;
+	padding-bottom: 34.4rem;
+	margin: 0 auto;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(https://cdn.pixabay.com/photo/2018/07/26/14/38/plane-3563768_1280.jpg);
+	background-color: #ffffff;
+}
+
+.page-login-toT .auto-group-vzxu-cDf {
+	box-sizing: border-box;
+	padding: 3.7rem 5.1rem 2.3rem 2rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background-color: rgba(200, 139, 142, 0.6999999881);
+	flex-shrink: 0;
+}
+
+.page-login-toT .auto-group-vzxu-cDf .red-cardinal-1-K85 {
+	margin: 0rem 1.5rem 0.3rem 0rem;
+	width: 13.2rem;
+	height: 13.2rem;
+	object-fit: cover;
+	vertical-align: top;
+	flex-shrink: 0;
+}
+
+.page-login-toT .auto-group-vzxu-cDf .nokkapood-travel-q6R {
+	margin: 1.3rem 27.8rem 0rem 0rem;
+	max-width: 28rem;
+	font-size: 5rem;
+	font-weight: 700;
+	line-height: 1.2125;
+	color: #ffffff;
+	font-family: Inter, 'Source Sans Pro';
+	flex-shrink: 0;
+}
+
+.page-login-toT .auto-group-vzxu-cDf .group-33-85X {
+	margin: 0rem auto 4.7rem 0rem;
+	width: 40rem;
+	height: 8rem;
+	font-size: 2.5rem;
+	font-weight: 600;
+	line-height: 1.2125;
+	color: #ffffff;
+	font-family: Inter, 'Source Sans Pro';
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ff0000;
+	border-radius: 1rem;
+	flex-shrink: 0;
+}
+
+.space {
+ margin-top: 15%;
+}
+
+.bg {
+	margin: 0 auto;
+	width: 100%;
+	height: 100vh;
+	flex-shrink: 0;
+	border-radius: 20px;
+	background: #EAEAEA;
+  overflow: auto;
+}
+
+.base {
+	width: 90%;
+	max-width: 900px;
+	height: 500px;
+	background: #FFF;
+	border-radius: 10px;
+	margin: 0 auto;
+	position: relative;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	
+}
+
+
+
+.h1{
+  width: 219px;
+  height: 43px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  margin-left: 4%; 
+}
+
+.line {
+  width: 825px;
+  height: 1px;
+  background: #D9D9D9;
+  margin-left: 4%; 
+}
+
+.sub {
+  width: 825px;
+  height: 402px;
+  margin-top: 3%;
+  margin-left: 4%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.50);
+  background: #FFF;
+  mix-blend-mode: darken;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.plane{
+  margin-left: 5%;
+  margin-bottom: 10%;
+}
+
+.border1 {
+  display: flex;
+  margin-left: 5%;
+  margin-top: 3%;
+  
+}
+
+.l1{
+  width: 267px;
+  height: 13px;
+  margin-top: 1%;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  
+}
+
+.l2{
+  width: 267px;
+  height: 13px;
+  margin-top: 1%;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  padding-left: 170px;
+}
+
+.border2 {
+  display: flex;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.l3 {
+  width: 267px;
+  height: 13px;
+  margin-top: 1%;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  padding-left: 50px;
+}
+
+.total-amount {
+  width: 267px;
+  height: 13px;
+  
+  flex-shrink: 0;
+  color: red;
+  font-weight: 1000;
+  margin-left: auto; /* This will push it to the right */
+  font-size: 32px;
+}
+
+
+.l4{
+  width: 267px;
+  height: 13px;
+  margin-top: 1.5%;
+  flex-shrink: 0;
+  color: #F00;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  padding-left: 50px;
+}
+.border3 {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+  margin-top: 3%;
+  padding-left: 133px;
+  padding-top: 10px;
+}
+
+.border3 p {
+  height: 27px;
+  flex-shrink: 0;
+  color: #90989F;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.border4 {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+  margin-top: 1.5%;
+  padding-left: 133px;
+  padding-top: 10px;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.border4 p {
+  height: 13px;
+  flex-shrink: 0;
+  color: #000000;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.tt {
+  margin-left: -5%; /* Adjust the negative value based on your preference */
+}
+
+
+.border5 {
+  display: flex;
+  flex-direction: row; /* Display the children in a row */
+  gap: 140px; /* Adjust the value to control the space between <p> elements */
+  margin-top: 3%;
+  padding-left: 133px;
+  padding-top: 10px;
+}
+
+.border5 p {
+  height: 27px;
+  flex-shrink: 0;
+  color: #90989F;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.border6{
+  width: 267px;
+  height: 13px;
+  margin-top: 1.5%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row; 
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.border6 p {
+  width: 267px;
+  height: 13px;
+  flex-shrink: 0;
+  color: #000000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.tt1 {
+  margin-left: -23%; /* Adjust the negative value based on your preference */
+}
+.btn {
+  width: 100px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #F00;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
+
+.btnCancel {
+  margin-left: 60%; /* Adjust the value to shift the "ยกเลิก" button to the left */
+}
+
+
+
+.line1{
+  width: 740px;
+  height: 1px;
+  background: #D9D9D9;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+.head,
+.head1,
+.head11,
+.head2,
+.head3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0; /* Reset margin for consistent spacing */
+}
+
+.head4,
+.head5,
+.head6 {
+  color: #90989F;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0; /* Reset margin for consistent spacing */
+}
+
+/* Adjust padding and width as needed */
+.head1 {
+  padding-left: 20px;
+}
+
+.head11 {
+  padding-left: 40px;
+}
+
+.head2 {
+  padding-left: 20px;
+}
+
+.head3 {
+  padding-left: 40px;
+}
+
+.head4 {
+  padding-left: 175px;
+  width: 150px;
+}
+
+.head5 {
+  padding-left: 120px;
+  width: 150px;
+}
+
+.head6 {
+  padding-left: 100px;
+  width: 150px;
+}
+
+
+
+
+.scene {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 200px;
+}
+
+.plane,
+.cloud {
+  position: absolute;
+}
+
+/*plane animation*/
+.plane {
+  animation-duration: 1s;
+  animation-name: anim-plane;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+
+  animation-fill-mode: forwards;
+  display: block;
+  margin: 0 auto;
+  transform: translateY(80px);
+  left: 30%;
+}
+
+@keyframes anim-plane {
+  to {
+      transform: translateY(95px);
+  }
+}
+
+
+/* Cloud Animation */
+
+@keyframes fade {
+  0% {
+      opacity: 0;
+  }
+
+  10% {
+      opacity: 1;
+  }
+
+  90% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes move {
+  from {
+      left: 200px;
+  }
+
+  to {
+      left: 0px;
+  }
+}
+
+
+.cloud {
+  animation-duration: 10s;
+  animation-name: move, fade;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+
+  display: block;
+  background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iY2xvdWQiIHZpZXdCb3g9IjAgMCA1MiA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiAgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI1MnB4IiBoZWlnaHQ9IjQwcHgiPgoJPGRlZnM+CgkJPGZpbHRlciBpZD0iZjEiIHg9Ii0xMDAlIiB5PSItMTAwJSIgd2lkdGg9IjMwMCUiIGhlaWdodD0iMzAwJSI+IAoJCQk8ZmVPZmZzZXQgcmVzdWx0PSJvdXQiIGluPSJTb3VyY2VHcmFwaGljIiBkeD0iMCIgZHk9IjEiLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSJvdXQiIGluPSJvdXQiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgIDAgMCAwIDAgMCAgMCAwIDAgMCAwICAwIDAgMCAwLjQgMCIvPgoJCQk8ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJvdXQiIGluPSJvdXQiIHN0ZERldmlhdGlvbj0iMiIvPgoJCQk8ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJvdXQiIG1vZGU9Im5vcm1hbCIgcmVzdWx0PSJkcCIvPgoJCTwvZmlsdGVyPgoJPC9kZWZzPiAKCTxwYXRoIGlkPSJmZy1jbG91ZCIgZmlsdGVyPSJ1cmwoI2YxKSIgZD0iTTYuMyAzNS4xQzQuNyAzNC4yLTAuNCAzMi4zIDEuNCAyNSAzLjEgMTguMSA4LjcgMTkuNSA4LjcgMTkuNSA4LjcgMTkuNSAzLjIgMTQuMSAxMC40IDYuOCAxNi45IDAuMiAyMy4xIDQuNiAyMy4xIDQuNiAyMy4xIDQuNiAzMC0xLjcgMzUuMiAyLjQgNDQuNiA5LjcgNDIuOCAyNS4zIDQyLjggMjUuMyA0Mi44IDI1LjMgNDggMjIuNiA0OS44IDI4LjYgNTEgMzIuNyA0NiAzNS44IDQyLjggMzYuNyAzOS43IDM3LjUgOC45IDM2LjYgNi4zIDM1LjFaIiBzdHJva2U9IiNjY2NjY2MiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4=);
+  height: 40px;
+  width: 53px;
+  margin: 0 auto;
+}
+
+.cloud--small {
+  animation-duration: 6s;
+  top: 65px;
+  transform: scaleX(0.5) scaleY(0.5);
+}
+
+.cloud--medium {
+  animation-duration: 5s;
+  animation-delay: 1s;
+  top: 95px;
+  transform: scaleX(0.7) scaleY(0.7);
+}
+
+.cloud--large {
+  animation-duration: 4.5s;
+  animation-delay: 2.5s;
+  top: 95px;
+  transform: scaleX(0.8) scaleY(0.8);
+}
+
+.whoami {
+  padding-top: 3em;
+  text-align: center;
+}
