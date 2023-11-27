@@ -70,21 +70,26 @@
                                                         <p>{{ passenger.first_name }} {{ passenger.last_name }}</p>
                                                         <p class='tt1'>{{ ticket.status }}</p>
                                                     </div>
-                                                    {% if ticket.status == 'PENDING' %}
+
+                                                    <div class='border7'>
+                                                        {% if ticket.status == 'PENDING' %}
                                                         <form action="{% url 'cancel_reservation' %}" method="POST">
                                                             {% csrf_token %} 
                                                             <input type="hidden" name="ticket_id" value="{{ ticket.ticket_id }}">
                                                             <button type="submit" class="btn btnCancel">ยกเลิก</button>
                                                         </form>
-                                                        <form action="{% url 'payment2' %}" method="POST">
+                                                        <form action="{% url 'payment2' %}" method="POST" class="tt3">
                                                             {% csrf_token %} 
                                                             <input type="hidden" name="ticket_id" value="{{ ticket.ticket_id }}">
                                                             <input type="hidden" name="total_amount" value="{{ ticket.total_amount }}">
                                                             <input type="hidden" name="status" value="{{ ticket.status }}">
                                                             <button type="submit" class="btn">ชำระ</button>
                                                         </form>
-                                                        
-                                                    {% endif %}
+                    
+                                                    
+                                                        {% endif %}
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </li>                  

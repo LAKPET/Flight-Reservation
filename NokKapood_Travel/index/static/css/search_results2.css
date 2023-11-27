@@ -1,0 +1,311 @@
+ html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 100%;
+}
+.page-login-toT {
+  box-sizing: border-box;
+  padding-bottom: 34.4rem;
+  margin: 0 ;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://cdn.pixabay.com/photo/2018/07/26/14/38/plane-3563768_1280.jpg);
+  background-color: #ffffff;
+}
+.page-login-toT .auto-group-vzxu-cDf {
+  margin-bottom: 6.3rem;
+  box-sizing: border-box;
+  padding: 3.7rem 5.1rem 2.3rem 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(200, 139, 142, 0.6999999881);
+  flex-shrink: 0;
+}
+.page-login-toT .auto-group-vzxu-cDf .red-cardinal-1-K85 {
+  margin: 0rem 1.5rem 0.3rem 0rem;
+  width: 13.2rem;
+  height: 13.2rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.page-login-toT .auto-group-vzxu-cDf .nokkapood-travel-q6R {
+  margin: 1.3rem 27.8rem 0rem 0rem;
+  max-width: 28rem;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.page-login-toT .auto-group-vzxu-cDf .group-33-85X {
+  margin: 0rem auto 4.7rem 0rem;
+  width: 40rem;
+  height: 8rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff0000;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+.bg {
+  width: 1873px;
+  height: 851px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #EAEAEA;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.base {
+  width: 1500px;
+  height: 300px;
+  background: #FFF;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+
+.line {
+  width: 1000px;
+  height: 1px;
+  background: #000;
+}
+
+.line1 {
+  width: 1000px;
+  height: 1px;
+  background: #000;
+}
+
+.sub,
+.sub1 {
+  display: flex;
+  flex-direction: row; /* Set to row for horizontal arrangement */
+  justify-content: space-between; /* Adjust as needed for spacing */
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sub p,
+.sub1 p {
+  margin: 0;
+}
+
+.head,
+.head1,
+.head11,
+.head2,
+.head3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0; /* Reset margin for consistent spacing */
+}
+
+.head4,
+.head5,
+.head6 {
+  color: #90989F;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0; /* Reset margin for consistent spacing */
+}
+
+/* Adjust padding and width as needed */
+.head1 {
+  padding-left: 20px;
+}
+
+.head11 {
+  padding-left: 40px;
+}
+
+.head2 {
+  padding-left: 20px;
+}
+
+.head3 {
+  padding-left: 40px;
+}
+
+.head4 {
+  padding-left: 175px;
+  width: 150px;
+}
+
+.head5 {
+  padding-left: 120px;
+  width: 150px;
+}
+
+.head6 {
+  padding-left: 100px;
+  width: 150px;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #F00;
+  color: #FFF;
+
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+
+.scene {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 200px;
+}
+
+.plane,
+.cloud {
+  position: absolute;
+}
+
+/*plane animation*/
+.plane {
+  animation-duration: 1s;
+  animation-name: anim-plane;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+
+  animation-fill-mode: forwards;
+  display: block;
+  margin: 0 auto;
+  transform: translateY(80px);
+  left: 30%;
+}
+
+@keyframes anim-plane {
+  to {
+      transform: translateY(95px);
+  }
+}
+
+
+/* Cloud Animation */
+
+@keyframes fade {
+  0% {
+      opacity: 0;
+  }
+
+  10% {
+      opacity: 1;
+  }
+
+  90% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes move {
+  from {
+      left: 200px;
+  }
+
+  to {
+      left: 0px;
+  }
+}
+
+
+.cloud {
+  animation-duration: 10s;
+  animation-name: move, fade;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+
+  display: block;
+  background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iY2xvdWQiIHZpZXdCb3g9IjAgMCA1MiA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiAgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI1MnB4IiBoZWlnaHQ9IjQwcHgiPgoJPGRlZnM+CgkJPGZpbHRlciBpZD0iZjEiIHg9Ii0xMDAlIiB5PSItMTAwJSIgd2lkdGg9IjMwMCUiIGhlaWdodD0iMzAwJSI+IAoJCQk8ZmVPZmZzZXQgcmVzdWx0PSJvdXQiIGluPSJTb3VyY2VHcmFwaGljIiBkeD0iMCIgZHk9IjEiLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSJvdXQiIGluPSJvdXQiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgIDAgMCAwIDAgMCAgMCAwIDAgMCAwICAwIDAgMCAwLjQgMCIvPgoJCQk8ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJvdXQiIGluPSJvdXQiIHN0ZERldmlhdGlvbj0iMiIvPgoJCQk8ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJvdXQiIG1vZGU9Im5vcm1hbCIgcmVzdWx0PSJkcCIvPgoJCTwvZmlsdGVyPgoJPC9kZWZzPiAKCTxwYXRoIGlkPSJmZy1jbG91ZCIgZmlsdGVyPSJ1cmwoI2YxKSIgZD0iTTYuMyAzNS4xQzQuNyAzNC4yLTAuNCAzMi4zIDEuNCAyNSAzLjEgMTguMSA4LjcgMTkuNSA4LjcgMTkuNSA4LjcgMTkuNSAzLjIgMTQuMSAxMC40IDYuOCAxNi45IDAuMiAyMy4xIDQuNiAyMy4xIDQuNiAyMy4xIDQuNiAzMC0xLjcgMzUuMiAyLjQgNDQuNiA5LjcgNDIuOCAyNS4zIDQyLjggMjUuMyA0Mi44IDI1LjMgNDggMjIuNiA0OS44IDI4LjYgNTEgMzIuNyA0NiAzNS44IDQyLjggMzYuNyAzOS43IDM3LjUgOC45IDM2LjYgNi4zIDM1LjFaIiBzdHJva2U9IiNjY2NjY2MiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4=);
+  height: 40px;
+  width: 53px;
+  margin: 0 auto;
+}
+
+.cloud--small {
+  animation-duration: 6s;
+  top: 65px;
+  transform: scaleX(0.5) scaleY(0.5);
+}
+
+.cloud--medium {
+  animation-duration: 5s;
+  animation-delay: 1s;
+  top: 95px;
+  transform: scaleX(0.7) scaleY(0.7);
+}
+
+.cloud--large {
+  animation-duration: 4.5s;
+  animation-delay: 2.5s;
+  top: 95px;
+  transform: scaleX(0.8) scaleY(0.8);
+}
+
+.whoami {
+  padding-top: 3em;
+  text-align: center;
+}

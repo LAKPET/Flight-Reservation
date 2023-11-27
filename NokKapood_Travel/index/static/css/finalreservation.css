@@ -338,6 +338,18 @@ body {
   white-space: nowrap;
 }
 
+.border7 {
+  display: flex;
+  align-items: center;
+  margin-left: 70%;
+}
+
+
+.tt3 {
+  margin-left: 10%;
+  /* Adjust the negative value based on your preference */
+}
+
 .tt1 {
   margin-left: -23%; /* Adjust the negative value based on your preference */
 }
@@ -357,9 +369,8 @@ body {
   margin-right: 3%;
 }
 
-
 .btnCancel {
-  margin-left: 60%; /* Adjust the value to shift the "ยกเลิก" button to the left */
+  margin-left: 3%; /* Adjust the margin-left value to your preference */
 }
 
 
